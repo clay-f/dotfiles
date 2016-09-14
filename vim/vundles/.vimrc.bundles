@@ -190,8 +190,10 @@
         elseif count(g:spf13_bundle_groups, 'neocomplete')
             Bundle 'Shougo/neocomplete.vim.git'
             Bundle 'Shougo/neosnippet'
+            Bundle 'SirVer/ultisnips'
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'
+            Bundle 'garbas/vim-snipmate'
         endif
     " }
 
