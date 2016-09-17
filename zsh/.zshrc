@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z gitzsh-syntax-highlighting  nmap  npm osx rails spring sudo systemd tmux)
+plugins=(zsh-autosuggestions git z gitzsh-syntax-highlighting  nmap  npm osx rails spring sudo systemd tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,13 +98,3 @@ source $ZSH/oh-my-zsh.sh
     source ${HOME}/dotfiles/zsh/collectionSource.zsh
 #}
 
-# person setting {
-    alias ctags="brew --prefix/bin/ctags"
-    alias vi='vim'
-    alias vim='/usr/local/Caskroom/macvim/7.4.104/Applications/MacVim.app/Contents/MacOS/Vim'
-
-    alias -s html=vi
-    alias -s js=vi
-    alias -s java=vi
-    alias -s txt=vi
-# }
