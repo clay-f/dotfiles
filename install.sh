@@ -1,7 +1,9 @@
 #!/bin/bash
+position=${HOME}/dotfiles
 platform='unknown'
 unamestr=`uname`
 count=0
+
 if [[ "$unamestr" == 'Linux' ]]; then
    platform='linux'
 elif [[ "$unamestr" == 'Darwin' ]]; then
@@ -10,9 +12,9 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 if [  ! $count -lt 0 ]; then
-    sh ./Mac/nesessary-config.sh
+    sh $position/Mac/nesessary-config.sh
 
 else
-    sh ./Linux/nesessary-config.sh
+    sh $position/Linux/nesessary-config.sh
 fi
 
