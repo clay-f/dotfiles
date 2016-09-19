@@ -57,7 +57,7 @@
           set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
         endif
     " }
-
+    
     " Arrow Key Fix {
         " https://github.com/spf13/spf13-vim/issues/780
         if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
@@ -188,7 +188,7 @@
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
-    
+
     set cursorline                  " Highlight current line
 
     highlight clear SignColumn      " SignColumn should match background
@@ -233,6 +233,7 @@
     set foldenable                  " Auto fold code
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
     set cursorcolumn          " highlight current column
     set cursorline            " highlight current line
 
@@ -464,16 +465,63 @@
 
 " Plugins {
 
-    " BufOnly.vim {
-        nnoremap <silent> qo :BufOnly<CR>
-    " }
+    " GoLang {
+        if count(g:spf13_bundle_groups, 'go')
+            let g:go_highlight_functions = 1
+            let g:go_highlight_methods = 1
+            let g:go_highlight_structs = 1
+            let g:go_highlight_operators = 1
+            let g:go_highlight_build_constraints = 1
+            let g:go_fmt_command = "goimports"
+            let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+            let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+            au FileType go nmap <Leader>s <Plug>(go-implements)
+            au FileType go nmap <Leader>i <Plug>(go-info)
+            au FileType go nmap <Leader>e <Plug>(go-rename)
+            au FileType go nmap <leader>r <Plug>(go-run)
+            au FileType go nmap <leader>b <Plug>(go-build)
+            au FileType go nmap <leader>t <Plug>(go-test)
+            au FileType go nmap <Leader>gd <Plug>(go-doc)
+            au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+            au FileType go nmap <leader>co <Plug>(go-coverage)
+        endif
+        " }
 
-    " vim-maximizer {
+
+ " vim-maximizer {
         nnoremap <tab> :MaximizerToggle<CR>
+ "  }
+
+ " vim-trailing-whitespace {
+         map <leader><space> :FixWhitespace<cr>
+ " }
+    " TextObj Sentence {
+        if count(g:spf13_bundle_groups, 'writing')
+            augroup textobj_sentence
+              autocmd!
+              autocmd FileType markdown call textobj#sentence#init()
+              autocmd FileType textile call textobj#sentence#init()
+              autocmd FileType text call textobj#sentence#init()
+            augroup END
+        endif
     " }
 
-    " vim-trailing-whitespace {
-        map <leader><space> :FixWhitespace<cr>
+    " TextObj Quote {
+        if count(g:spf13_bundle_groups, 'writing')
+            augroup textobj_quote
+                autocmd!
+                autocmd FileType markdown call textobj#quote#init()
+                autocmd FileType textile call textobj#quote#init()
+                autocmd FileType text call textobj#quote#init({'educate': 0})
+            augroup END
+        endif
+    " }
+
+    " PIV {
+        if isdirectory(expand("~/.vim/bundle/PIV"))
+            let g:DisableAutoPHPFolding = 0
+            let g:PIVAutoClose = 0
+        endif
     " }
 
     " Misc {
@@ -591,6 +639,20 @@
         let g:vim_json_syntax_conceal = 0
     " }
 
+    " PyMode {
+        " Disable if python support not present
+        if !has('python') && !has('python3')
+            let g:pymode = 0
+        endif
+
+        if isdirectory(expand("~/.vim/bundle/python-mode"))
+            let g:pymode_lint_checkers = ['pyflakes']
+            let g:pymode_trim_whitespaces = 0
+            let g:pymode_options = 0
+            let g:pymode_rope = 0
+        endif
+    " }
+
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
@@ -644,6 +706,65 @@
             let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
         endif
     "}
+
+    " Fugitive {
+        if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+            nnoremap <silent> <leader>gs :Gstatus<CR>
+            nnoremap <silent> <leader>gd :Gdiff<CR>
+            nnoremap <silent> <leader>gc :Gcommit<CR>
+            nnoremap <silent> <leader>gb :Gblame<CR>
+            nnoremap <silent> <leader>gl :Glog<CR>
+            nnoremap <silent> <leader>gp :Git push<CR>
+            nnoremap <silent> <leader>gr :Gread<CR>
+            nnoremap <silent> <leader>gw :Gwrite<CR>
+            nnoremap <silent> <leader>ge :Gedit<CR>
+            " Mnemonic _i_nteractive
+            nnoremap <silent> <leader>gi :Git add -p %<CR>
+            nnoremap <silent> <leader>gg :SignifyToggle<CR>
+        endif
+    "}
+
+    " YouCompleteMe {
+        if count(g:spf13_bundle_groups, 'youcompleteme')
+            let g:acp_enableAtStartup = 0
+
+            " enable completion from tags
+            let g:ycm_collect_identifiers_from_tags_files = 1
+
+            " remap Ultisnips for compatibility for YCM
+            let g:UltiSnipsExpandTrigger = '<C-j>'
+            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+            " Enable omni completion.
+            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+            " Haskell post write lint and check with ghcmod
+            " $ `cabal install ghcmod` if missing and ensure
+            " ~/.cabal/bin is in your $PATH.
+            if !executable("ghcmod")
+                autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+            endif
+
+            " For snippet_complete marker.
+            if !exists("g:spf13_no_conceal")
+                if has('conceal')
+                    set conceallevel=2 concealcursor=i
+                endif
+            endif
+
+            " Disable the neosnippet preview candidate window
+            " When enabled, there can be too much visual noise
+            " especially when splits are used.
+            set completeopt-=preview
+        endif
+    " }
 
     " neocomplete {
         if count(g:spf13_bundle_groups, 'neocomplete')
@@ -957,6 +1078,7 @@
     " }
 
 
+
 " }
 
 " GUI Settings {
@@ -1090,23 +1212,23 @@
         endfor
         return s:is_fork
     endfunction
-
+     
     function! s:ExpandFilenameAndExecute(command, file)
         execute a:command . " " . expand(a:file, ":p")
     endfunction
-
+     
     function! s:EditSpf13Config()
         call <SID>ExpandFilenameAndExecute("tabedit", "~/.vimrc")
         call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.before")
         call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.bundles")
-
+     
         execute bufwinnr(".vimrc") . "wincmd w"
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.local")
         wincmd l
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.before.local")
         wincmd l
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.local")
-
+     
         if <SID>IsSpf13Fork()
             execute bufwinnr(".vimrc") . "wincmd w"
             call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.fork")
@@ -1115,10 +1237,10 @@
             wincmd l
             call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.fork")
         endif
-
+     
         execute bufwinnr(".vimrc.local") . "wincmd w"
     endfunction
-
+     
     execute "noremap " . s:spf13_edit_config_mapping " :call <SID>EditSpf13Config()<CR>"
     execute "noremap " . s:spf13_apply_config_mapping . " :source ~/.vimrc<CR>"
 " }
