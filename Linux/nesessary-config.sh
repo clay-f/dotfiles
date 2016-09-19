@@ -16,7 +16,7 @@ apt_install()
     sudo apt-get -y install curl
     sudo apt-get -y install wireshark
     #wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - |sh
-    sudo apt-get cleanup
+    sudo apt-get autoremove
 }
 
 nesessary()
@@ -29,7 +29,6 @@ nesessary()
 
     return
 }
-
 
 apt_install
 nesessary
