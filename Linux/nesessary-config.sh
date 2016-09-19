@@ -23,6 +23,7 @@ nesessary()
 {
     sh $position/ruby/ruby-basic-config.sh
     sh $position/vim/vim-install.sh
+    sh $position/dotfiles/zsh/plugins-config.sh
     echo "a_^"
     echo "\e[45m,30m,1 success"
 

@@ -3,15 +3,7 @@
 
 vim ()
 {
-    cd ~
-    ln -s ${HOME}/dotfiles/vim/.vimrc .
-    ln -s ${HOME}/dotfiles/vim/.vimrc.bundles .
-    git clone https://github.com/VundleVim/Vundle.vim.git /.vim/bundle/vundle.vim
-    vim +BundleInstall! +BundleClean +qall
-
-    echo "a_^"
-    echo "\e[45m,30m,1 success"
-
+    curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
     return
 }
 
