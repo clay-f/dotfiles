@@ -205,11 +205,9 @@
             Bundle 'pangloss/vim-javascript'
             Bundle 'briancollins/vim-jst'
             Bundle 'kchmck/vim-coffee-script'
-            Bundle 'coolwanglu/vim.js'
-            Bundle 'donnemartin/dev-setup'
-            Bundle 'jelera/vim-javascript-syntax'
             Bundle 'maksimr/vim-jsbeautify'
             Bundle 'krampstudio/webvim'
+            Plugin 'jelera/vim-javascript-syntax'
 
         endif
     " }

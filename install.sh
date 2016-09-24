@@ -4,12 +4,13 @@ platform='unknown'
 unamestr=`uname`
 count=0
 
-if [[ "$unamestr" == 'Linux' ]]; then
+if [[ $unamestr == 'Linux' ]]; then
    platform='linux'
-elif [[ "$unamestr" == 'Darwin' ]]; then
+elif [[ $unamestr == 'Darwin' ]]; then
     platform='Darwin'
     count=1
 fi
+echo $platform
 
 #if [  ! $count -lt 0 ]; then
     #sh $position/Mac/nesessary-config.sh
