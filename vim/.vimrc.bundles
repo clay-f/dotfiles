@@ -205,6 +205,12 @@
             Bundle 'pangloss/vim-javascript'
             Bundle 'briancollins/vim-jst'
             Bundle 'kchmck/vim-coffee-script'
+            Bundle 'coolwanglu/vim.js'
+            Bundle 'donnemartin/dev-setup'
+            Bundle 'jelera/vim-javascript-syntax'
+            Bundle 'maksimr/vim-jsbeautify'
+            Bundle 'krampstudio/webvim'
+
         endif
     " }
 
@@ -213,21 +219,6 @@
             Bundle 'derekwyatt/vim-scala'
             Bundle 'derekwyatt/vim-sbt'
             Bundle 'xptemplate'
-        endif
-    " }
-
-    " Haskell {
-        if count(g:spf13_bundle_groups, 'haskell')
-            Bundle 'travitch/hasksyn'
-            Bundle 'dag/vim2hs'
-            Bundle 'Twinside/vim-haskellConceal'
-            Bundle 'Twinside/vim-haskellFold'
-            Bundle 'lukerandall/haskellmode-vim'
-            Bundle 'eagletmt/neco-ghc'
-            Bundle 'eagletmt/ghcmod-vim'
-            Bundle 'Shougo/vimproc.vim'
-            Bundle 'adinapoli/cumino'
-            Bundle 'bitc/vim-hdevtools'
         endif
     " }
 
@@ -244,6 +235,8 @@
     " Ruby {
         if count(g:spf13_bundle_groups, 'ruby')
             Bundle 'tpope/vim-rails'
+            Bundle 'vim-ruby/vim-ruby'
+            Bundle 'joonty/vdebug'
             let g:rubycomplete_buffer_loading = 1
             "let g:rubycomplete_classes_in_global = 1
             "let g:rubycomplete_rails = 1
@@ -253,13 +246,6 @@
     " Puppet {
         if count(g:spf13_bundle_groups, 'puppet')
             Bundle 'rodjek/vim-puppet'
-        endif
-    " }
-
-    " Go Lang {
-        if count(g:spf13_bundle_groups, 'go')
-            "Bundle 'Blackrush/vim-gocode'
-            Bundle 'fatih/vim-go'
         endif
     " }
 
