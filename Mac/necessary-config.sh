@@ -1,5 +1,6 @@
 #!/bin/bash
 #created by F on 2016-09-19
+position='${HOME}/dotfiles'
 
 brew()
 {
@@ -20,7 +21,7 @@ ruby()
 
 vim()
 {
-    bash $position/dotfiles/vim/spf13-vim-3.0/bootstrap.sh
+    bash $position/vim/spf13-vim-3.0/bootstrap.sh
     return
 }
 
