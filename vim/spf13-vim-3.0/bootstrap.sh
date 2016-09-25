@@ -109,7 +109,7 @@ sync_repo() {
         ret="$?"
         success "Successfully cloned $repo_name."
     else
-        cd "$repo_path" && git pull origin "$repo_branch"
+        #cd "$repo_path" && git pull origin "$repo_branch"
         ret="$?"
         success "Successfully updated $repo_name"
     fi
