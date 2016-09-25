@@ -16,7 +16,7 @@
 
 ############################  SETUP PARAMETERS
 app_name='spf13-vim'
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/dotfiles/vim/.spf13-vim-3"
+[ -z "$APP_PATH" ] && APP_PATH="$HOME/dotfiles/vim/.spf13-vim-3.0"
 #[ -z "$REPO_URI" ] && REPO_URI='https://F____@bitbucket.org/F____/dotfiles.git'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='3.0'
 debug_mode='0'
