@@ -15,20 +15,24 @@ apt_install()
     sudo apt-get -y install make
     sudo apt-get -y install zsh
     sudo apt-get -y install curl
+    sudo apt-get -y install lua5.3
     #wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - |sh
     sudo apt-get autoclean
 }
 
 nesessary()
 {
-    sh $position/ruby/ruby-basic-config.sh
-    sh $position/vim/vim-install.sh
-    sh $position/dotfiles/zsh/plugins-config.sh
-    echo "a_^"
-    echo "\e[45m,30m,1 success"
+    bash $position/ruby/ruby-basic-config.sh
+    bash $position/dotfiles/zsh/plugins-config.sh
+    bash $position/dotfiles/vim/vim-install.sh
+    bash $position/dotfiles/vim/spf13-vim-3.0/bootstrap.sh
 
     return
 }
 
-apt_install
-nesessary
+if [ -d $position ];then
+	apt_install
+	nesessary
+else
+	echo "wrong"
+fi

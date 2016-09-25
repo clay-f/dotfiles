@@ -20,7 +20,7 @@ ruby()
 
 vim()
 {
-    sh ../vim/vim-install.sh
+    bash $position/dotfiles/vim/spf13-vim-3.0/bootstrap.sh
     return
 }
 

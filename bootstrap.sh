@@ -8,23 +8,24 @@ matchPlatform()
 {
     if [[ $unamestr == 'Linux' ]]; then
        platform='linux'
+        start
     elif [[ $unamestr == 'Darwin' ]]; then
         platform='Darwin'
         count=1
-    echo "\n\t$platform"
         start
     fi
 }
 
 start()
 {
+	echo "now start ..."
     if [ $count -gt 0 ]; then
         if [ -e $position/Mac/necessary-config.sh ]; then
-            sh $position/Mac/necessary-config.sh
+            bash $position/Mac/necessary-config.sh
         fi
     else
         if [ -e $position/Linux/necessary-config.sh ]; then
-            sh $position/Linux/nescssary-config.sh
+            bash $position/Linux/necessary-config.sh
         fi
     fi
 }
