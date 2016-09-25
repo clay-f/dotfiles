@@ -1,6 +1,7 @@
-#created by F on 2016-09-19
+this is fast configration for RoR, zsh, Vim
 
-this is fast configrations env ^__^
+### How does install ?
+    * bash dotfiles/bootstraps.sh
 
 
 
