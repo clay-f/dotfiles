@@ -288,7 +288,9 @@
         Bundle "jby/tmux.vim.git"
         Bundle "morhetz/gruvbox"
         Bundle "chriskempson/base16-vim"
-
+        Bundle 'airblade/vim-gitgutter'
+        Bundle 'kshenoy/vim-signature'
+        Bundle 'caiogondim/bullet-train-oh-my-zsh-theme'
         " Required for Gblame in terminal vim
         Bundle "godlygeek/csapprox.git" 
     "}
@@ -303,7 +305,7 @@
     "}
     "
     "vim-improve{
-    "
+        Bundle 'Shougo/vimshell.vim'
         Bundle "AndrewRadev/splitjoin.vim"
         Bundle "Raimondi/delimitMate"
         Bundle "Shougo/neocomplete.git"

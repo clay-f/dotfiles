@@ -1,16 +1,14 @@
-custom/zsh
+# Compiled Python files
+*.pyc
 
-vim/backups
-vim/view
-*un~
-vim/.netrwhist
-vim/tmp
-vim/spell
-vim/after/.vimrc.after
-vim/.vundles.local
-vim/.vundles.local.bak
-vim/bundle
-vim/sessions
-.netrwhist
-bin/subl
-tags
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
