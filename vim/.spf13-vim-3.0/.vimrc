@@ -464,6 +464,102 @@
 " }
 
 " Plugins {
+"
+    "  rspec{
+        " Does not work on pending 'blocks', only single lines
+        "
+        " Given:
+        " it "foo bar" do
+        "   pending("bla bla"
+        "
+        " Produce:
+        " xit "foo bar" do
+        "
+        function! ChangePendingRspecToXit()
+          " Find the next occurrence of pending
+          while(search("pending(") > 0)
+            " Delete it
+            normal dd
+            " Search backwards to the it block
+            ?it\s
+            " add an 'x' to the 'it' to make it 'xit'
+            normal ix
+          endwhile
+        endfunction
+
+        nnoremap <silent> ,rxit :call ChangePendingRspecToXit()<cr>
+
+        " insert a before { } block around a line
+        nnoremap <silent> \bf ^ibefore { <esc>$a }
+
+        " insert a specify { } block around a line
+        nnoremap <silent> \sp ^ispecify { <esc>$a }
+
+    "  }
+
+    "showmarks {
+        let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
+    " }
+    
+    "tmux{
+        
+        " Don't allow any default key-mappings.
+        let g:tmux_navigator_no_mappings = 1
+
+        " Re-enable tmux_navigator.vim default bindings, minus <c-\>.
+        " <c-\> conflicts with NERDTree "current file".
+
+        nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+        nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+        nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+        nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+    "}
+
+    "wrapping {
+        " http://vimcasts.org/episodes/soft-wrapping-text/
+        function! SetupWrapping()
+          set wrap linebreak nolist
+          set showbreak=…
+        endfunction
+
+        " TODO: this should happen automatically for certain file types (e.g. markdown)
+        command! -nargs=* Wrap :call SetupWrapping()<CR>
+
+        vmap <D-j> gj
+        vmap <D-k> gk
+        vmap <D-$> g$
+        vmap <D-^> g^
+        vmap <D-0> g^
+        nmap <D-j> gj
+        nmap <D-k> gk
+        nmap <D-$> g$
+        nmap <D-^> g^
+        nmap <D-0> g^
+    "}
+
+    "window-killer {
+        " Use Q to intelligently close a window 
+        " (if there are multiple windows into the same buffer)
+        " or kill the buffer entirely if it's the last window looking into that buffer
+        function! CloseWindowOrKillBuffer()
+          let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
+
+          " We should never bdelete a nerd tree
+          if matchstr(expand("%"), 'NERD') == 'NERD'
+            wincmd c
+            return
+          endif
+
+          if number_of_windows_to_this_buffer > 1
+            wincmd c
+          else
+            bdelete
+          endif
+        endfunction
+
+        nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
+    "}
+
 
     "Syntastic{
         set statusline+=%#warningmsg#

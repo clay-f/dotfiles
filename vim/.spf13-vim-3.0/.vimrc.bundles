@@ -146,6 +146,20 @@
             Bundle 'reedes/vim-textobj-sentence'
             Bundle 'reedes/vim-textobj-quote'
             Bundle 'reedes/vim-wordy'
+
+         "These bundles introduce new textobjects into vim,
+         "For example the Ruby one introduces the 'r' text object
+         "such that 'var' gives you Visual Around Ruby
+            Bundle "austintaylor/vim-indentobject"
+            Bundle "bootleq/vim-textobj-rubysymbol"
+            Bundle "coderifous/textobj-word-column.vim"
+            Bundle "kana/vim-textobj-datetime"
+            Bundle "kana/vim-textobj-entire"
+            Bundle "kana/vim-textobj-function"
+            Bundle "lucapette/vim-textobj-underscore"
+            Bundle "nelstrom/vim-textobj-rubyblock"
+            Bundle "thinca/vim-textobj-function-javascript"
+            Bundle "wellle/targets.vim"
         endif
     " }
 
@@ -160,13 +174,14 @@
             Bundle 'tpope/vim-commentary'
             Bundle 'godlygeek/tabular'
             Bundle 'luochen1990/rainbow'
-
             Plugin 'bronson/vim-trailing-whitespace'
             Plugin 'szw/vim-maximizer'
             Plugin 'vim-scripts/BufOnly.vim'
             Plugin 'unblevable/quick-scope'
-            "Bundle 'cSyntaxAfter'
+            Bundle 'cSyntaxAfter'
             Plugin 'Valloric/MatchTagAlways'
+
+            Bundle "xolox/vim-misc"
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
             endif
@@ -212,14 +227,6 @@
         endif
     " }
 
-    " Scala {
-        if count(g:spf13_bundle_groups, 'scala')
-            Bundle 'derekwyatt/vim-scala'
-            Bundle 'derekwyatt/vim-sbt'
-            Bundle 'xptemplate'
-        endif
-    " }
-
     " HTML {
         if count(g:spf13_bundle_groups, 'html')
             Bundle 'amirh/HTML-AutoCloseTag'
@@ -235,6 +242,14 @@
             Bundle 'tpope/vim-rails'
             Bundle 'vim-ruby/vim-ruby'
             Bundle 'joonty/vdebug'
+
+            Bundle "ecomba/vim-ruby-refactoring"
+            Bundle "tpope/vim-rake.git"
+            Bundle "keith/rspec.vim"
+            Bundle "skwp/vim-iterm-rspec"
+            Bundle "skwp/vim-spec-finder"
+            Bundle "ck3g/vim-change-hash-syntax"
+            Bundle "tpope/vim-bundler"
             let g:rubycomplete_buffer_loading = 1
             "let g:rubycomplete_classes_in_global = 1
             "let g:rubycomplete_rails = 1
@@ -267,6 +282,44 @@
         endif
     " }
 
+    "appearence {
+        Bundle "chrisbra/color_highlight.git"
+        Bundle "itchyny/lightline.vim"
+        Bundle "jby/tmux.vim.git"
+        Bundle "morhetz/gruvbox"
+        Bundle "chriskempson/base16-vim"
+
+        " Required for Gblame in terminal vim
+        Bundle "godlygeek/csapprox.git" 
+    "}
+    "
+    "language {
+        Bundle 'sheerun/vim-polyglot'
+        Bundle 'garbas/vim-snipmate.git'
+        Bundle 'jtratner/vim-flavored-markdown.git'
+        Bundle 'nelstrom/vim-markdown-preview'
+        Bundle 'skwp/vim-html-escape'
+        Bundle 'mxw/vim-jsx'
+    "}
+    "
+    "vim-improve{
+    "
+        Bundle "AndrewRadev/splitjoin.vim"
+        Bundle "Raimondi/delimitMate"
+        Bundle "Shougo/neocomplete.git"
+        Bundle "briandoll/change-inside-surroundings.vim.git"
+        Bundle "tomtom/tcomment_vim.git"
+        Bundle "Keithbsmiley/investigate.vim"
+        Bundle "chrisbra/NrrwRgn"
+        Bundle "christoomey/vim-tmux-navigator"
+        Bundle "bogado/file-line.git"
+        Bundle "tpope/vim-endwise.git"
+        Bundle "tpope/vim-ragtag"
+        Bundle "tpope/vim-unimpaired"
+        Bundle "goldfeld/ctrlr.vim"
+        Bundle "editorconfig/editorconfig-vim"
+
+    "}
     endif
 
 " }
