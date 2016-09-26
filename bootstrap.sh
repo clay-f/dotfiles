@@ -30,7 +30,6 @@ start()
     fi
 }
 
-
-
 matchPlatform
+
 echo "\n\ta_^ seccess 😃\n"
