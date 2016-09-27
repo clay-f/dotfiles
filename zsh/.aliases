@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# basic configration :  {
+# basic configration : {{{
 
     # ..,...,....,....., ~ and - {
         alias ..="cd .."
@@ -9,16 +9,19 @@
         alias .....="cd ../../../.."
         alias ~="cd ~" # `cd` is probably faster to type though
         alias -- -="cd -"
+
+
+        # Moving around
+        alias cdb='cd -'
+        alias cls='clear;ls'
     #}
 
     # popular Directory  {
         alias d="cd ~/Documents/Dropbox"
         alias dl="cd ~/Downloads"
         alias dt="cd ~/Desktop"
-        alias p="cd ~/projects"
         alias j="jobs"
         cloud='/Users/Who/Library/Mobile Documents/com~apple~CloudDocs'
-        git='/Users/Who/my-Git/'
     #}
 
     # cp,rm, tar etc {
@@ -26,11 +29,10 @@
         alias unbz2='tar -jxt -f'
         alias viewbz2='tar -jtv -f'
         alias rm='rm -i'
-        alias vi='vim'
         alias h='history |tail -n 100'
     #}
 
-#}
+#}}}
 
 #  look/check-out files informations {
 
@@ -47,6 +49,17 @@
         alias lm="ls -laFh ${colorflag} |more"
         alias la="ls -aFh ${colorflag}"
         alias lsd="ls -lFh ${colorflag} | grep --color=never '^d'"
+
+        # Show human friendly numbers and colors
+        alias df='df -h'
+        alias du='du -h -d 2'
+
+        # PS
+        alias psa="ps aux"
+        alias psg="ps aux | grep "
+        alias psr='ps aux | grep ruby'
+
+
     #}
 
     #find information in files {
