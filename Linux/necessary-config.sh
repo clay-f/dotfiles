@@ -22,9 +22,7 @@ apt_install()
 
 nesessary()
 {
-    bash $position/ruby/ruby-basic-config.sh
     bash $position/zsh/plugins-config.sh
-    bash $position/vim/vim-install.sh
     bash $position/vim/spf13-vim-3.0/bootstrap.sh
 
     return

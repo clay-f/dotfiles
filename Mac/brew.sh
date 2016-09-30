@@ -23,14 +23,17 @@ brew_install() {
     brew install pstree
     brew install z
     brew install zsh-syntax-highlighting
+    brew install brew-cask
 }
 
 brew_cask() {
     brew tap phinze/homebrew-cask && brew install brew-cask
-    brew cask install wireshark
-    brew cask install macvim
-    brew cask install dropbox
+    brew cask install alfred
     brew cask install google-chrome
+    brew cask install iterm2
+    brew cask install macvim
+    brew cask install wireshark
+    brew cask install dropbox
     brew cask cleanup
     brew cleanup
     return

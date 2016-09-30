@@ -15,12 +15,6 @@ zsh()
     bash $position/zsh/plugins-config.sh
 }
 
-ruby()
-{
-    bash $position/ruby/ruby-basic-config.sh
-    echo "ruby have done"
-}
-
 vim()
 {
     bash $position/vim/.spf13-vim-3.0/bootstrap.sh
@@ -29,5 +23,4 @@ vim()
 
 brew
 zsh
-ruby
 vim
