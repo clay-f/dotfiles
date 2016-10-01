@@ -23,7 +23,7 @@ apt_install()
 nesessary()
 {
     bash $position/zsh/plugins-config.sh
-    bash $position/vim/spf13-vim-3.0/bootstrap.sh
+    bash $position/vim/.spf13-vim-3.0/bootstrap.sh
 
     return
 }
