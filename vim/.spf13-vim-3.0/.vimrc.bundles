@@ -174,6 +174,52 @@
         endif
     " }
 
+    "appearence {
+        Bundle "chrisbra/color_highlight.git"
+        Bundle "itchyny/lightline.vim"
+        Bundle "jby/tmux.vim.git"
+        Bundle 'kshenoy/vim-signature'
+    "}
+
+    " Puppet {
+        if count(g:spf13_bundle_groups, 'puppet')
+            Bundle 'rodjek/vim-puppet'
+        endif
+    " }
+
+    " Elixir {
+        if count(g:spf13_bundle_groups, 'elixir')
+            Bundle 'elixir-lang/vim-elixir'
+            Bundle 'carlosgaldino/elixir-snippets'
+            Bundle 'mattreduce/vim-mix'
+        endif
+    " }
+
+    " Misc {
+        if count(g:spf13_bundle_groups, 'misc')
+            Bundle 'rust-lang/rust.vim'
+            Bundle 'tpope/vim-markdown'
+            Bundle 'spf13/vim-preview'
+            Bundle 'tpope/vim-cucumber'
+            Bundle 'cespare/vim-toml'
+            Bundle 'quentindecock/vim-cucumber-align-pipes'
+            Bundle 'saltstack/salt-vim'
+        endif
+    " }
+
+    "vim-improve{
+        Bundle "AndrewRadev/splitjoin.vim"
+        Bundle "Raimondi/delimitMate"
+        Bundle "Shougo/neocomplete.git"
+        Bundle "briandoll/change-inside-surroundings.vim.git"
+        Bundle "tomtom/tcomment_vim.git"
+        Bundle "Keithbsmiley/investigate.vim"
+        Bundle "chrisbra/NrrwRgn"
+        Bundle "christoomey/vim-tmux-navigator"
+        Bundle "bogado/file-line.git"
+        Bundle "tpope/vim-endwise.git"
+    "}
+
     " Snippets & AutoComplete {
         if count(g:spf13_bundle_groups, 'snipmate')
             Bundle 'garbas/vim-snipmate'
@@ -199,6 +245,14 @@
         endif
     " }
 
+    "language {
+        Bundle 'garbas/vim-snipmate.git'
+        Bundle 'jtratner/vim-flavored-markdown.git'
+        Bundle 'nelstrom/vim-markdown-preview'
+        Bundle 'skwp/vim-html-escape'
+        Bundle 'mxw/vim-jsx'
+    "}
+
     " Javascript {
         if count(g:spf13_bundle_groups, 'javascript')
             Bundle 'elzr/vim-json'
@@ -210,6 +264,29 @@
             Bundle 'krampstudio/webvim'
             Plugin 'jelera/vim-javascript-syntax'
 
+        endif
+    " }
+
+" Scala {
+        if count(g:spf13_bundle_groups, 'scala')
+            Bundle 'derekwyatt/vim-scala'
+            Bundle 'derekwyatt/vim-sbt'
+            Bundle 'xptemplate'
+        endif
+    " }
+
+    " Haskell {
+        if count(g:spf13_bundle_groups, 'haskell')
+            Bundle 'travitch/hasksyn'
+            Bundle 'dag/vim2hs'
+            Bundle 'Twinside/vim-haskellConceal'
+            Bundle 'Twinside/vim-haskellFold'
+            Bundle 'lukerandall/haskellmode-vim'
+            Bundle 'eagletmt/neco-ghc'
+            Bundle 'eagletmt/ghcmod-vim'
+            Bundle 'Shougo/vimproc.vim'
+            Bundle 'adinapoli/cumino'
+            Bundle 'bitc/vim-hdevtools'
         endif
     " }
 
@@ -244,59 +321,6 @@
         endif
     " }
 
-    " Puppet {
-        if count(g:spf13_bundle_groups, 'puppet')
-            Bundle 'rodjek/vim-puppet'
-        endif
-    " }
-
-    " Elixir {
-        if count(g:spf13_bundle_groups, 'elixir')
-            Bundle 'elixir-lang/vim-elixir'
-            Bundle 'carlosgaldino/elixir-snippets'
-            Bundle 'mattreduce/vim-mix'
-        endif
-    " }
-
-    " Misc {
-        if count(g:spf13_bundle_groups, 'misc')
-            Bundle 'rust-lang/rust.vim'
-            Bundle 'tpope/vim-markdown'
-            Bundle 'spf13/vim-preview'
-            Bundle 'tpope/vim-cucumber'
-            Bundle 'cespare/vim-toml'
-            Bundle 'quentindecock/vim-cucumber-align-pipes'
-            Bundle 'saltstack/salt-vim'
-        endif
-    " }
-
-    "appearence {
-        Bundle "chrisbra/color_highlight.git"
-        Bundle "itchyny/lightline.vim"
-        Bundle "jby/tmux.vim.git"
-        Bundle 'kshenoy/vim-signature'
-    "}
-    "
-    "language {
-        Bundle 'garbas/vim-snipmate.git'
-        Bundle 'jtratner/vim-flavored-markdown.git'
-        Bundle 'nelstrom/vim-markdown-preview'
-        Bundle 'skwp/vim-html-escape'
-        Bundle 'mxw/vim-jsx'
-    "}
-    "
-    "vim-improve{
-        Bundle "AndrewRadev/splitjoin.vim"
-        Bundle "Raimondi/delimitMate"
-        Bundle "Shougo/neocomplete.git"
-        Bundle "briandoll/change-inside-surroundings.vim.git"
-        Bundle "tomtom/tcomment_vim.git"
-        Bundle "Keithbsmiley/investigate.vim"
-        Bundle "chrisbra/NrrwRgn"
-        Bundle "christoomey/vim-tmux-navigator"
-        Bundle "bogado/file-line.git"
-        Bundle "tpope/vim-endwise.git"
-    "}
     endif
 
 " }
