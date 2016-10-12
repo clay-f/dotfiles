@@ -1,5 +1,4 @@
 # Aliases in this file are bash and zsh compatible
-
 # Get operating system
 platform='unknown'
 unamestr=$(uname)

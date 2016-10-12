@@ -20,12 +20,12 @@ start()
 {
 	echo "now start ..."
     if [ $count -gt 0 ]; then
-        if [ -e $position/Mac/necessary-config.sh ]; then
-            bash $position/Mac/necessary-config.sh
+        if [ -e $position/Mac/mac-config.sh ]; then
+            bash $position/Mac/mac-config.sh
         fi
     else
-        if [ -e $position/Linux/necessary-config.sh ]; then
-            bash $position/Linux/necessary-config.sh
+        if [ -e $position/Linux/linux-config.sh ]; then
+            bash $position/Linux/linux-config.sh
         fi
     fi
 }
