@@ -17,10 +17,15 @@ zsh()
 
 vim()
 {
-    bash $position/vim/.spf13-vim-3.0/bootstrap.sh
+    bash $position/vim/bootstrap.sh
     return
 }
 
-brew
-zsh
-vim
+if [ -d $position ]; then
+    brew
+    zsh
+    vim
+else
+    echo "\tnot found $position"
+    exit
+fi
