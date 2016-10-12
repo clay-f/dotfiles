@@ -10,6 +10,8 @@ brew_install() {
     brew install wget --with-iri
     brew install vim --override-system-vi
     brew install gnu-sed --with-default-names
+    brew install automake
+    brew install openssl
     brew install cmake
     brew install zsh
     brew install xz
