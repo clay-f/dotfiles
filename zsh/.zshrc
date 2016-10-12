@@ -92,7 +92,6 @@ source $ZSH/oh-my-zsh.sh
 #}
 
 #sources configuration{
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source ${HOME}/.rvm/scripts/rvm
     source ${HOME}/dotfiles/zsh/source-alias.zsh
 #}

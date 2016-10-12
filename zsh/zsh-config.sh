@@ -1,7 +1,7 @@
 #!/bin/bash
 #created by F on 2016-09-19
 plugins_install() {
-    git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
     if [ -e $HOME/.oh-my-zsh/custom/example.zsh ]; then
         echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/example.zsh
     fi
