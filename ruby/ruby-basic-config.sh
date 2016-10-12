@@ -18,6 +18,7 @@ link_file() {
     ln -s $HOME/dotfiles/tmux/tmux.conf ~/
     ln -s $HOME/dotfiles/ruby/gemrc ~/
     ln -s $HOME/dotfiles/.gitconfig ~/
+    ln -s $HOME/dotfiles/tmux/tmux.conf ~/
 }
 
 link_file
