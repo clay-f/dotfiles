@@ -15,6 +15,10 @@ zsh()
     bash $position/zsh/plugins-config.sh
 }
 
+ruby() {
+    bash $position/ruby/ruby-basic-config.sh
+}
+
 vim()
 {
     bash $position/vim/bootstrap.sh
@@ -24,6 +28,7 @@ vim()
 if [ -d $position ]; then
     brew
     zsh
+    ruby
     vim
 else
     echo "\tnot found $position"
