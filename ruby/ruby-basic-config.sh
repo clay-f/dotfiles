@@ -19,7 +19,7 @@ link_file() {
     ln -s $HOME/dotfiles/ruby/gemrc ~/
 }
 
-rvm_ruby
 link_file
+rvm_ruby
 
 
