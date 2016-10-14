@@ -4,7 +4,7 @@ this is fast configration for RoR, zsh, Vim, etc.
 	* bash dotfiles/bootstraps.sh
 
 ### How does it conclude ?
-	* oh-my-zsh
+	* zsh
 	* vim
 	* ruby
 	* tmux
