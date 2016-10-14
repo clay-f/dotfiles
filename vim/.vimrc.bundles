@@ -307,6 +307,7 @@
     " Ruby {
         if count(g:spf13_bundle_groups, 'ruby')
             Bundle 'tpope/vim-rails'
+            Plugin 'slim-template/vim-slim.git'
             Bundle 'vim-ruby/vim-ruby'
             Bundle 'joonty/vdebug'
             Plugin 'tpope/vim-rvm'
