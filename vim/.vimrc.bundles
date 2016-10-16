@@ -172,12 +172,10 @@
             endif
         endif
     " }
-    "
 
     "appearence {
         Bundle "chrisbra/color_highlight.git"
         Bundle "itchyny/lightline.vim"
-        Bundle "jby/tmux.vim.git"
         Bundle 'kshenoy/vim-signature'
     "}
 

@@ -9,7 +9,7 @@ msg() {
 }
 
 oh_my_zsh() {
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 }
 
 plugins_install() {
@@ -36,20 +36,32 @@ add_plugins_config()
         echo "#sources configuration{" >> $oh_my_zsh/custom/f.zsh
         echo "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/f.zsh
         echo "\tsource $HOME/dotfiles/zsh/source-alias.zsh" >> $oh_my_zsh/custom/f.zsh
-        echo "#}" >> $oh_my_zsh/custom/f.zsh >> $oh_my_zsh/custom/f.zsh
+        echo "#}" >> $oh_my_zsh/custom/f.zsh
+}
+
+main()
+{
+    if [ ! -d $HOME/.oh-my-zsh ]; then
+        oh_my_zsh
+    else
+        msg  "\tyou haved .oh-my-zsh directory on you `$HOME`"
+        msg  "\t now exit ..."
+        exit
+    fi
+
+    if [ -d $HOME/.oh-my-zsh ]; then
+        plugins_install
+    else
+        msg "\n\n\t"
+        msg ".oh-my-zsh is not found"
+        msg "exit ..."
+        exit
+
+    fi
+
+    add_plugins_config
+    config_link_files
 }
 
 
-if [ ! -d $HOME/.oh-my-zsh ]; then
-    oh_my_zsh
-else
-    msg  "\tyou haved .oh-my-zsh directory on you `$HOME`"
-    msg  "\t now exit..."
-    exit
-fi
-
-if [ -d $HOME/.oh-my-zsh ]; then
-    plugins_install
-fi
-
-config_link_files
+main
