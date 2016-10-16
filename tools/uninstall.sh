@@ -1,4 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+uninstall_dotfiles() {
+    dotfile_dir="$HOME/dotfiles"
+    rm -rf $HOME/dotfiles
+}
 
 uninstall_vim() {
 
@@ -11,14 +16,20 @@ uninstall_vim() {
     rm -rf $HOME/.vimviews/
 }
 
-uninstall_dotfiles() {
-    dotfile_dir="$HOME/dotfiles"
-    rm -rf $HOME/dotfiles
-}
-
 uninstall_zsh()
 {
     bash ~/.oh-my-zsh/tools/uninstall.sh
+}
+
+uninstall_ruby()
+{
+    rm -rf ~/.rvm
+    rm -rf ~/.gem
+    rm prf ~/.gemrc
+}
+
+uninstall_tmux() {
+    rm -rf ~/.tmux.conf
 }
 
 success_uninstall()
@@ -28,6 +39,8 @@ success_uninstall()
 uninstall_vim
 uninstall_dotfiles
 uninstall_zsh
+uninstall_tmux
+uninstall_ruby
 if [ ! -d $HOME/dotfiles ]; then
     success_uninstall
 fi
