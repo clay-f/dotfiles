@@ -30,6 +30,12 @@ start()
     fi
 }
 
+msg() {
+    printf '%b\n' "$1" >&2
+}
+
 matchPlatform
 
-echo "\n\ta_^ seccess 😃\n"
+
+msg "\nThanks for installing"
+msg "`date + %Y` success"

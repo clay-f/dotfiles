@@ -34,11 +34,9 @@ brew_cask() {
     brew cask install google-chrome
     brew cask install iterm2
     brew cask install macvim
-    brew cask install wireshark
     brew cask install dropbox
     brew cask cleanup
     brew cleanup
-    return
 }
 
 brew_install

@@ -51,11 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( zsh-autosuggestions zsh-syntax-highlighting
-        git brew
-        z nmap
-        ruby rails
-    )
+plugins=(zsh-autosuggestions zsh-syntax-highlighting git brew z nmap ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,15 +83,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#environment setting {
-    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-    PATH="/usr/local/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-    MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-#}
-
-#sources configuration{
-    source ${HOME}/.rvm/scripts/rvm
-    source ${HOME}/dotfiles/zsh/source-alias.zsh
-#}
