@@ -34,8 +34,12 @@ msg() {
     printf '%b\n' "$1" >&2
 }
 
-matchPlatform
+main() {
+    matchPlatform
+    msg "\nThanks for installing"
+    msg "`date + %Y` success"
+}
+
+main
 
 
-msg "\nThanks for installing"
-msg "`date + %Y` success"

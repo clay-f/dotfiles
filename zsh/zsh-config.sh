@@ -21,12 +21,12 @@ plugins_install() {
 
 config_link_files() {
     if [ -e ~/.zshrc ]; then
-        sed -i "s/plugins=(git..*)/plugins=(zsh-autosuggestions zsh-syntax-highlighting git brew z nmap ruby rails)/g" ~/.zshrc
+        sed -i "s/plugins=(git.*)/plugins=(zsh-autosuggestions zsh-syntax-highlighting git brew z nmap ruby rails)/g" ~/.zshrc
     fi
     add_plugins_config
     ln -s $HOME/dotfiles/ruby/gemrc ~/
     ln -s $HOME/dotfiles/.gitconfig ~/
-    ln -s $HOME/dotfiles/tmux/tmux.conf ~/
+    ln -s $HOME/dotfiles/tmux/.tmux.conf ~/
 }
 
 add_plugins_config()
@@ -34,21 +34,14 @@ add_plugins_config()
         echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/f.zsh
         echo "alias vi=vim" >> $oh_my_zsh/custom/f.zsh
         echo "#sources configuration{" >> $oh_my_zsh/custom/f.zsh
-        echo "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/f.zsh
-        echo "\tsource $HOME/dotfiles/zsh/source-alias.zsh" >> $oh_my_zsh/custom/f.zsh
+        echo -e "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/f.zsh
+        echo -e "\tsource $HOME/dotfiles/zsh/source-alias.zsh" >> $oh_my_zsh/custom/f.zsh
         echo "#}" >> $oh_my_zsh/custom/f.zsh
 }
 
 main()
 {
-    if [ ! -d $HOME/.oh-my-zsh ]; then
         oh_my_zsh
-    else
-        msg  "\tyou haved .oh-my-zsh directory on you `$HOME`"
-        msg  "\t now exit ..."
-        exit
-    fi
-
     if [ -d $HOME/.oh-my-zsh ]; then
         plugins_install
     else

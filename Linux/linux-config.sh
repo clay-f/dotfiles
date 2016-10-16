@@ -27,10 +27,14 @@ nesessary()
     return
 }
 
-if [ -d $position ];then
-	apt_install
-	nesessary
-else
-	echo "not found $position"
-    exit
-fi
+main() {
+    if [ -d $position ];then
+        apt_install
+        nesessary
+    else
+        echo "not found $position"
+        exit
+    fi
+}
+
+main
