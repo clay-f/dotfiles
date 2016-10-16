@@ -156,8 +156,6 @@
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
             Bundle 'tpope/vim-fugitive'
-            Bundle 'mattn/webapi-vim'
-            Bundle 'mattn/gist-vim'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'tpope/vim-commentary'
             Bundle 'godlygeek/tabular'
@@ -174,7 +172,6 @@
     " }
 
     "appearence {
-        Bundle "chrisbra/color_highlight.git"
         Bundle "itchyny/lightline.vim"
         Bundle 'kshenoy/vim-signature'
     "}
@@ -195,9 +192,9 @@
 
     " Misc {
         if count(g:spf13_bundle_groups, 'misc')
-            Bundle 'rust-lang/rust.vim'
             Bundle 'tpope/vim-markdown'
             Bundle 'spf13/vim-preview'
+            Bundle 'suan/vim-instant-markdown'
             Bundle 'tpope/vim-cucumber'
             Bundle 'cespare/vim-toml'
             Bundle 'quentindecock/vim-cucumber-align-pipes'
@@ -233,9 +230,9 @@
 
     " HTML {
         if count(g:spf13_bundle_groups, 'html')
-            Bundle 'othree/html5.vim'
-            Bundle 'skwp/vim-html-escape'
-            Bundle 'tpope/vim-haml'
+            Plugin 'othree/html5.vim'
+            Plugin 'skwp/vim-html-escape'
+            Plugin 'tpope/vim-haml'
             Bundle 'mattn/emmet-vim'
             Bundle 'hail2u/vim-css3-syntax'
             Bundle 'gorodinskiy/vim-coloresque'
