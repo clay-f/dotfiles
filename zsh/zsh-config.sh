@@ -30,12 +30,14 @@ config_link_files() {
 }
 
 add_plugins_config() {
-        echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/f.zsh
-        echo "alias vi=vim" >> $oh_my_zsh/custom/f.zsh
-        echo "#sources configuration{" >> $oh_my_zsh/custom/f.zsh
-        echo -e "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/f.zsh
-        echo -e "\tsource $HOME/dotfiles/zsh/source-alias.zsh" >> $oh_my_zsh/custom/f.zsh
-        echo "#}" >> $oh_my_zsh/custom/f.zsh
+        if [ ! -e $HOME/dotfiles/custom/f.zsh ]; then
+            echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/f.zsh
+            echo "alias vi=vim" >> $oh_my_zsh/custom/f.zsh
+            echo "#sources configuration{" >> $oh_my_zsh/custom/f.zsh
+            echo -e "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/f.zsh
+            echo -e "\tsource $HOME/dotfiles/zsh/source-alias.zsh" >> $oh_my_zsh/custom/f.zsh
+            echo "#}" >> $oh_my_zsh/custom/f.zsh
+        fi
 }
 
 oh_my_zsh
