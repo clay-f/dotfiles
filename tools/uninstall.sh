@@ -16,13 +16,11 @@ uninstall_vim() {
     rm -rf $HOME/.vimviews/
 }
 
-uninstall_zsh()
-{
+uninstall_zsh() {
     bash ~/.oh-my-zsh/tools/uninstall.sh
 }
 
-uninstall_ruby()
-{
+uninstall_ruby() {
     rm -rf ~/.rvm
     rm -rf ~/.gem
     rm prf ~/.gemrc
@@ -32,15 +30,20 @@ uninstall_tmux() {
     rm -rf ~/.tmux.conf
 }
 
-success_uninstall()
-{
+success_uninstall() {
     echo "\t\tUninstall Success"
 }
-uninstall_vim
-uninstall_dotfiles
-uninstall_zsh
-uninstall_tmux
-uninstall_ruby
-if [ ! -d $HOME/dotfiles ]; then
-    success_uninstall
-fi
+
+main() {
+    uninstall_vim
+    uninstall_dotfiles
+    uninstall_zsh
+    uninstall_tmux
+    uninstall_ruby
+    if [ ! -d $HOME/dotfiles ]; then
+        success_uninstall
+    fi
+}
+
+
+main

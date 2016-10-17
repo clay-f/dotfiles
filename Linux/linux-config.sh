@@ -2,8 +2,7 @@
 
 position=${HOME}/dotfiles
 
-apt_install()
-{
+apt_install() {
     sudo apt-get -y install gcc
     sudo apt-get -y install make
     sudo apt-get -y install sudo
@@ -20,16 +19,14 @@ apt_install()
     sudo apt-get autoclean
 }
 
-nesessary()
-{
+nesessary() {
     bash $position/zsh/zsh-config.sh
     bash $position/vim/bootstrap.sh
     bash $position/ruby/ruby-config.sh
     return
 }
 
-vim_require()
-{
+vim_require() {
     sudo apt-get -y install vim-nox
     sudo apt-get -y install vim-gtk
     sudo apt-get -y install vim-gnome

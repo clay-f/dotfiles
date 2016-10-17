@@ -9,7 +9,9 @@ this is fast configration for RoR, zsh, Vim, etc.
 	* ruby
 	* tmux
 ### How does it uninstall ?
-	`bash ~/dotfiles/tools/uninstall.sh`
+```shell
+    sh -c "$(wget https://raw.githubusercontent.com/lyf-t/dotfiles/master/bootstrap.sh -O -)"
+```
 
 
 ### Feedback

@@ -3,14 +3,12 @@
 
 position='${HOME}/dotfiles'
 
-brew()
-{
+brew() {
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     bash $position/Mac/brew.sh
 }
 
-zsh()
-{
+zsh() {
     bash $position/zsh/zsh-config.sh
 }
 
@@ -18,8 +16,7 @@ ruby() {
     bash $position/ruby/ruby-config.sh
 }
 
-vim()
-{
+vim() {
     bash $position/vim/bootstrap.sh
     return
 }

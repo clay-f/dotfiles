@@ -29,8 +29,7 @@ config_link_files() {
     ln -s $HOME/dotfiles/tmux/.tmux.conf ~/
 }
 
-add_plugins_config()
-{
+add_plugins_config() {
         echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/f.zsh
         echo "alias vi=vim" >> $oh_my_zsh/custom/f.zsh
         echo "#sources configuration{" >> $oh_my_zsh/custom/f.zsh
@@ -39,22 +38,16 @@ add_plugins_config()
         echo "#}" >> $oh_my_zsh/custom/f.zsh
 }
 
-main()
-{
-        oh_my_zsh
-    if [ -d $HOME/.oh-my-zsh ]; then
-        plugins_install
-    else
-        msg "\n\n\t"
-        msg ".oh-my-zsh is not found"
-        msg "exit ..."
-        exit
+oh_my_zsh
+if [ -d $HOME/.oh-my-zsh ]; then
+    plugins_install
+else
+    msg "\n\n\t"
+    msg ".oh-my-zsh is not found"
+    msg "exit ..."
+    exit
 
-    fi
+fi
 
-    add_plugins_config
-    config_link_files
-}
-
-
-main
+add_plugins_config
+config_link_files

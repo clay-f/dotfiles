@@ -1,11 +1,23 @@
 #!/bin/bash
-position=${HOME}/dotfiles
+APP_PATH=${HOME}/dotfiles
+app_name='dotfiles'
 platform='unknown'
 unamestr=`uname`
+[ -z "$REPO_URI" ] && $REPO_URI='https://github.com/lyf-t/dotfiles.git'
 count=0
 
-matchPlatform()
-{
+
+msg() {
+    printf '%b\n' "$1" >&2
+}
+
+success() {
+    if [ "$ret" -eq 0 ]; then
+        msg "\33[32m[✔]\33[0m ${1}${2}"
+    fi
+}
+
+matchPlatform() {
     if [[ $unamestr == 'Linux' ]]; then
        platform='linux'
         start
@@ -16,30 +28,63 @@ matchPlatform()
     fi
 }
 
-start()
-{
-	echo "now start ..."
+start() {
     if [ $count -gt 0 ]; then
-        if [ -e $position/Mac/mac-config.sh ]; then
-            bash $position/Mac/mac-config.sh
+        if [ -e $APP_PATH/Mac/mac-config.sh ]; then
+            bash $APP_PATH/Mac/mac-config.sh
         fi
     else
-        if [ -e $position/Linux/linux-config.sh ]; then
-            bash $position/Linux/linux-config.sh
+        if [ -e $APP_PATH/Linux/linux-config.sh ]; then
+            bash $APP_PATH/Linux/linux-config.sh
         fi
+    fi
+
+    msg "not found $app_name on $APP_PATH ..."
+    msg "now exit ..."
+    exit
+}
+
+sync_repo() {
+    local repo_path="$1"
+    local repo_uri="$2"
+    local repo_branch="$3"
+
+    msg "Trying to update $repo_name"
+
+    if [ ! -e "$repo_path" ]; then
+        mkdir -p "$repo_path"
+        git clone -b "$repo_uri" "$repo_path"
+        ret="$?"
+        success "Successfully updated $repo_name"
+    else
+        cd "$repo_path" && git pull origin "$repo_branch"
+        ret="$?"
+        success "Successfully updated $repo_name"
     fi
 }
 
-msg() {
-    printf '%b\n' "$1" >&2
+do_backup() {
+    if [ -e "$1" || [ -e "$2" ] || [ -e "$3" ] ]; then
+        msg "Attempting to back up your original dotfiles configration."
+    today=`date +%Y%m%d_%s`
+    for i in "$1" "$2" "$3"; do
+        [ -e "$i" ] && [ -L "$1" ] && mv -v "$i" "$i.$today"
+    done
+    ret="$?"
+    success "Your original vim configuration has been backed up."
+    fi
 }
 
 main() {
     matchPlatform
-    msg "\nThanks for installing"
-    msg "`date + %Y` success"
+    do_backup "$HOME/dotfiles"
+    sync_repo "$HOME/dotfiles" \
+              "$REPO_URI" \
+              "master"
+    start
+    msg "\nThanks for installing $app_name"
+    msg "`date + %Y%m%d_%s` success"
 }
 
+
 main
-
-
