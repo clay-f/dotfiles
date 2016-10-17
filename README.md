@@ -1,17 +1,18 @@
 this is fast configration for RoR, zsh, Vim, etc.
 
 ### How does install ?
-	* bash dotfiles/bootstraps.sh
-
+```shell
+    sh -c "$(wget https://raw.githubusercontent.com/lyf-t/dotfiles/master/bootstrap.sh -O -)"
+```
 ### How does it conclude ?
 	* zsh
 	* vim
 	* ruby
 	* tmux
 ### How does it uninstall ?
-```shell
-    sh -c "$(wget https://raw.githubusercontent.com/lyf-t/dotfiles/master/bootstrap.sh -O -)"
-```
+    ```shell
+        bash $HOME/dotfiles/tools/uninstall.sh
+    ```
 
 
 ### Feedback
