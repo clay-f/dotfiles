@@ -1096,6 +1096,18 @@
         autocmd BufWritePost *.hs GhcModCheckAndLintAsync
     endif
 
+    "markdown-preview {
+        let g:vim_markdown_toc_autofit = 1
+        let g:vim_markdown_emphasis_multiline = 0
+        set conceallevel=2
+        let g:vim_markdown_fenced_languages = ['csharp=cs']
+        let g:vim_markdown_frontmatter = 1
+        let g:vim_markdown_toml_frontmatter = 1
+        let g:vim_markdown_json_frontmatter = 1
+        let g:vim_markdown_new_list_item_indent = 2
+    "}
+
+
     " UndoTree {
         if isdirectory(expand("~/.vim/bundle/undotree/"))
             nnoremap <Leader>u :UndotreeToggle<CR>
@@ -1141,9 +1153,6 @@
             endif
         endif
     " }
-
-
-
 " }
 
 " GUI Settings {

@@ -147,7 +147,6 @@
             Bundle 'reedes/vim-textobj-sentence'
             Bundle 'reedes/vim-textobj-quote'
             Bundle 'reedes/vim-wordy'
-            Bundle 'jtratner/vim-flavored-markdown.git'
         endif
     " }
 
@@ -195,10 +194,10 @@
     " Misc {
         if count(g:spf13_bundle_groups, 'misc')
             Bundle 'rust-lang/rust.vim'
-            Bundle 'tpope/vim-markdown'
-            Bundle 'spf13/vim-preview'
-            Bundle 'suan/vim-instant-markdown'
             Bundle 'tpope/vim-cucumber'
+            Plugin 'plasticboy/vim-markdown'
+            Bundle 'jtratner/vim-flavored-markdown.git'
+            Bundle 'suan/vim-instant-markdown'
             Bundle 'cespare/vim-toml'
             Bundle 'quentindecock/vim-cucumber-align-pipes'
             Bundle 'saltstack/salt-vim'
