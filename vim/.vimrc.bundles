@@ -105,15 +105,10 @@
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'spf13/vim-colors'
             Plugin 'L9'
-            Bundle 'tpope/vim-surround'
-            Bundle 'tpope/vim-repeat'
-            Bundle 'rhysd/conflict-marker.vim'
-            Bundle 'jiangmiao/auto-pairs'
-            Bundle 'ctrlpvim/ctrlp.vim'
-            Bundle 'tacahiroy/ctrlp-funky'
-            Bundle 'terryma/vim-multiple-cursors'
-            Bundle 'vim-scripts/sessionman.vim'
-            Bundle 'matchit.zip'
+            Bundle 'scrooloose/syntastic'
+            Bundle 'tpope/vim-fugitive'
+            Bundle "itchyny/lightline.vim"
+            Bundle 'kshenoy/vim-signature'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -152,30 +147,35 @@
 
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
-            " Pick one of the checksyntax, jslint, or syntastic
-            Bundle 'scrooloose/syntastic'
-            Bundle 'tpope/vim-fugitive'
-            Bundle 'scrooloose/nerdcommenter'
+            Bundle 'tacahiroy/ctrlp-funky'
+            Bundle 'vim-scripts/sessionman.vim'
             Bundle 'mattn/webapi-vim'
             Bundle 'mattn/gist-vim'
-            Bundle 'tpope/vim-commentary'
-            Bundle 'godlygeek/tabular'
             Bundle 'luochen1990/rainbow'
-            Plugin 'bronson/vim-trailing-whitespace'
             Plugin 'szw/vim-maximizer'
             Plugin 'vim-scripts/BufOnly.vim'
             Plugin 'unblevable/quick-scope'
             Plugin 'Valloric/MatchTagAlways'
+            Bundle 'matchit.zip'
+            Bundle 'rhysd/conflict-marker.vim'
+            Bundle 'jiangmiao/auto-pairs'
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
             endif
         endif
     " }
 
-    "appearence {
-        Bundle "itchyny/lightline.vim"
-        Bundle 'kshenoy/vim-signature'
-    "}
+        "files-edit {
+            Bundle 'ctrlpvim/ctrlp.vim'
+            Bundle 'godlygeek/tabular'
+            Bundle 'terryma/vim-multiple-cursors'
+            Bundle 'danro/rename.vim'
+            Bundle 'tpope/vim-surround'
+            Bundle 'tpope/vim-repeat'
+            Bundle 'scrooloose/nerdcommenter'
+            Plugin 'bronson/vim-trailing-whitespace'
+            Bundle 'tpope/vim-commentary'
+        "}
 
     " Puppet {
         if count(g:spf13_bundle_groups, 'puppet')
@@ -200,7 +200,6 @@
             Bundle 'suan/vim-instant-markdown'
             Bundle 'cespare/vim-toml'
             Bundle 'quentindecock/vim-cucumber-align-pipes'
-            Bundle 'saltstack/salt-vim'
         endif
     " }
 
@@ -269,29 +268,6 @@
             Bundle 'kchmck/vim-coffee-script'
         endif
     " }
-
-"" Scala {
-        "if count(g:spf13_bundle_groups, 'scala')
-            "Bundle 'derekwyatt/vim-scala'
-            "Bundle 'derekwyatt/vim-sbt'
-            "Bundle 'xptemplate'
-        "endif
-    "" }
-
-    "" Haskell {
-        "if count(g:spf13_bundle_groups, 'haskell')
-            "Bundle 'travitch/hasksyn'
-            "Bundle 'dag/vim2hs'
-            "Bundle 'Twinside/vim-haskellConceal'
-            "Bundle 'Twinside/vim-haskellFold'
-            "Bundle 'lukerandall/haskellmode-vim'
-            "Bundle 'eagletmt/neco-ghc'
-            "Bundle 'eagletmt/ghcmod-vim'
-            "Bundle 'Shougo/vimproc.vim'
-            "Bundle 'adinapoli/cumino'
-            "Bundle 'bitc/vim-hdevtools'
-        "endif
-    "" }
 
     endif
 

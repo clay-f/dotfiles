@@ -17,6 +17,12 @@ success() {
     fi
 }
 
+debug() {
+    if [ "$ret" -eq 1 ]; then
+        msg "An error occurred in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
+    fi
+}
+
 matchPlatform() {
     if [[ $unamestr == 'Linux' ]]; then
        platform='linux'
@@ -38,7 +44,8 @@ start() {
             bash $APP_PATH/Linux/linux-config.sh
         fi
     fi
-
+    ret="$?"
+    debug
     msg "not found $app_name on $APP_PATH ..."
     msg "now exit ..."
     exit
@@ -66,12 +73,13 @@ sync_repo() {
 do_backup() {
     if [ -e "$1" || [ -e "$2" ] || [ -e "$3" ] ]; then
         msg "Attempting to back up your original dotfiles configration."
-    today=`date +%Y%m%d_%s`
-    for i in "$1" "$2" "$3"; do
-        [ -e "$i" ] && [ -L "$1" ] && mv -v "$i" "$i.$today"
-    done
-    ret="$?"
-    success "Your original vim configuration has been backed up."
+        today=`date +%Y%m%d_%s`
+        for i in "$1" "$2" "$3"; do
+            [ -e "$i" ] && [ -L "$1" ] && mv -v "$i" "$i.$today"
+        done
+        ret="$?"
+        success "Your original vim configuration has been backed up."
+
     fi
 }
 
