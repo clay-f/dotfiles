@@ -182,8 +182,8 @@
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
-        set background=light
+        color molokai             " Load a colorscheme
+        set background=dark
     endif
 
     set tabpagemax=15               " Only show 15 tabs
