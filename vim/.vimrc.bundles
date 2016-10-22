@@ -175,6 +175,7 @@
             Bundle 'scrooloose/nerdcommenter'
             Plugin 'bronson/vim-trailing-whitespace'
             Bundle 'tpope/vim-commentary'
+            Bundle 'MattesGroeger/vim-bookmarks'
         "}
 
     " Puppet {
@@ -226,7 +227,7 @@
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'
             Bundle 'garbas/vim-snipmate.git'
-            Bundle 'honza/snipmate-snippets'
+            Plugin 'SirVer/ultisnips'
         endif
     " }
 

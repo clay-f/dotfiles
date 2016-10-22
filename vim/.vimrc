@@ -465,6 +465,15 @@
 
 " Plugins {
 
+
+
+        "Ultisnips {
+            " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+            let g:UltiSnipsExpandTrigger="<tab>"
+            let g:UltiSnipsJumpForwardTrigger="<c-b>"
+            let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+        "}
+
         " quick-scope{
             " Trigger a highlight in the appropriate direction when pressing these keys:
             let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -591,13 +600,6 @@
                 autocmd FileType textile call textobj#quote#init()
                 autocmd FileType text call textobj#quote#init({'educate': 0})
             augroup END
-        endif
-    " }
-
-    " PIV {
-        if isdirectory(expand("~/.vim/bundle/PIV"))
-            let g:DisableAutoPHPFolding = 0
-            let g:PIVAutoClose = 0
         endif
     " }
 
