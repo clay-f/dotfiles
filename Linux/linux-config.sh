@@ -15,7 +15,7 @@ apt_install() {
     sudo apt-get -y install lua5.3
     sudo apt-get -y install ack-grep
     sudo apt-get -y install vim
-    vim_require
+        vim_require
     sudo apt-get autoclean
 }
 
@@ -32,15 +32,12 @@ vim_require() {
     sudo apt-get -y install vim-gnome
     sudo apt-get -y install vim-athena
 }
+################################################ Main
 
-main() {
-    if [ -d $position ];then
-        apt_install
-        nesessary
-    else
-        echo "not found $position"
-        exit
-    fi
-}
-
-main
+if [ -d $position ];then
+    apt_install
+    nesessary
+else
+    echo "not found $position"
+    exit
+fi

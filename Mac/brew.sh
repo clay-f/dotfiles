@@ -25,7 +25,7 @@ brew_install() {
     brew install pstree
     brew install z
     brew install zsh-syntax-highlighting
-    brew install brew-cask
+    brew install imagemagick
 }
 
 brew_cask() {

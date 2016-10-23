@@ -24,7 +24,7 @@ config_link_files() {
         sed -i "s/plugins=(git.*)/plugins=(zsh-autosuggestions zsh-syntax-highlighting git brew z nmap ruby rails)/g" ~/.zshrc
     fi
     add_plugins_config
-    ln -s $HOME/dotfiles/ruby/gemrc ~/
+    ln -s $HOME/dotfiles/ruby/.gemrc ~/
     ln -s $HOME/dotfiles/.gitconfig ~/
     ln -s $HOME/dotfiles/tmux/.tmux.conf ~/
 }
@@ -39,6 +39,8 @@ add_plugins_config() {
             echo "#}" >> $oh_my_zsh/custom/f.zsh
         fi
 }
+
+############################################################################################################### Main
 
 oh_my_zsh
 if [ -d $HOME/.oh-my-zsh ]; then

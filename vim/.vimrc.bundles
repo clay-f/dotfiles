@@ -103,12 +103,12 @@
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
             Bundle 'altercation/vim-colors-solarized'
-            Bundle 'spf13/vim-colors'
             Plugin 'L9'
             Bundle 'scrooloose/syntastic'
             Bundle 'tpope/vim-fugitive'
             Bundle "itchyny/lightline.vim"
             Bundle 'kshenoy/vim-signature'
+            Bundle 'sickill/vim-monokai'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -253,9 +253,6 @@
             Bundle "ecomba/vim-ruby-refactoring"
             Bundle "keith/rspec.vim"
             Bundle "tpope/vim-endwise.git"
-            let g:rubycomplete_buffer_loading = 1
-            "let g:rubycomplete_classes_in_global = 1
-            "let g:rubycomplete_rails = 1
         endif
     " }
 
