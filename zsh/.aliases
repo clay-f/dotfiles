@@ -79,7 +79,12 @@
 # interesting things {
 
     #play {
-        # Get week number 
+
+
+        #show top 10 number of command history
+        alias show_top10_history="history | awk '{ CMD[\$2]++; count++ } END { for(a in CMD) { print CMD[a] \" \" CMD[a]/count*100 \"% \" a }}' |grep -v './' |column -c3 -s \" \" -t | sort -nr | nl | head -n 10 "
+
+        # Get week number
         alias week='date +%V'
 
         alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
