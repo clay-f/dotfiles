@@ -7,7 +7,7 @@ msg() {
 
 debug() {
     if [[ "$ret" -eq 0 ]]; then
-        msg "error found on \"\${FUNCNAME[$i+1]}\" in ${BASH_LINENO[$i+1]}, sorry for that."
+        msg "error found on function \"${FUNCNAME[$i+1]}\" in ${BASH_LINENO[$i+1]}, sorry for that."
     fi
 }
 

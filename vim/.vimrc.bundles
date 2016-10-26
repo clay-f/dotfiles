@@ -102,6 +102,7 @@
     " General {
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
+            Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'altercation/vim-colors-solarized'
             Plugin 'L9'
             Bundle 'scrooloose/syntastic'
@@ -120,9 +121,7 @@
             Bundle 'powerline/fonts'
             Bundle 'bling/vim-bufferline'
             Bundle 'easymotion/vim-easymotion'
-            Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
-            Bundle 'mbbill/undotree'
             Bundle 'nathanaelkane/vim-indent-guides'
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
@@ -157,8 +156,8 @@
             Plugin 'unblevable/quick-scope'
             Plugin 'Valloric/MatchTagAlways'
             Bundle 'matchit.zip'
-            Bundle 'rhysd/conflict-marker.vim'
             Bundle 'jiangmiao/auto-pairs'
+            Bundle 'airblade/vim-gitgutter'
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
             endif
@@ -175,6 +174,7 @@
             Bundle 'scrooloose/nerdcommenter'
             Plugin 'bronson/vim-trailing-whitespace'
             Bundle 'tpope/vim-commentary'
+            Bundle 'junegunn/vim-easy-align'
         "}
 
     " Puppet {
@@ -222,6 +222,7 @@
             Bundle 'honza/vim-snippets'
         elseif count(g:spf13_bundle_groups, 'neocomplete')
             Bundle 'Shougo/neocomplete.vim.git'
+            Bundle 'scrooloose/snipmate-snippets'
             Bundle 'Shougo/neosnippet'
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'

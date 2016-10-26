@@ -465,6 +465,10 @@
 
 " Plugins {
 
+        "vim-easy-aligh {
+            nmap ga <Plug>(EasyAlign)
+        "}
+
         "Ultisnips {
             " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
             let g:UltiSnipsExpandTrigger="<tab>"
