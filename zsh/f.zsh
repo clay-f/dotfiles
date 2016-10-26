@@ -12,5 +12,5 @@ alias ovi='open -a MacVim '
 
 #sources configuration{
     source ${HOME}/.rvm/scripts/rvm
-    source ${HOME}/dotfiles/zsh/source-alias.zsh
+    source $HOME/dotfiles/zsh/.aliases
 #}
