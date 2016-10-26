@@ -583,6 +583,7 @@
  " vim-trailing-whitespace {
          map <leader><space> :FixWhitespace<cr>
  " }
+
     " TextObj Sentence {
         if count(g:spf13_bundle_groups, 'writing')
             augroup textobj_sentence

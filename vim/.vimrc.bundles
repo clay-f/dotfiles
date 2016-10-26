@@ -225,12 +225,11 @@
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'
         elseif count(g:spf13_bundle_groups, 'neocomplete')
-            Bundle 'Shougo/neocomplete.vim.git'
-            Bundle 'scrooloose/snipmate-snippets'
+            Bundle 'Shougo/neocomplete.vim'
             Bundle 'Shougo/neosnippet'
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'
-            Bundle 'garbas/vim-snipmate.git'
+            Plugin 'garbas/vim-snipmate'
             Plugin 'SirVer/ultisnips'
         endif
     " }
