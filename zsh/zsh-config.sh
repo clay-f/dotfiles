@@ -1,8 +1,7 @@
 #!/bin/bash
-#created by F on 2016-09-19
-#changed by F on 2016-10-16
 
 oh_my_zsh=$HOME/.oh-my-zsh
+name=`whoami`
 
 msg() {
     printf "%b\n" "$1" >&2
@@ -30,13 +29,13 @@ config_link_files() {
 }
 
 add_plugins_config() {
-        if [ ! -e $HOME/dotfiles/custom/f.zsh ]; then
-            echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/f.zsh
-            echo "alias vi=vim" >> $oh_my_zsh/custom/f.zsh
-            echo "#sources configuration{" >> $oh_my_zsh/custom/f.zsh
-            echo -e "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/f.zsh
-            echo -e "\tsource $HOME/dotfiles/zsh/source-alias.zsh" >> $oh_my_zsh/custom/f.zsh
-            echo "#}" >> $oh_my_zsh/custom/f.zsh
+        if [ ! -e $HOME/dotfiles/custom/$name.zsh ]; then
+            echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/$name.zsh
+            echo "alias vi=vim" >> $oh_my_zsh/custom/$name.zsh
+            echo "#sources configuration{" >> $oh_my_zsh/custom/$name.zsh
+            echo -e "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/$name.zsh
+            echo -e "\tsource $HOME/dotfiles/zsh/.aliases" >> $oh_my_zsh/custom/$name.zsh
+            echo "#}" >> $oh_my_zsh/custom/$name.zsh
         fi
 }
 
