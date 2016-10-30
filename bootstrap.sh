@@ -85,9 +85,12 @@ do_backup() {
 
 main() {
     matchPlatform
+    msg "\n\nbackup now start ...\n\n"
     do_backup "$HOME/dotfiles" \
               "$HOME/.zshrc"   \
               "$HOME/.bashrc"
+
+    msg "\n\nsync_repo now start ...\n\n"
     sync_repo "$HOME/dotfiles" \
               "$REPO_URI" \
               "master"
