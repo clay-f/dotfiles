@@ -84,6 +84,7 @@ do_backup() {
 }
 
 main() {
+    msg "matchPlatform start ...\n\n"
     matchPlatform
     msg "\n\nbackup now start ...\n\n"
     do_backup "$HOME/dotfiles" \
@@ -100,4 +101,5 @@ main() {
 }
 
 
+msg "hello world\n\n"
 main
