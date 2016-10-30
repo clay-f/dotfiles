@@ -465,15 +465,17 @@
 
 " Plugins {
 
+
         "vim-easy-aligh {
             nmap ga <Plug>(EasyAlign)
         "}
 
         "Ultisnips {
-            " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-            let g:UltiSnipsExpandTrigger="<tab>"
-            let g:UltiSnipsJumpForwardTrigger="<c-b>"
-            let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+            "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+            "let g:UltiSnipsExpandTrigger="<tab>"
+            "let g:UltiSnipsJumpForwardTrigger="<c-b>"
+            "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+            "let g:UltiSnipsEditSplit="vertical"
         "}
 
         " quick-scope{
@@ -1111,11 +1113,9 @@
     "}
 
 
-    " UndoTree {
-        if isdirectory(expand("~/.vim/bundle/undotree/"))
-            nnoremap <Leader>u :UndotreeToggle<CR>
-            " If undotree is opened, it is likely one wants to interact with it.
-            let g:undotree_SetFocusWhenToggle=1
+    " GundoTree {
+        if isdirectory(expand("~/.vim/bundle/gundo.vim/"))
+            noremap <Leader>u :GundoToggle<CR>
         endif
     " }
 

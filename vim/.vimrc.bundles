@@ -107,8 +107,16 @@
             Bundle 'tpope/vim-fugitive'
             Bundle "itchyny/lightline.vim"
             Bundle 'kshenoy/vim-signature'
+            Plugin 'airblade/vim-gitgutter'
             Bundle 'sickill/vim-monokai'
             Bundle 'jeetsukumaran/vim-buffergator'
+            Plugin 'nathanaelkane/vim-indent-guides'
+            Bundle 'powerline/fonts'
+            Bundle 'bling/vim-bufferline'
+            Bundle 'flazz/vim-colorschemes'
+            Plugin 'L9'
+            Bundle 'scrooloose/syntastic'
+            Plugin 'gregsexton/matchtag'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -117,11 +125,6 @@
                 Bundle 'vim-airline/vim-airline'
                 Bundle 'vim-airline/vim-airline-themes'
             endif
-            Bundle 'powerline/fonts'
-            Bundle 'bling/vim-bufferline'
-            Bundle 'flazz/vim-colorschemes'
-            Plugin 'L9'
-            Bundle 'scrooloose/syntastic'
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
             endif
@@ -136,30 +139,29 @@
             Bundle 'reedes/vim-textobj-quote'
             Bundle 'reedes/vim-wordy'
             Bundle 'reedes/vim-litecorrect'
+            Plugin 'raimondi/delimitmate'
         endif
     " }
 
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
+
             Bundle 'tpope/vim-unimpaired'
             Bundle 'tpope/vim-abolish.git'
             Bundle 'osyo-manga/vim-over'
             Bundle 'easymotion/vim-easymotion'
             Bundle 'gcmt/wildfire.vim'
-            Bundle 'nathanaelkane/vim-indent-guides'
             Bundle 'mhinz/vim-signify'
             Bundle 'tacahiroy/ctrlp-funky'
             Bundle 'vim-scripts/sessionman.vim'
-            Bundle 'mattn/webapi-vim'
             Bundle 'mattn/gist-vim'
             Bundle 'luochen1990/rainbow'
             Plugin 'szw/vim-maximizer'
             Plugin 'vim-scripts/BufOnly.vim'
             Plugin 'unblevable/quick-scope'
-            Plugin 'Valloric/MatchTagAlways'
             Bundle 'matchit.zip'
             Bundle 'jiangmiao/auto-pairs'
-            Bundle 'airblade/vim-gitgutter'
+            Plugin 'sjl/gundo.vim'
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
             endif
@@ -189,6 +191,8 @@
 
     " Misc {
         if count(g:spf13_bundle_groups, 'misc')
+
+            Bundle 'mattn/webapi-vim'
             Bundle 'rust-lang/rust.vim'
             Bundle 'tpope/vim-cucumber'
             Plugin 'plasticboy/vim-markdown'
@@ -199,7 +203,7 @@
         endif
     " }
 
-    " Snippets & AutoComplete {
+" Snippets & AutoComplete {
         if count(g:spf13_bundle_groups, 'snipmate')
             Bundle 'garbas/vim-snipmate'
             Bundle 'honza/vim-snippets'
@@ -217,12 +221,11 @@
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'
         elseif count(g:spf13_bundle_groups, 'neocomplete')
-            Bundle 'Shougo/neocomplete.vim'
+            Bundle 'Shougo/neocomplete.vim.git'
             Bundle 'Shougo/neosnippet'
             Bundle 'Shougo/neosnippet-snippets'
-            Bundle 'honza/vim-snippets'
-            Plugin 'garbas/vim-snipmate'
-            Plugin 'SirVer/ultisnips'
+            Plugin 'honza/vim-snippets'
+            Plugin 'sirver/ultisnips'
         endif
     " }
 
