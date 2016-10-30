@@ -19,7 +19,7 @@ success() {
 
 debug() {
     if [ "$ret" -eq 1 ]; then
-        msg "An error occurred in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
+        msg "An error occurred in function ${FUNCNAME[1]}, ${BASH_LINENO[1]}, sorry for that. "
     fi
 }
 
@@ -58,7 +58,7 @@ sync_repo() {
 
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
-        git clone -b "$repo_uri" "$repo_path"
+        git clone "$repo_uri" "$repo_path"
         ret="$?"
         success "Successfully updated $repo_name"
     else
@@ -69,13 +69,14 @@ sync_repo() {
 }
 
 do_backup() {
-    if [ -e "$1" || [ -e "$2" ] || [ -e "$3" ] ]; then
+    if [  -e "$1" ] || [ -e "$2" ] || [ -e "$3" ] ; then
         msg "Attempting to back up your original dotfiles configration."
         today=`date +%Y%m%d_%s`
         for i in "$1" "$2" "$3"; do
-            [ -e "$i" ] && [ -L "$1" ] && mv -v "$i" "$i.$today"
+            [ -e "$i" ] && [ -L "$i" ] && mv -v "$i" "$i.$today"
         done
         ret="$?"
+        debug
         success "Your original vim configuration has been backed up."
 
     fi
@@ -83,14 +84,10 @@ do_backup() {
 
 main() {
     matchPlatform
-    msg "\n\nbackup now start ...\n\n"
-    do_backup "$HOME/dotfiles" \
-              "$HOME/.zshrc"   \
-              "$HOME/.bashrc"
+    do_backup "$HOME/dotfiles"  \
 
-    msg "\n\nsync_repo now start ...\n\n"
-    sync_repo "$HOME/dotfiles" \
-              "$REPO_URI" \
+    sync_repo "$HOME/dotfiles"  \
+              "$REPO_URI"        \
               "master"
     start
     msg "\nThanks for installing $app_name"
