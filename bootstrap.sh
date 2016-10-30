@@ -3,7 +3,7 @@ APP_PATH=${HOME}/dotfiles
 app_name='dotfiles'
 platform='unknown'
 unamestr=`uname`
-[ -z "$REPO_URI" ] && $REPO_URI='https://github.com/lyf-t/dotfiles.git'
+[ -z "$REPO_URI" ] && REPO_URI='https://github.com/lyf-t/dotfiles.git'
 count=0
 
 
@@ -85,7 +85,9 @@ do_backup() {
 
 main() {
     matchPlatform
-    do_backup "$HOME/dotfiles"
+    do_backup "$HOME/dotfiles" \
+              "$HOME/.zshrc"   \
+              "$HOME/.bashrc"
     sync_repo "$HOME/dotfiles" \
               "$REPO_URI" \
               "master"
