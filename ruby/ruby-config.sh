@@ -21,5 +21,3 @@ rvm_ruby()
 }
 
 rvm_ruby
-
-

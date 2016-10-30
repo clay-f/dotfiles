@@ -91,7 +91,7 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc','youcompleteme']
     endif
 
     " To override all the included bundles, add the following to your
@@ -108,20 +108,16 @@
                 Bundle 'tacahiroy/ctrlp-funky'
                 Bundle 'ctrlpvim/ctrlp.vim'
                 Bundle 'tpope/vim-fugitive'
-                Bundle 'jeetsukumaran/vim-buffergator'
-                Bundle 'mattn/gist-vim'
             endif
         " }
 
         " General Programming {
             if count(g:spf13_bundle_groups, 'programming')
                 Bundle 'easymotion/vim-easymotion'
-                Bundle 'mhinz/vim-signify'
-                Bundle 'vim-scripts/sessionman.vim'
-                Plugin 'unblevable/quick-scope'
                 Plugin 'sjl/gundo.vim'
-                Plugin 'szw/vim-maximizer'
                 Plugin 'vim-scripts/BufOnly.vim'
+                Plugin 'airblade/vim-gitgutter'
+                Plugin 'sessionman.vim'
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
@@ -138,7 +134,6 @@
                 Bundle 'reedes/vim-wordy'
                 Bundle 'reedes/vim-litecorrect'
                 Plugin 'raimondi/delimitmate'
-                Bundle 'tpope/vim-unimpaired'
                 Bundle 'jiangmiao/auto-pairs'
             endif
         " }
@@ -161,13 +156,11 @@
         " }
 
             Plugin 'gregsexton/matchtag'
-            Bundle 'matchit.zip'
-            Bundle 'bling/vim-bufferline'
-            Bundle "itchyny/lightline.vim"
             Plugin 'nathanaelkane/vim-indent-guides'
             Bundle 'luochen1990/rainbow'
+            Plugin 'mhinz/vim-signify'
             Bundle 'kshenoy/vim-signature'
-            Plugin 'airblade/vim-gitgutter'
+            Plugin 'itchyny/lightline.vim'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -186,7 +179,6 @@
         "files-edit {
             Plugin 'bronson/vim-trailing-whitespace'
             Bundle 'godlygeek/tabular'
-            Bundle 'terryma/vim-multiple-cursors'
             Bundle 'tpope/vim-surround'
             Bundle 'tpope/vim-repeat'
             Bundle 'scrooloose/nerdcommenter'
@@ -217,9 +209,6 @@
                 Bundle 'Shougo/neosnippet-snippets'
                 Bundle 'honza/vim-snippets'
             elseif count(g:spf13_bundle_groups, 'neocomplete')
-                Bundle 'Shougo/neocomplete.vim.git'
-                Bundle 'Shougo/neosnippet'
-                Bundle 'Shougo/neosnippet-snippets'
                 Plugin 'honza/vim-snippets'
                 Plugin 'sirver/ultisnips'
             endif
@@ -247,17 +236,13 @@
                 Bundle 'tpope/vim-rails'
                 Bundle 'vim-ruby/vim-ruby'
                 Plugin 'slim-template/vim-slim.git'
-                Bundle 'joonty/vdebug'
-                Bundle "ecomba/vim-ruby-refactoring"
                 Bundle "keith/rspec.vim"
                 Bundle "tpope/vim-endwise.git"
-                Bundle 'skalnik/vim-vroom'
             endif
         " }
 
         " Javascript {
             if count(g:spf13_bundle_groups, 'javascript')
-                Bundle 'elzr/vim-json'
                 Bundle 'pangloss/vim-javascript'
                 Bundle 'kchmck/vim-coffee-script'
             endif
@@ -270,11 +255,7 @@
         " Misc {
             if count(g:spf13_bundle_groups, 'misc')
                 Plugin 'L9'
-                Bundle 'mattn/webapi-vim'
-                Bundle 'rust-lang/rust.vim'
-                Bundle 'tpope/vim-cucumber'
                 Bundle 'cespare/vim-toml'
-                Bundle 'quentindecock/vim-cucumber-align-pipes'
             endif
         " }
 
