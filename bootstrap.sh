@@ -26,11 +26,9 @@ debug() {
 matchPlatform() {
     if [[ $unamestr == 'Linux' ]]; then
        platform='linux'
-        start
     elif [[ $unamestr == 'Darwin' ]]; then
         platform='Darwin'
         count=1
-        start
     fi
 }
 
@@ -84,7 +82,6 @@ do_backup() {
 }
 
 main() {
-    msg "matchPlatform start ...\n\n"
     matchPlatform
     msg "\n\nbackup now start ...\n\n"
     do_backup "$HOME/dotfiles" \
@@ -101,5 +98,4 @@ main() {
 }
 
 
-msg "hello world\n\n"
 main
