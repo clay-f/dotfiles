@@ -177,7 +177,6 @@
     "Completion {
 
         "files-edit {
-            Plugin 'bronson/vim-trailing-whitespace'
             Bundle 'godlygeek/tabular'
             Bundle 'tpope/vim-surround'
             Bundle 'tpope/vim-repeat'
@@ -189,6 +188,8 @@
             Plugin 'alvan/vim-closetag'
             Bundle 'tpope/vim-abolish.git'
             Bundle 'gcmt/wildfire.vim'
+            Plugin 'terryma/vim-multiple-cursors'
+            Plugin 'ntpeters/vim-better-whitespace'
         "}
 
     " Snippets & AutoComplete {
@@ -237,6 +238,7 @@
                 Bundle 'vim-ruby/vim-ruby'
                 Plugin 'slim-template/vim-slim.git'
                 Bundle "keith/rspec.vim"
+                Plugin 'elzr/vim-json'
                 Bundle "tpope/vim-endwise.git"
             endif
         " }

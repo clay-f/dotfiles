@@ -576,7 +576,8 @@
     "}
 
      " vim-trailing-whitespace {
-             map <leader><space> :FixWhitespace<cr>
+             "map <leader><space> :FixWhitespace<cr>
+             map <leader><space> :StripWhitespace<cr>
      " }
 
     " TextObj Sentence {
