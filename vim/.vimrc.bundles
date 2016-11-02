@@ -178,7 +178,6 @@
             Bundle 'tpope/vim-repeat'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'tpope/vim-commentary'
-            Bundle 'junegunn/vim-easy-align'
             Bundle 'danro/rename.vim'
             Plugin 'alvan/vim-closetag'
             Bundle 'tpope/vim-abolish.git'
