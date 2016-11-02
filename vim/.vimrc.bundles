@@ -115,9 +115,10 @@
             if count(g:spf13_bundle_groups, 'programming')
                 Bundle 'easymotion/vim-easymotion'
                 Plugin 'sjl/gundo.vim'
-                Plugin 'vim-scripts/BufOnly.vim'
-                Plugin 'airblade/vim-gitgutter'
                 Plugin 'sessionman.vim'
+                Plugin 'gregsexton/matchtag'
+                Plugin 'nathanaelkane/vim-indent-guides'
+                Bundle 'luochen1990/rainbow'
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
@@ -142,12 +143,6 @@
 
     " Interface {
 
-
-        " Syntax {
-            Bundle 'scrooloose/syntastic'
-            Plugin 'plasticboy/vim-markdown'
-        " }
-
         " Themes {
 
             Bundle 'altercation/vim-colors-solarized'
@@ -155,12 +150,8 @@
             Bundle 'flazz/vim-colorschemes'
         " }
 
-            Plugin 'gregsexton/matchtag'
-            Plugin 'nathanaelkane/vim-indent-guides'
-            Bundle 'luochen1990/rainbow'
-            Plugin 'mhinz/vim-signify'
+            Plugin 'airblade/vim-gitgutter'
             Bundle 'kshenoy/vim-signature'
-            Plugin 'itchyny/lightline.vim'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -176,6 +167,11 @@
 
     "Completion {
 
+        " Syntax {
+            Bundle 'scrooloose/syntastic'
+            Plugin 'plasticboy/vim-markdown'
+        " }
+
         "files-edit {
             Bundle 'godlygeek/tabular'
             Bundle 'tpope/vim-surround'
@@ -183,7 +179,6 @@
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'tpope/vim-commentary'
             Bundle 'junegunn/vim-easy-align'
-            Bundle 'pbrisbin/vim-mkdir'
             Bundle 'danro/rename.vim'
             Plugin 'alvan/vim-closetag'
             Bundle 'tpope/vim-abolish.git'
@@ -223,10 +218,8 @@
             if count(g:spf13_bundle_groups, 'html')
                 Plugin 'othree/html5.vim'
                 Plugin 'skwp/vim-html-escape'
-                Plugin 'tpope/vim-haml'
                 Bundle 'mattn/emmet-vim'
                 Bundle 'hail2u/vim-css3-syntax'
-                Plugin 'JulesWang/css.vim'
                 Plugin 'cakebaker/scss-syntax.vim'
                 Bundle 'skammer/vim-css-color'
             endif
@@ -237,14 +230,13 @@
                 Bundle 'tpope/vim-rails'
                 Bundle 'vim-ruby/vim-ruby'
                 Plugin 'slim-template/vim-slim.git'
-                Bundle "keith/rspec.vim"
-                Plugin 'elzr/vim-json'
                 Bundle "tpope/vim-endwise.git"
             endif
         " }
 
         " Javascript {
             if count(g:spf13_bundle_groups, 'javascript')
+                Plugin 'elzr/vim-json'
                 Bundle 'pangloss/vim-javascript'
                 Bundle 'kchmck/vim-coffee-script'
             endif
@@ -257,16 +249,11 @@
         " Misc {
             if count(g:spf13_bundle_groups, 'misc')
                 Plugin 'L9'
+            endif
+        " }
                 Bundle 'cespare/vim-toml'
-            endif
-        " }
-
-        " Puppet {
-            if count(g:spf13_bundle_groups, 'puppet')
-                Bundle 'rodjek/vim-puppet'
-            endif
-        " }
-
+                Plugin 'tpope/vim-haml'
+                Plugin 'tpope/vim-obsession'
 
     "}
 
