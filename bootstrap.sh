@@ -84,7 +84,7 @@ do_backup() {
 
 main() {
     matchPlatform
-    do_backup "$HOME/dotfiles"  \
+    do_backup "$HOME/dotfiles"
 
     sync_repo "$HOME/dotfiles"  \
               "$REPO_URI"        \
