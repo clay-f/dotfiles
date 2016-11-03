@@ -183,6 +183,7 @@
             Bundle 'gcmt/wildfire.vim'
             Plugin 'terryma/vim-multiple-cursors'
             Plugin 'ntpeters/vim-better-whitespace'
+            Plugin 'unblevable/quick-scope'
         "}
 
     " Snippets & AutoComplete {
@@ -220,7 +221,7 @@
                 Bundle 'hail2u/vim-css3-syntax'
                 Plugin 'cakebaker/scss-syntax.vim'
                 Bundle 'skammer/vim-css-color'
-                Plugin 'ypid/html-autoclosetag'
+                Bundle 'Townk/vim-autoclose'
             endif
         " }
 
