@@ -140,7 +140,8 @@
                 Bundle 'reedes/vim-wordy'
                 Bundle 'reedes/vim-litecorrect'
                 Bundle 'jiangmiao/auto-pairs'
-                Plugin 'alvan/vim-closetag'
+                Plugin 'raimondi/delimitmate'
+                Plugin 'amirh/html-autoclosetag'
             endif
         " }
 
@@ -182,7 +183,6 @@
             Bundle 'tpope/vim-surround'
             Bundle 'tpope/vim-repeat'
             Bundle 'scrooloose/nerdcommenter'
-            Bundle 'tpope/vim-commentary'
             Bundle 'danro/rename.vim'
             Bundle 'tpope/vim-abolish.git'
             Bundle 'gcmt/wildfire.vim'
