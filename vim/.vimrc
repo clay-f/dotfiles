@@ -465,8 +465,15 @@
 
 " Plugins {
 
+
+
+        "vim-closetag {
+            " # filenames like *.xml, *.html, *.xhtml, ...
+            let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
+        "}
+
         "quick-scope {
-        "
+
             " Trigger a highlight in the appropriate direction when pressing these keys:
             let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
