@@ -465,8 +465,18 @@
 
 " Plugins {
 
+        "quick-scope {
+        "
+            " Trigger a highlight in the appropriate direction when pressing these keys:
+            let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+            " Trigger a highlight only when pressing f and F.
+            let g:qs_highlight_on_keys = ['f', 'F']
+
+        "}
 
         "esay-motion {
+
             " <Leader>f{char} to move to {char}
             map  <Leader>f <Plug>(easymotion-bd-f)
             nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -481,6 +491,7 @@
             " Move to word
             map  <Leader>w <Plug>(easymotion-bd-w)
             nmap <Leader>w <Plug>(easymotion-overwin-w)
+
         "}
 
     "wrapping {
