@@ -179,7 +179,6 @@
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'tpope/vim-commentary'
             Bundle 'danro/rename.vim'
-            Plugin 'alvan/vim-closetag'
             Bundle 'tpope/vim-abolish.git'
             Bundle 'gcmt/wildfire.vim'
             Plugin 'terryma/vim-multiple-cursors'
@@ -221,6 +220,7 @@
                 Bundle 'hail2u/vim-css3-syntax'
                 Plugin 'cakebaker/scss-syntax.vim'
                 Bundle 'skammer/vim-css-color'
+                Plugin 'ypid/html-autoclosetag'
             endif
         " }
 
@@ -253,7 +253,7 @@
                 Bundle 'cespare/vim-toml'
                 Plugin 'tpope/vim-haml'
                 Plugin 'tpope/vim-obsession'
-
+                Bundle 'mattn/webapi-vim'
     "}
 
     endif
