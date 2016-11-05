@@ -2,6 +2,15 @@
 
 # basic configration : {{{
 
+    # use open command open file way{
+        alias -s rb=vi
+        alias -s erb=vi
+        alias -s sh=vi
+        alias -s js=vi
+        alias -s java=vi
+        alias -s txt=vi
+    # }
+
     # ..,...,....,....., ~ and - {
         alias ..="cd .."
         alias ...="cd ../.."
