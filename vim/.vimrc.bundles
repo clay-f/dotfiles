@@ -108,6 +108,12 @@
                 Bundle 'tacahiroy/ctrlp-funky'
                 Bundle 'ctrlpvim/ctrlp.vim'
                 Bundle 'tpope/vim-fugitive'
+                Bundle 'vim-scripts/BufOnly.vim'
+                Plugin 'nathanaelkane/vim-indent-guides'
+                Plugin 'gregsexton/matchtag'
+            endif
+            if !exists('g:spf13_no_views')
+                Bundle 'vim-scripts/restore_view.vim'
             endif
         " }
 
@@ -116,17 +122,11 @@
                 Bundle 'easymotion/vim-easymotion'
                 Plugin 'sjl/gundo.vim'
                 Plugin 'sessionman.vim'
-                Plugin 'gregsexton/matchtag'
-                Plugin 'nathanaelkane/vim-indent-guides'
                 Bundle 'luochen1990/rainbow'
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
 
-            endif
-
-            if !exists('g:spf13_no_views')
-                Bundle 'vim-scripts/restore_view.vim'
             endif
     " }
 
