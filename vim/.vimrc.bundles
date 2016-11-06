@@ -179,7 +179,7 @@
         " }
 
         "files-edit {
-            Bundle 'godlygeek/tabular'
+            Bundle 'junegunn/vim-easy-align'
             Bundle 'tpope/vim-surround'
             Bundle 'tpope/vim-repeat'
             Bundle 'scrooloose/nerdcommenter'
