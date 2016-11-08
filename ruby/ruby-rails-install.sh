@@ -15,12 +15,22 @@ debug() {
 
 ruby_rails_install() {
     if [[ ! -d $HOME/.rvm ]]; then
-        echo "hello"
-        #curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
-        #curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+        curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+        curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
     fi
+
+    elasticsearch_install
+
     ret="$?"
     debug
+}
+
+elasticsearch_install() {
+    wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
+    echo "deb http://packages.elasticsearch.org/elasticsearch/1.1/debian stable main" >> /etc/apt/sources.list
+    sudo apt-get update && sudo apt-get install elasticsearch
+    update-rc.d elasticsearch defaults 95 10
+    /etc/init.d/elasticsearch start
 }
 
 ruby_rails_install
