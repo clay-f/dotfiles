@@ -22,7 +22,7 @@ apt_install() {
 nesessary() {
     bash $position/zsh/zsh-config.sh
     bash $position/vim/bootstrap.sh
-    bash $position/ruby/ruby-config.sh
+    bash $position/ruby/ruby-rails-install.sh
     return
 }
 

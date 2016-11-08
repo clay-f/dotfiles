@@ -27,7 +27,7 @@ zsh() {
 }
 
 ruby() {
-    bash $position/ruby/ruby-config.sh
+    bash $position/ruby/ruby-rails-install.sh
     ret="$?"
     debug
 }
