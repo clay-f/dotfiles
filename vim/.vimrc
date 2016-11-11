@@ -182,7 +182,7 @@
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-        color molokai             " Load a colorscheme
+        color solarized             " Load a colorscheme
         set background=dark
     endif
 
