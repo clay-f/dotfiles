@@ -167,6 +167,7 @@
             Plugin 'airblade/vim-gitgutter'
             Bundle 'kshenoy/vim-signature'
             Bundle 'skammer/vim-css-color'
+            Plugin 'gorodinskiy/vim-coloresque'
     " }
 
     "Completion {
