@@ -1,4 +1,4 @@
-this is fast configration for RoR, zsh, Vim, etc.
+this is fast configration for ruby, zsh, Vim, etc.
 
 ### How does install ?
 ```shell
