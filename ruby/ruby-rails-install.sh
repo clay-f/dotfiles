@@ -19,8 +19,6 @@ ruby_rails_install() {
         curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
     fi
 
-    elasticsearch_install
-
     ret="$?"
     debug
 }
