@@ -107,10 +107,7 @@
                 Bundle 'jistr/vim-nerdtree-tabs'
                 Bundle 'tacahiroy/ctrlp-funky'
                 Bundle 'ctrlpvim/ctrlp.vim'
-                Bundle 'tpope/vim-fugitive'
                 Bundle 'vim-scripts/BufOnly.vim'
-                Plugin 'nathanaelkane/vim-indent-guides'
-                Plugin 'gregsexton/matchtag'
             endif
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
@@ -119,10 +116,9 @@
 
         " General Programming {
             if count(g:spf13_bundle_groups, 'programming')
+                Bundle 'tpope/vim-fugitive'
                 Bundle 'easymotion/vim-easymotion'
-                Plugin 'sjl/gundo.vim'
                 Plugin 'sessionman.vim'
-                Bundle 'luochen1990/rainbow'
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
@@ -165,11 +161,20 @@
             endif
         " }
 
+        " code display {
+
+            Plugin 'sjl/gundo.vim'
+            Plugin 'nathanaelkane/vim-indent-guides'
+            Bundle 'luochen1990/rainbow'
             Plugin 'airblade/vim-gitgutter'
+            Plugin 'gregsexton/matchtag'
             Plugin 'gorodinskiy/vim-coloresque'
+
+        " }
+
     " }
 
-    "Completion {
+    " Completion {
 
         " Syntax {
             Bundle 'scrooloose/syntastic'
@@ -215,7 +220,7 @@
 
     "}
 
-    "Langeuage {
+    " Langeuage {
 
         " HTML/CSS {
             if count(g:spf13_bundle_groups, 'html')
@@ -244,7 +249,7 @@
 
     "}
 
-    "Other {
+    " Other {
         " Misc {
             if count(g:spf13_bundle_groups, 'misc')
                 Plugin 'L9'
