@@ -161,6 +161,8 @@
             endif
         " }
 
+        Plugin 'itchyny/lightline.vim'
+
         " code display {
 
             Plugin 'sjl/gundo.vim'
@@ -188,7 +190,7 @@
             Bundle 'tpope/vim-repeat'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'danro/rename.vim'
-            Bundle 'tpope/vim-abolish.git'
+            Plugin 'tpope/vim-abolish'
             Bundle 'gcmt/wildfire.vim'
             Plugin 'terryma/vim-multiple-cursors'
             Plugin 'ntpeters/vim-better-whitespace'
