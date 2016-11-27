@@ -161,8 +161,6 @@
             endif
         " }
 
-        Plugin 'itchyny/lightline.vim'
-
         " code display {
 
             Plugin 'sjl/gundo.vim'
