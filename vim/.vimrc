@@ -465,8 +465,6 @@
 
 " Plugins {
 
-
-
         "EasyAlign{
 
             " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -607,6 +605,12 @@
         if gitroot != ''
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
+    " }
+
+    " AutoCloseTag {
+        " Make it so AutoCloseTag works for xml and xhtml files as well
+        au FileType xhtml,xml,html,haml ru ftplugin/html/autoclosetag.vim
+        nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
     " SnipMate {
@@ -779,6 +783,11 @@
             " especially when splits are used.
             set completeopt-=preview
         endif
+    " }
+
+    " JSON {
+        nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+        let g:vim_json_syntax_conceal = 0
     " }
 
     " FIXME: Isn't this for Syntastic to handle?
