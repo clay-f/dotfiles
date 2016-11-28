@@ -13,7 +13,6 @@ brew_install() {
     brew install automake
     brew install openssl
     brew install cmake
-    brew install xz
 
     # utility tools
     brew install vim --override-system-vi
@@ -28,19 +27,13 @@ brew_install() {
     brew install zsh
     brew install tmux
     brew install sbcl
-
-    brew install imagemagick
-    brew install elasticsearch
 }
 
 brew_cask() {
     brew tap phinze/homebrew-cask && brew install brew-cask
-    brew cask install alfred
     brew cask install google-chrome
     brew cask install iterm2
     brew cask install macvim
-    brew cask install dropbox
-
 
     brew cask cleanup
     brew cleanup
