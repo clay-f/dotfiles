@@ -6,7 +6,6 @@ uninstall_dotfiles() {
 }
 
 uninstall_vim() {
-
     rm $HOME/.vimrc
     rm $HOME/.vimrc.bundles
     rm -rf $HOME/.vim
