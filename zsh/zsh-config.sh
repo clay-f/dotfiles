@@ -21,10 +21,6 @@ oh_my_zsh() {
 plugins_install() {
     if [ -d $oh_my_zsh/plugins ]; then
 
-        if [ ! -e $oh_my_zsh/plugins/zsh-autosuggestions ]; then
-            git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
-        fi
-
         if [ ! -e $oh_my_zsh/custom/plugins/zsh-syntax-highlighting ]; then
             git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
         fi
@@ -44,7 +40,6 @@ config_link_files() {
 
 add_plugins_config() {
         if [ ! -e $HOME/dotfiles/custom/$name.zsh ]; then
-            echo "bindkey '^ ' autosuggest-accept" >> $HOME/.oh-my-zsh/custom/$name.zsh
             echo "alias vi=vim" >> $oh_my_zsh/custom/$name.zsh
             echo "#sources configuration{" >> $oh_my_zsh/custom/$name.zsh
             echo -e "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/$name.zsh
@@ -53,9 +48,10 @@ add_plugins_config() {
         fi
 }
 
-############################################################################################################## Main
 
+############################################################################################################## Main
 oh_my_zsh
 
 add_plugins_config
+
 config_link_files
