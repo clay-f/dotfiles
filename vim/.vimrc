@@ -461,6 +461,44 @@
     " fullscreen mode for GVIM and Terminal, need 'wmctrl' in you PATH
     map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 
+
+    " Nomal model mappings {
+
+        " Useful mappings for managing tabs:
+        map <leader>tn :tabnew<cr>
+        map <leader>to :tabonly<cr>
+        map <leader>tc :tabclose<cr>
+        map <leader>tm :tabmove
+
+        " Opens a new tab with the current buffer's path
+        " Super useful when editing files in the same directory
+        map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+        " Switch CWD to the directory of the open buffer:
+        map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+        "Fast saving of a buffer (<leader>w):
+        nmap <leader>w :w!<cr>
+    "}
+
+    " Insert mode mappings {
+
+        "Insert the current date and time (useful for timestamps):
+        iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
+
+    " }
+
+    " Visual mode mappings {
+
+        "Surround the visual selection in parenthesis/brackets/etc.:
+        vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+        vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+        vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+        vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+        vnoremap $q <esc>`>a'<esc>`<i'<esc>
+        vnoremap $e <esc>`>a"<esc>`<i"<esc>
+
+    " }
 " }
 
 " Plugins {
