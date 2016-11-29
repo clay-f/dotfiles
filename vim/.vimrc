@@ -182,7 +182,7 @@
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
-        color molokai             " Load a colorscheme
+        color peaksea             " Load a colorscheme
         set background=dark
     endif
 
@@ -468,7 +468,7 @@
         map <leader>tn :tabnew<cr>
         map <leader>to :tabonly<cr>
         map <leader>tc :tabclose<cr>
-        map <leader>tm :tabmove
+        map <leader>tm :tabmove 
 
         " Opens a new tab with the current buffer's path
         " Super useful when editing files in the same directory
@@ -510,16 +510,6 @@
 
             " Start interactive EasyAlign for a motion/text object (e.g. gaip)
             nmap ga <Plug>(EasyAlign)
-
-        "}
-
-        "quick-scope {
-
-            " Trigger a highlight in the appropriate direction when pressing these keys:
-            let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-            " Trigger a highlight only when pressing f and F.
-            let g:qs_highlight_on_keys = ['f', 'F']
 
         "}
 
@@ -835,12 +825,6 @@
     if !executable("ghcmod")
         autocmd BufWritePost *.hs GhcModCheckAndLintAsync
     endif
-
-    " GundoTree {
-        if isdirectory(expand("~/.vim/bundle/gundo.vim/"))
-            noremap <Leader>u :GundoToggle<CR>
-        endif
-    " }
 
     " indent_guides {
         if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
