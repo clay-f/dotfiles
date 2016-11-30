@@ -543,7 +543,6 @@
         "}
 
         "esay-motion {
-
             " <Leader>f{char} to move to {char}
             map  <Leader>f <Plug>(easymotion-bd-f)
             nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -738,7 +737,7 @@
                 let g:ctrlp_extensions = ['funky']
 
                 "funky
-                nnoremap <Leader>fu :CtrlPFunky<Cr>
+                nnoremap <Leader>fk :CtrlPFunky<Cr>
             endif
         endif
     "}

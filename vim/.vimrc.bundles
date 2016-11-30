@@ -119,7 +119,6 @@
         " General Programming {
             if count(g:spf13_bundle_groups, 'programming')
                 Bundle 'tpope/vim-fugitive'
-                Bundle 'easymotion/vim-easymotion'
                 Plugin 'sessionman.vim'
                 Bundle "junegunn/goyo.vim"
                 if executable('ctags')
@@ -191,6 +190,7 @@
             Plugin 'terryma/vim-multiple-cursors'
             Plugin 'ntpeters/vim-better-whitespace'
             Plugin 'terryma/vim-expand-region'
+            Plugin 'easymotion/vim-easymotion'
         "}
 
     " Snippets & AutoComplete {
