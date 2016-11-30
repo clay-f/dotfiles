@@ -163,10 +163,8 @@
         " }
 
         " code display {
-            Plugin 'nginx.vim'
             Plugin 'nathanaelkane/vim-indent-guides'
             Bundle 'luochen1990/rainbow'
-            Plugin 'airblade/vim-gitgutter'
             Plugin 'gregsexton/matchtag'
         " }
 
