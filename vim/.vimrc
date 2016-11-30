@@ -468,7 +468,7 @@
         map <leader>tn :tabnew<cr>
         map <leader>to :tabonly<cr>
         map <leader>tc :tabclose<cr>
-        map <leader>tm :tabmove 
+        map <leader>tm :tabmove
 
         " Opens a new tab with the current buffer's path
         " Super useful when editing files in the same directory
@@ -479,6 +479,16 @@
 
         "Fast saving of a buffer (<leader>w):
         nmap <leader>w :w!<cr>
+
+        " Remove the Windows ^M - when the encodings gets messed up:
+        noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+        "Quickly open a buffer for scripbble:
+        map <leader>q :e ~/buffer<cr>
+
+        " Disable highlight when <leader><cr> is pressed:
+        map <silent> <leader>nh :noh<cr>
+
     "}
 
     " Insert mode mappings {
@@ -499,9 +509,28 @@
         vnoremap $e <esc>`>a"<esc>`<i"<esc>
 
     " }
+
+    "Command line mappings {
+        cnoremap <C-A>      <Home>
+        cnoremap <C-E>      <End>
+        cnoremap <C-P> <Up>
+        cnoremap <C-N> <Down>
+    "}
 " }
 
 " Plugins {
+
+        " BufExplorer{
+            map <leader>o :BufExplorer<cr>
+        " }
+
+        " MRU {
+            map <leader>a :MRU<CR>
+        " }
+
+        " Goyo {
+            map <leader>z :Goyo<cr>
+        " }
 
         "EasyAlign{
 
@@ -650,9 +679,8 @@
     " NerdTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
-            map <leader>e :NERDTreeFind<CR>
-            nmap <leader>nt :NERDTreeFind<CR>
-
+            map <leader>nb :NERDTreeFromBookmark
+            map <leader>nf :NERDTreeFind<cr>
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0

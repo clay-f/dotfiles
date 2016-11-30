@@ -108,6 +108,9 @@
                 Bundle 'tacahiroy/ctrlp-funky'
                 Bundle 'ctrlpvim/ctrlp.vim'
                 Bundle 'vim-scripts/BufOnly.vim'
+                Plugin 'jlanzarotta/bufexplorer'
+                Plugin 'mru.vim'
+                Plugin 'christoomey/vim-tmux-navigator'
             endif
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
@@ -119,6 +122,7 @@
                 Bundle 'tpope/vim-fugitive'
                 Bundle 'easymotion/vim-easymotion'
                 Plugin 'sessionman.vim'
+                Bundle "junegunn/goyo.vim"
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
@@ -141,7 +145,6 @@
             endif
         " }
 
-
     " }
 
     " Interface {
@@ -150,6 +153,7 @@
 
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'flazz/vim-colorschemes'
+            Plugin 'mayansmoke'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -161,6 +165,7 @@
         " }
 
         " code display {
+            Plugin 'nginx.vim'
             Plugin 'nathanaelkane/vim-indent-guides'
             Bundle 'luochen1990/rainbow'
             Plugin 'airblade/vim-gitgutter'
@@ -186,6 +191,7 @@
             Bundle 'gcmt/wildfire.vim'
             Plugin 'terryma/vim-multiple-cursors'
             Plugin 'ntpeters/vim-better-whitespace'
+            Plugin 'terryma/vim-expand-region'
         "}
 
     " Snippets & AutoComplete {
