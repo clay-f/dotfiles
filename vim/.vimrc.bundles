@@ -110,7 +110,6 @@
                 Bundle 'vim-scripts/BufOnly.vim'
                 Plugin 'jlanzarotta/bufexplorer'
                 Plugin 'mru.vim'
-                Plugin 'christoomey/vim-tmux-navigator'
             endif
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
