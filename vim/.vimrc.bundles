@@ -190,7 +190,6 @@
             Plugin 'terryma/vim-expand-region'
             Plugin 'easymotion/vim-easymotion'
             Plugin 'haya14busa/incsearch.vim'
-            Plugin 'rking/ag.vim'
         "}
 
     " Snippets & AutoComplete {
