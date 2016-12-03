@@ -15,7 +15,7 @@ debug() {
 
 brew() {
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    bash $position/Mac/brew.sh
+    bash $position/etc/brew.sh
     ret="$?"
     debug
 }

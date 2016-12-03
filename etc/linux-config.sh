@@ -11,7 +11,6 @@ apt_install() {
     sudo apt-get -y install pstree
     sudo apt-get -y install curl
     sudo apt-get -y install zsh
-    sudo apt-get -y install lua5.3
     sudo apt-get -y install ack-grep
     sudo apt-get -y install vim
         vim_require

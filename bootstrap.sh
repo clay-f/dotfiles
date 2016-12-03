@@ -34,12 +34,12 @@ matchPlatform() {
 
 start() {
     if [ $count -gt 0 ]; then
-        if [ -e $APP_PATH/Mac/mac-config.sh ]; then
-            bash $APP_PATH/Mac/mac-config.sh
+        if [ -e $APP_PATH/etc/mac-config.sh ]; then
+            bash $APP_PATH/etc/mac-config.sh
         fi
     else
-        if [ -e $APP_PATH/Linux/linux-config.sh ]; then
-            bash $APP_PATH/Linux/linux-config.sh
+        if [ -e $APP_PATH/etc/linux-config.sh ]; then
+            bash $APP_PATH/etc/linux-config.sh
         fi
     fi
     ret="$?"
