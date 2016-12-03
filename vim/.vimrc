@@ -519,6 +519,20 @@
 " }
 
 " Plugins {
+
+        "expandregion {
+            vmap v <Plug>(expand_region_expand)
+            vmap V <Plug>(expand_region_shrink)
+            " Extend the global default
+            call expand_region#custom_text_objects({
+              \ 'a]' :1,
+              \ 'ab' :1,
+              \ 'aB' :1,
+              \ 'ii' :0,
+              \ 'ai' :0,
+              \ })
+        " }
+
         " insearch {
             map /  <Plug>(incsearch-forward)
             map ?  <Plug>(incsearch-backward)
@@ -619,6 +633,8 @@
     "}
 
     "Syntastic{
+
+       "  dependence
         set statusline+=%#warningmsg#
         set statusline+=%{SyntasticStatuslineFlag()}
         set statusline+=%*
@@ -627,6 +643,15 @@
         let g:syntastic_auto_loc_list = 1
         let g:syntastic_check_on_open = 1
         let g:syntastic_check_on_wq = 0
+        let g:syntastic_error_symbol='>>'
+        let g:syntastic_warning_symbol='>'
+        let g:syntastic_enable_highlighting=1
+        let g:syntastic_enable_signs = 1
+        let g:syntastic_loc_list_height = 5
+
+        " forbit check java
+        let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java'] }
+
     "}
 
      " vim-trailing-whitespace {
@@ -676,10 +701,8 @@
         endif
     " }
 
-    " AutoCloseTag {
-        " Make it so AutoCloseTag works for xml and xhtml files as well
-        au FileType xhtml,xml,html,haml ru ftplugin/html/autoclosetag.vim
-        nmap <Leader>ac <Plug>ToggleAutoCloseMappings
+    " closetag {
+        let g:closetag_html_style=1
     " }
 
     " SnipMate {
@@ -764,6 +787,28 @@
     " Rainbow {
         if isdirectory(expand("~/.vim/bundle/rainbow/"))
             let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+            let g:rainbow_conf = {
+                \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+                \    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+                \    'operators': '_,_',
+                \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+                \    'separately': {
+                \        '*': {},
+                \        'tex': {
+                \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+                \        },
+                \        'lisp': {
+                \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+                \        },
+                \        'vim': {
+                \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+                \        },
+                \        'html': {
+                \            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+                \        },
+                \        'css': 0,
+                \    }
+            \}
         endif
     "}
 
@@ -875,12 +920,14 @@
     " }
 
     " Wildfire {
-    let g:wildfire_objects = {
-                \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
-                \ "html,xml" : ["at"],
-                \ }
+        let g:wildfire_objects = {
+                    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+                    \ "html,xml" : ["at"],
+                    \ }
+    " }
 
-
+    " gundo {
+        noremap <leader>u :GundoToggle<CR>
     " }
 
     " vim-airline {
@@ -891,17 +938,21 @@
         "   let g:airline_powerline_fonts=1
         " If the previous symbols do not render for you then install a
         " powerline enabled font.
+        if !exists('g:airline_symbols')
+                let g:airline_symbols = {}
+            endif
+            let g:airline_left_sep = '▶'
+            let g:airline_left_alt_sep = '❯'
+            let g:airline_right_sep = '◀'
+            let g:airline_right_alt_sep = '❮'
+            let g:airline_symbols.linenr = '¶'
+            let g:airline_symbols.branch = '⎇'
 
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
         if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
             if !exists('g:airline_theme')
                 let g:airline_theme = 'solarized'
-            endif
-            if !exists('g:airline_powerline_fonts')
-                " Use the default set of separators with a few customizations
-                let g:airline_left_sep='›'  " Slightly fancier than '>'
-                let g:airline_right_sep='‹' " Slightly fancier than '<'
             endif
         endif
     " }

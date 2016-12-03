@@ -120,7 +120,8 @@
             if count(g:spf13_bundle_groups, 'programming')
                 Bundle 'tpope/vim-fugitive'
                 Plugin 'sessionman.vim'
-                Bundle "junegunn/goyo.vim"
+                Plugin 'sjl/gundo.vim'
+                Plugin 'junegunn/goyo.vim'
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
@@ -138,7 +139,7 @@
                 Bundle 'reedes/vim-wordy'
                 Bundle 'reedes/vim-litecorrect'
                 Plugin 'raimondi/delimitmate'
-                Plugin 'HTML-AutoCloseTag'
+                Plugin 'docunext/closetag.vim'
                 Bundle 'jiangmiao/auto-pairs'
             endif
         " }
@@ -148,7 +149,6 @@
     " Interface {
 
         " Themes {
-
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'flazz/vim-colorschemes'
             Plugin 'mayansmoke'
