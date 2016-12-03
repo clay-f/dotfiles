@@ -692,7 +692,7 @@
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
             map <leader>nb :NERDTreeFromBookmark
-            map <leader>nf :NERDTreeFind<cr>
+            map <leader>nf :NERDTreeTabsFind<cr>
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0
