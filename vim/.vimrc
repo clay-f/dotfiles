@@ -520,19 +520,6 @@
 
 " Plugins {
 
-        "expandregion {
-            vmap v <Plug>(expand_region_expand)
-            vmap V <Plug>(expand_region_shrink)
-            " Extend the global default
-            call expand_region#custom_text_objects({
-              \ 'a]' :1,
-              \ 'ab' :1,
-              \ 'aB' :1,
-              \ 'ii' :0,
-              \ 'ai' :0,
-              \ })
-        " }
-
         " insearch {
             map /  <Plug>(incsearch-forward)
             map ?  <Plug>(incsearch-backward)

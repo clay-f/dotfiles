@@ -187,7 +187,6 @@
             Bundle 'gcmt/wildfire.vim'
             Plugin 'terryma/vim-multiple-cursors'
             Plugin 'ntpeters/vim-better-whitespace'
-            Plugin 'terryma/vim-expand-region'
             Plugin 'easymotion/vim-easymotion'
             Plugin 'haya14busa/incsearch.vim'
         "}
