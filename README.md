@@ -2,7 +2,7 @@ this is fast configration for ruby, zsh, Vim, etc.
 
 ### How does install ?
 ```shell
-    bash -c "$(wget https://raw.githubusercontent.com/lyf-t/dotfiles/master/bootstrap.sh -O -)"
+    bash -c "$(wget https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh -O -)"
 ```
 ### How does it conclude ?
 	* zsh
