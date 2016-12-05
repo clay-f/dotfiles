@@ -108,8 +108,6 @@
                 Bundle 'tacahiroy/ctrlp-funky'
                 Bundle 'ctrlpvim/ctrlp.vim'
                 Bundle 'vim-scripts/BufOnly.vim'
-                Plugin 'jlanzarotta/bufexplorer'
-                Plugin 'mru.vim'
             endif
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
@@ -121,7 +119,6 @@
                 Bundle 'tpope/vim-fugitive'
                 Plugin 'sessionman.vim'
                 Plugin 'sjl/gundo.vim'
-                Plugin 'junegunn/goyo.vim'
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
@@ -151,7 +148,6 @@
         " Themes {
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'flazz/vim-colorschemes'
-            Plugin 'mayansmoke'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -244,7 +240,6 @@
                 Bundle 'kchmck/vim-coffee-script'
             endif
         " }
-
 
     "}
 

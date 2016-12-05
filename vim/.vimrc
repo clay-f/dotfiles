@@ -520,59 +520,16 @@
 
 " Plugins {
 
-        " insearch {
-            map /  <Plug>(incsearch-forward)
-            map ?  <Plug>(incsearch-backward)
-            map g/ <Plug>(incsearch-stay)
-            " :h g:incsearch#auto_nohlsearch
-            let g:incsearch#auto_nohlsearch = 1
-            map n  <Plug>(incsearch-nohl-n)
-            map N  <Plug>(incsearch-nohl-N)
-            map *  <Plug>(incsearch-nohl-*)
-            map #  <Plug>(incsearch-nohl-#)
-            map g* <Plug>(incsearch-nohl-g*)
-            map g# <Plug>(incsearch-nohl-g#)
-            "}
 
-        " BufExplorer{
-            map <leader>o :BufExplorer<cr>
-        " }
+        " Integrations {
 
-        " MRU {
-            map <leader>a :MRU<CR>
-        " }
+            " BufExplorer{
+                map <leader>o :BufExplorer<cr>
+            " }
 
         " Goyo {
             map <leader>z :Goyo<cr>
         " }
-
-        "EasyAlign{
-
-            " Start interactive EasyAlign in visual mode (e.g. vipga)
-            xmap ga <Plug>(EasyAlign)
-
-            " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-            nmap ga <Plug>(EasyAlign)
-
-        "}
-
-        "esay-motion {
-            " <Leader>f{char} to move to {char}
-            map  <Leader>f <Plug>(easymotion-bd-f)
-            nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-            " s{char}{char} to move to {char}{char}
-            nmap s <Plug>(easymotion-overwin-f2)
-
-            " Move to line
-            map <Leader>L <Plug>(easymotion-bd-jk)
-            nmap <Leader>L <Plug>(easymotion-overwin-line)
-
-            " Move to word
-            map  <Leader>w <Plug>(easymotion-bd-w)
-            nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-        "}
 
     "wrapping {
         " http://vimcasts.org/episodes/soft-wrapping-text/
@@ -619,55 +576,6 @@
         nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
     "}
 
-    "Syntastic{
-
-       "  dependence
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        set statusline+=%*
-
-        let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_auto_loc_list = 1
-        let g:syntastic_check_on_open = 1
-        let g:syntastic_check_on_wq = 0
-        let g:syntastic_error_symbol='>>'
-        let g:syntastic_warning_symbol='>'
-        let g:syntastic_enable_highlighting=1
-        let g:syntastic_enable_signs = 1
-        let g:syntastic_loc_list_height = 5
-
-        " forbit check java
-        let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java'] }
-
-    "}
-
-     " vim-trailing-whitespace {
-             "map <leader><space> :FixWhitespace<cr>
-             map <leader><space> :StripWhitespace<cr>
-     " }
-
-    " TextObj Sentence {
-        if count(g:spf13_bundle_groups, 'writing')
-            augroup textobj_sentence
-              autocmd!
-              autocmd FileType markdown call textobj#sentence#init()
-              autocmd FileType textile call textobj#sentence#init()
-              autocmd FileType text call textobj#sentence#init()
-            augroup END
-        endif
-    " }
-
-    " TextObj Quote {
-        if count(g:spf13_bundle_groups, 'writing')
-            augroup textobj_quote
-                autocmd!
-                autocmd FileType markdown call textobj#quote#init()
-                autocmd FileType textile call textobj#quote#init()
-                autocmd FileType text call textobj#quote#init({'educate': 0})
-            augroup END
-        endif
-    " }
-
     " Misc {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             let g:NERDShutUp=1
@@ -686,16 +594,6 @@
         if gitroot != ''
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
-    " }
-
-    " closetag {
-        let g:closetag_html_style=1
-    " }
-
-    " SnipMate {
-        " Setting the author var
-        " If forking, please overwrite in your .vimrc.local file
-        let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
     " }
 
     " NerdTree {
@@ -771,34 +669,6 @@
         endif
     "}
 
-    " Rainbow {
-        if isdirectory(expand("~/.vim/bundle/rainbow/"))
-            let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-            let g:rainbow_conf = {
-                \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-                \    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-                \    'operators': '_,_',
-                \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-                \    'separately': {
-                \        '*': {},
-                \        'tex': {
-                \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-                \        },
-                \        'lisp': {
-                \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-                \        },
-                \        'vim': {
-                \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-                \        },
-                \        'html': {
-                \            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-                \        },
-                \        'css': 0,
-                \    }
-            \}
-        endif
-    "}
-
     " Fugitive {
         if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
             nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -816,27 +686,283 @@
         endif
     "}
 
-    " YouCompleteMe {
-        if count(g:spf13_bundle_groups, 'youcompleteme')
-            let g:acp_enableAtStartup = 0
+        " }
 
-            " enable completion from tags
-            let g:ycm_collect_identifiers_from_tags_files = 1
+        " Interface {
 
-            " remap Ultisnips for compatibility for YCM
-            let g:UltiSnipsExpandTrigger = '<C-j>'
-            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+            "Syntastic{
 
-            " Enable omni completion.
-            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+               "  dependence
+                set statusline+=%#warningmsg#
+                set statusline+=%{SyntasticStatuslineFlag()}
+                set statusline+=%*
 
+                let g:syntastic_always_populate_loc_list = 1
+                let g:syntastic_auto_loc_list = 1
+                let g:syntastic_check_on_open = 1
+                let g:syntastic_check_on_wq = 0
+                let g:syntastic_error_symbol='>>'
+                let g:syntastic_warning_symbol='>'
+                let g:syntastic_enable_highlighting=1
+                let g:syntastic_enable_signs = 1
+                let g:syntastic_loc_list_height = 5
+
+                " forbit check java
+                let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java'] }
+
+            "}
+
+            " vim-airline {
+                " Set configuration options for the statusline plugin vim-airline.
+                " Use the powerline theme and optionally enable powerline symbols.
+                " To use the symbols , , , , , , and .in the statusline
+                " segments add the following to your .vimrc.before.local file:
+                "   let g:airline_powerline_fonts=1
+                " If the previous symbols do not render for you then install a
+                " powerline enabled font.
+                if !exists('g:airline_symbols')
+                        let g:airline_symbols = {}
+                    endif
+                    let g:airline_left_sep = '▶'
+                    let g:airline_left_alt_sep = '❯'
+                    let g:airline_right_sep = '◀'
+                    let g:airline_right_alt_sep = '❮'
+                    let g:airline_symbols.linenr = '¶'
+                    let g:airline_symbols.branch = '⎇'
+
+                " See `:echo g:airline_theme_map` for some more choices
+                " Default in terminal vim is 'dark'
+                if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
+                    if !exists('g:airline_theme')
+                        let g:airline_theme = 'solarized'
+                    endif
+                endif
+            " }
+
+            " indent_guides {
+                if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
+                    let g:indent_guides_start_level = 2
+                    let g:indent_guides_guide_size = 1
+                    let g:indent_guides_enable_on_vim_startup = 1
+                endif
+            " }
+
+            " Rainbow {
+                if isdirectory(expand("~/.vim/bundle/rainbow/"))
+                    let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+                    let g:rainbow_conf = {
+                        \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+                        \    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+                        \    'operators': '_,_',
+                        \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+                        \    'separately': {
+                        \        '*': {},
+                        \        'tex': {
+                        \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+                        \        },
+                        \        'lisp': {
+                        \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+                        \        },
+                        \        'vim': {
+                        \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+                        \        },
+                        \        'html': {
+                        \            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+                        \        },
+                        \        'css': 0,
+                        \    }
+                    \}
+                endif
+    "}
+
+        " }
+
+        " Langs {
+
+            " JSON {
+                nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+                let g:vim_json_syntax_conceal = 0
+            " }
+
+            " vim-javascript {
+                let g:javascript_plugin_jsdoc = 1
+                let g:javascript_plugin_ngdoc = 1
+                let g:javascript_plugin_flow = 1
+            " }
+
+        " }
+
+        " Completion {
+
+                " insearch {
+                    map /  <Plug>(incsearch-forward)
+                    map ?  <Plug>(incsearch-backward)
+                    map g/ <Plug>(incsearch-stay)
+                    " :h g:incsearch#auto_nohlsearch
+                    let g:incsearch#auto_nohlsearch = 1
+                    map n  <Plug>(incsearch-nohl-n)
+                    map N  <Plug>(incsearch-nohl-N)
+                    map *  <Plug>(incsearch-nohl-*)
+                    map #  <Plug>(incsearch-nohl-#)
+                    map g* <Plug>(incsearch-nohl-g*)
+                    map g# <Plug>(incsearch-nohl-g#)
+                " }
+
+                " MRU {
+                    map <leader>a :MRU<CR>
+                " }
+
+                "EasyAlign{
+
+                    " Start interactive EasyAlign in visual mode (e.g. vipga)
+                    xmap ga <Plug>(EasyAlign)
+
+                    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+                    nmap ga <Plug>(EasyAlign)
+
+                "}
+
+                "esay-motion {
+                    " <Leader>f{char} to move to {char}
+                    map  <Leader>f <Plug>(easymotion-bd-f)
+                    nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+                    " s{char}{char} to move to {char}{char}
+                    nmap s <Plug>(easymotion-overwin-f2)
+
+                    " Move to line
+                    map <Leader>L <Plug>(easymotion-bd-jk)
+                    nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+                    " Move to word
+                    map  <Leader>w <Plug>(easymotion-bd-w)
+                    nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+                "}
+
+             " vim-trailing-whitespace {
+                     "map <leader><space> :FixWhitespace<cr>
+                     map <leader><space> :StripWhitespace<cr>
+             " }
+
+            " closetag {
+                let g:closetag_html_style=1
+            " }
+
+            " Wildfire {
+                let g:wildfire_objects = {
+                            \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+                            \ "html,xml" : ["at"],
+                            \ }
+
+            " gundo {
+                noremap <leader>u :GundoToggle<CR>
+            " }
+
+            " SnipMate {
+                " Setting the author var
+                " If forking, please overwrite in your .vimrc.local file
+                let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
+            " }
+
+            " YouCompleteMe {
+                if count(g:spf13_bundle_groups, 'youcompleteme')
+                    let g:acp_enableAtStartup = 0
+
+                    " enable completion from tags
+                    let g:ycm_collect_identifiers_from_tags_files = 1
+
+                    " remap Ultisnips for compatibility for YCM
+                    let g:UltiSnipsExpandTrigger = '<C-j>'
+                    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+                    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+                    " Enable omni completion.
+                    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+                    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+                    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+                    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+                    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+                    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+                    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+                    " Haskell post write lint and check with ghcmod
+                    " $ `cabal install ghcmod` if missing and ensure
+                    " ~/.cabal/bin is in your $PATH.
+                    if !executable("ghcmod")
+                        autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+                    endif
+
+                    " For snippet_complete marker.
+                    if !exists("g:spf13_no_conceal")
+                        if has('conceal')
+                            set conceallevel=2 concealcursor=i
+                        endif
+                    endif
+
+                    " Disable the neosnippet preview candidate window
+                    " When enabled, there can be too much visual noise
+                    " especially when splits are used.
+                    set completeopt-=preview
+                endif
+            " }
+
+            " Snippets {
+                if count(g:spf13_bundle_groups, 'neocomplcache') ||
+                            \ count(g:spf13_bundle_groups, 'neocomplete')
+
+                    " Use honza's snippets.
+                    let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+                    " Enable neosnippet snipmate compatibility mode
+                    let g:neosnippet#enable_snipmate_compatibility = 1
+
+                    " For snippet_complete marker.
+                    if !exists("g:spf13_no_conceal")
+                        if has('conceal')
+                            set conceallevel=2 concealcursor=i
+                        endif
+                    endif
+
+                    " Enable neosnippets when using go
+                    let g:go_snippet_engine = "neosnippet"
+
+                    " Disable the neosnippet preview candidate window
+                    " When enabled, there can be too much visual noise
+                    " especially when splits are used.
+                    set completeopt-=preview
+                endif
+    " }
+
+        " }
+
+        " Other {
+
+            " TextObj Sentence {
+                if count(g:spf13_bundle_groups, 'writing')
+                    augroup textobj_sentence
+                      autocmd!
+                      autocmd FileType markdown call textobj#sentence#init()
+                      autocmd FileType textile call textobj#sentence#init()
+                      autocmd FileType text call textobj#sentence#init()
+                    augroup END
+                endif
+            " }
+
+            " TextObj Quote {
+                if count(g:spf13_bundle_groups, 'writing')
+                    augroup textobj_quote
+                        autocmd!
+                        autocmd FileType markdown call textobj#quote#init()
+                        autocmd FileType textile call textobj#quote#init()
+                        autocmd FileType text call textobj#quote#init({'educate': 0})
+                    augroup END
+                endif
+            " }
+                " }
+
+
+            " FIXME: Isn't this for Syntastic to handle?
             " Haskell post write lint and check with ghcmod
             " $ `cabal install ghcmod` if missing and ensure
             " ~/.cabal/bin is in your $PATH.
@@ -844,105 +970,9 @@
                 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
             endif
 
-            " For snippet_complete marker.
-            if !exists("g:spf13_no_conceal")
-                if has('conceal')
-                    set conceallevel=2 concealcursor=i
-                endif
-            endif
-
-            " Disable the neosnippet preview candidate window
-            " When enabled, there can be too much visual noise
-            " especially when splits are used.
-            set completeopt-=preview
-        endif
     " }
 
-    " Snippets {
-        if count(g:spf13_bundle_groups, 'neocomplcache') ||
-                    \ count(g:spf13_bundle_groups, 'neocomplete')
 
-            " Use honza's snippets.
-            let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-            " Enable neosnippet snipmate compatibility mode
-            let g:neosnippet#enable_snipmate_compatibility = 1
-
-            " For snippet_complete marker.
-            if !exists("g:spf13_no_conceal")
-                if has('conceal')
-                    set conceallevel=2 concealcursor=i
-                endif
-            endif
-
-            " Enable neosnippets when using go
-            let g:go_snippet_engine = "neosnippet"
-
-            " Disable the neosnippet preview candidate window
-            " When enabled, there can be too much visual noise
-            " especially when splits are used.
-            set completeopt-=preview
-        endif
-    " }
-
-    " JSON {
-        nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
-        let g:vim_json_syntax_conceal = 0
-    " }
-
-    " FIXME: Isn't this for Syntastic to handle?
-    " Haskell post write lint and check with ghcmod
-    " $ `cabal install ghcmod` if missing and ensure
-    " ~/.cabal/bin is in your $PATH.
-    if !executable("ghcmod")
-        autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-    endif
-
-    " indent_guides {
-        if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
-            let g:indent_guides_start_level = 2
-            let g:indent_guides_guide_size = 1
-            let g:indent_guides_enable_on_vim_startup = 1
-        endif
-    " }
-
-    " Wildfire {
-        let g:wildfire_objects = {
-                    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
-                    \ "html,xml" : ["at"],
-                    \ }
-    " }
-
-    " gundo {
-        noremap <leader>u :GundoToggle<CR>
-    " }
-
-    " vim-airline {
-        " Set configuration options for the statusline plugin vim-airline.
-        " Use the powerline theme and optionally enable powerline symbols.
-        " To use the symbols , , , , , , and .in the statusline
-        " segments add the following to your .vimrc.before.local file:
-        "   let g:airline_powerline_fonts=1
-        " If the previous symbols do not render for you then install a
-        " powerline enabled font.
-        if !exists('g:airline_symbols')
-                let g:airline_symbols = {}
-            endif
-            let g:airline_left_sep = '▶'
-            let g:airline_left_alt_sep = '❯'
-            let g:airline_right_sep = '◀'
-            let g:airline_right_alt_sep = '❮'
-            let g:airline_symbols.linenr = '¶'
-            let g:airline_symbols.branch = '⎇'
-
-        " See `:echo g:airline_theme_map` for some more choices
-        " Default in terminal vim is 'dark'
-        if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
-            if !exists('g:airline_theme')
-                let g:airline_theme = 'solarized'
-            endif
-        endif
-    " }
 " }
 
 " GUI Settings {
