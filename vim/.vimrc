@@ -523,168 +523,160 @@
 
         " Integrations {
 
-            " BufExplorer{
-                map <leader>o :BufExplorer<cr>
-            " }
+                " NerdTree {
+                    if isdirectory(expand("~/.vim/bundle/nerdtree"))
+                        map <C-e> <plug>NERDTreeTabsToggle<CR>
+                        map <leader>nb :NERDTreeFromBookmark
+                        map <leader>nf :NERDTreeTabsFind<cr>
+                        let NERDTreeShowBookmarks=1
+                        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+                        let NERDTreeChDirMode=0
+                        let NERDTreeQuitOnOpen=1
+                        let NERDTreeMouseMode=2
+                        let NERDTreeShowHidden=1
+                        let NERDTreeKeepTreeInNewTab=1
+                        let g:nerdtree_tabs_open_on_gui_startup=0
+                    endif
+                " }
 
-        " Goyo {
-            map <leader>z :Goyo<cr>
-        " }
+                " Session List {
+                    set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
+                    if isdirectory(expand("~/.vim/bundle/sessionman.vim/"))
+                        nmap <leader>sl :SessionList<CR>
+                        nmap <leader>ss :SessionSave<CR>
+                        nmap <leader>sc :SessionClose<CR>
+                    endif
+                " }
 
-    "wrapping {
-        " http://vimcasts.org/episodes/soft-wrapping-text/
-        function! SetupWrapping()
-          set wrap linebreak nolist
-          set showbreak=…
-        endfunction
+                " ctrlp {
+                    if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
+                        let g:ctrlp_working_path_mode = 'ra'
+                        nnoremap <silent> <D-t> :CtrlP<CR>
+                        nnoremap <silent> <D-r> :CtrlPMRU<CR>
+                        let g:ctrlp_custom_ignore = {
+                            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+                            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-        " TODO: this should happen automatically for certain file types (e.g. markdown)
-        command! -nargs=* Wrap :call SetupWrapping()<CR>
+                        if executable('ag')
+                            let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+                        elseif executable('ack-grep')
+                            let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+                        elseif executable('ack')
+                            let s:ctrlp_fallback = 'ack %s --nocolor -f'
+                        " On Windows use "dir" as fallback command.
+                        elseif WINDOWS()
+                            let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
+                        else
+                            let s:ctrlp_fallback = 'find %s -type f'
+                        endif
+                        if exists("g:ctrlp_user_command")
+                            unlet g:ctrlp_user_command
+                        endif
+                        let g:ctrlp_user_command = {
+                            \ 'types': {
+                                \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+                                \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+                            \ },
+                            \ 'fallback': s:ctrlp_fallback
+                        \ }
 
-        vmap <D-j> gj
-        vmap <D-k> gk
-        vmap <D-$> g$
-        vmap <D-^> g^
-        vmap <D-0> g^
-        nmap <D-j> gj
-        nmap <D-k> gk
-        nmap <D-$> g$
-        nmap <D-^> g^
-        nmap <D-0> g^
-    "}
+                        if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+                            " CtrlP extensions
+                            let g:ctrlp_extensions = ['funky']
 
-    "window-killer {
-        " Use Q to intelligently close a window
-        " (if there are multiple windows into the same buffer)
-        " or kill the buffer entirely if it's the last window looking into that buffer
-        function! CloseWindowOrKillBuffer()
-          let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
+                            "funky
+                            nnoremap <Leader>fk :CtrlPFunky<Cr>
+                        endif
+                    endif
+                "}
 
-          " We should never bdelete a nerd tree
-          if matchstr(expand("%"), 'NERD') == 'NERD'
-            wincmd c
-            return
-          endif
+                " TagBar {
+                    if isdirectory(expand("~/.vim/bundle/tagbar/"))
+                        nnoremap <silent> <leader>tt :TagbarToggle<CR>
+                    endif
+                "}
 
-          if number_of_windows_to_this_buffer > 1
-            wincmd c
-          else
-            bdelete
-          endif
-        endfunction
+                " Fugitive {
+                    if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+                        nnoremap <silent> <leader>gs :Gstatus<CR>
+                        nnoremap <silent> <leader>gd :Gdiff<CR>
+                        nnoremap <silent> <leader>gc :Gcommit<CR>
+                        nnoremap <silent> <leader>gb :Gblame<CR>
+                        nnoremap <silent> <leader>gl :Glog<CR>
+                        nnoremap <silent> <leader>gp :Git push<CR>
+                        nnoremap <silent> <leader>gr :Gread<CR>
+                        nnoremap <silent> <leader>gw :Gwrite<CR>
+                        nnoremap <silent> <leader>ge :Gedit<CR>
+                        " Mnemonic _i_nteractive
+                        nnoremap <silent> <leader>gi :Git add -p %<CR>
+                        nnoremap <silent> <leader>gg :SignifyToggle<CR>
+                    endif
+        "}
 
-        nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
-    "}
+                "wrapping {
+                    " http://vimcasts.org/episodes/soft-wrapping-text/
+                    function! SetupWrapping()
+                      set wrap linebreak nolist
+                      set showbreak=…
+                    endfunction
 
-    " Misc {
-        if isdirectory(expand("~/.vim/bundle/nerdtree"))
-            let g:NERDShutUp=1
-        endif
-        if isdirectory(expand("~/.vim/bundle/matchit.zip"))
-            let b:match_ignorecase = 1
-        endif
-    " }
+                    " TODO: this should happen automatically for certain file types (e.g. markdown)
+                    command! -nargs=* Wrap :call SetupWrapping()<CR>
 
-    " Ctags {
-        set tags=./tags;/,~/.vimtags
-        let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+                    vmap <D-j> gj
+                    vmap <D-k> gk
+                    vmap <D-$> g$
+                    vmap <D-^> g^
+                    vmap <D-0> g^
+                    nmap <D-j> gj
+                    nmap <D-k> gk
+                    nmap <D-$> g$
+                    nmap <D-^> g^
+                    nmap <D-0> g^
+                "}
 
-        " Make tags placed in .git/tags file available in all levels of a repository
-        let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
-        if gitroot != ''
-            let &tags = &tags . ',' . gitroot . '/.git/tags'
-        endif
-    " }
+                "window-killer {
+                    " Use Q to intelligently close a window
+                    " (if there are multiple windows into the same buffer)
+                    " or kill the buffer entirely if it's the last window looking into that buffer
+                    function! CloseWindowOrKillBuffer()
+                      let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
 
-    " NerdTree {
-        if isdirectory(expand("~/.vim/bundle/nerdtree"))
-            map <C-e> <plug>NERDTreeTabsToggle<CR>
-            map <leader>nb :NERDTreeFromBookmark
-            map <leader>nf :NERDTreeTabsFind<cr>
-            let NERDTreeShowBookmarks=1
-            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-            let NERDTreeChDirMode=0
-            let NERDTreeQuitOnOpen=1
-            let NERDTreeMouseMode=2
-            let NERDTreeShowHidden=1
-            let NERDTreeKeepTreeInNewTab=1
-            let g:nerdtree_tabs_open_on_gui_startup=0
-        endif
-    " }
+                      " We should never bdelete a nerd tree
+                      if matchstr(expand("%"), 'NERD') == 'NERD'
+                        wincmd c
+                        return
+                      endif
 
-    " Session List {
-        set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-        if isdirectory(expand("~/.vim/bundle/sessionman.vim/"))
-            nmap <leader>sl :SessionList<CR>
-            nmap <leader>ss :SessionSave<CR>
-            nmap <leader>sc :SessionClose<CR>
-        endif
-    " }
+                      if number_of_windows_to_this_buffer > 1
+                        wincmd c
+                      else
+                        bdelete
+                      endif
+                    endfunction
 
-    " ctrlp {
-        if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
-            let g:ctrlp_working_path_mode = 'ra'
-            nnoremap <silent> <D-t> :CtrlP<CR>
-            nnoremap <silent> <D-r> :CtrlPMRU<CR>
-            let g:ctrlp_custom_ignore = {
-                \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-                \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+                    nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
+                "}
 
-            if executable('ag')
-                let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
-            elseif executable('ack-grep')
-                let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
-            elseif executable('ack')
-                let s:ctrlp_fallback = 'ack %s --nocolor -f'
-            " On Windows use "dir" as fallback command.
-            elseif WINDOWS()
-                let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
-            else
-                let s:ctrlp_fallback = 'find %s -type f'
-            endif
-            if exists("g:ctrlp_user_command")
-                unlet g:ctrlp_user_command
-            endif
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': s:ctrlp_fallback
-            \ }
+                " Ctags {
+                    set tags=./tags;/,~/.vimtags
+                    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
-            if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
-                " CtrlP extensions
-                let g:ctrlp_extensions = ['funky']
+                    " Make tags placed in .git/tags file available in all levels of a repository
+                    let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
+                    if gitroot != ''
+                        let &tags = &tags . ',' . gitroot . '/.git/tags'
+                    endif
+                " }
 
-                "funky
-                nnoremap <Leader>fk :CtrlPFunky<Cr>
-            endif
-        endif
-    "}
-
-    " TagBar {
-        if isdirectory(expand("~/.vim/bundle/tagbar/"))
-            nnoremap <silent> <leader>tt :TagbarToggle<CR>
-        endif
-    "}
-
-    " Fugitive {
-        if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
-            nnoremap <silent> <leader>gs :Gstatus<CR>
-            nnoremap <silent> <leader>gd :Gdiff<CR>
-            nnoremap <silent> <leader>gc :Gcommit<CR>
-            nnoremap <silent> <leader>gb :Gblame<CR>
-            nnoremap <silent> <leader>gl :Glog<CR>
-            nnoremap <silent> <leader>gp :Git push<CR>
-            nnoremap <silent> <leader>gr :Gread<CR>
-            nnoremap <silent> <leader>gw :Gwrite<CR>
-            nnoremap <silent> <leader>ge :Gedit<CR>
-            " Mnemonic _i_nteractive
-            nnoremap <silent> <leader>gi :Git add -p %<CR>
-            nnoremap <silent> <leader>gg :SignifyToggle<CR>
-        endif
-    "}
+                " Misc {
+                    if isdirectory(expand("~/.vim/bundle/nerdtree"))
+                        let g:NERDShutUp=1
+                    endif
+                    if isdirectory(expand("~/.vim/bundle/matchit.zip"))
+                        let b:match_ignorecase = 1
+                    endif
+                " }
 
         " }
 
@@ -806,10 +798,6 @@
                     map #  <Plug>(incsearch-nohl-#)
                     map g* <Plug>(incsearch-nohl-g*)
                     map g# <Plug>(incsearch-nohl-g#)
-                " }
-
-                " MRU {
-                    map <leader>a :MRU<CR>
                 " }
 
                 "EasyAlign{
@@ -971,7 +959,6 @@
             endif
 
     " }
-
 
 " }
 
