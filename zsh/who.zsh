@@ -2,6 +2,8 @@ alias vi=vim
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias ovi='open -a MacVim '
 
+alias gref="git reflog --pretty=format:\"%h : %an > %ar : %s\""
+
 #environment setting {
     PATH="/usr/local/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
     export PATH="/usr/local/sbin:$PATH"

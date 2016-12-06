@@ -108,6 +108,8 @@
                 Bundle 'tacahiroy/ctrlp-funky'
                 Bundle 'ctrlpvim/ctrlp.vim'
                 Bundle 'vim-scripts/BufOnly.vim'
+                Plugin 'bufexplorer.zip'
+                Plugin 'mru.vim'
             endif
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
@@ -135,9 +137,6 @@
                 Bundle 'reedes/vim-textobj-quote'
                 Bundle 'reedes/vim-wordy'
                 Bundle 'reedes/vim-litecorrect'
-                Plugin 'raimondi/delimitmate'
-                Plugin 'docunext/closetag.vim'
-                Bundle 'jiangmiao/auto-pairs'
             endif
         " }
 
@@ -173,9 +172,17 @@
             Plugin 'plasticboy/vim-markdown'
         " }
 
-        "files-edit {
+        " edit, move, search ... {
+
+            " move, search
+            Plugin 'easymotion/vim-easymotion'
+            Plugin 'haya14busa/incsearch.vim'
+
+            " format code
             Bundle 'junegunn/vim-easy-align'
             Bundle 'tpope/vim-surround'
+
+            " edit
             Bundle 'tpope/vim-repeat'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'danro/rename.vim'
@@ -183,8 +190,10 @@
             Bundle 'gcmt/wildfire.vim'
             Plugin 'terryma/vim-multiple-cursors'
             Plugin 'ntpeters/vim-better-whitespace'
-            Plugin 'easymotion/vim-easymotion'
-            Plugin 'haya14busa/incsearch.vim'
+
+            "auto-pair
+            Plugin 'alvan/vim-closetag'
+            Bundle 'jiangmiao/auto-pairs'
         "}
 
     " Snippets & AutoComplete {
@@ -218,9 +227,9 @@
             if count(g:spf13_bundle_groups, 'html')
                 Plugin 'othree/html5.vim'
                 Plugin 'tpope/vim-haml'
-                Plugin 'gorodinskiy/vim-coloresque'
                 Bundle 'mattn/emmet-vim'
                 Bundle 'hail2u/vim-css3-syntax'
+                Plugin 'ap/vim-css-color'
             endif
         " }
 
@@ -240,6 +249,7 @@
                 Bundle 'kchmck/vim-coffee-script'
             endif
         " }
+
 
     "}
 

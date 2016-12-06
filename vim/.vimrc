@@ -516,12 +516,25 @@
         cnoremap <C-P> <Up>
         cnoremap <C-N> <Down>
     "}
+
+    " Scope {
+        map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+    " }
+
 " }
 
 " Plugins {
 
 
         " Integrations {
+
+                " MRU {
+                    map <leader>fmu :MRU<CR>
+                " }
+
+                " BufExplorer {
+                    map <leader>o :BufExplorer<cr>
+                " }
 
                 " NerdTree {
                     if isdirectory(expand("~/.vim/bundle/nerdtree"))
@@ -948,15 +961,6 @@
                 endif
             " }
                 " }
-
-
-            " FIXME: Isn't this for Syntastic to handle?
-            " Haskell post write lint and check with ghcmod
-            " $ `cabal install ghcmod` if missing and ensure
-            " ~/.cabal/bin is in your $PATH.
-            if !executable("ghcmod")
-                autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-            endif
 
     " }
 
