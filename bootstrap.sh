@@ -3,7 +3,7 @@ APP_PATH=${HOME}/dotfiles
 app_name='dotfiles'
 platform='unknown'
 unamestr=`uname`
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/lyf-t/dotfiles.git'
+[ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dotfiles.git'
 count=0
 
 
