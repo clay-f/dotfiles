@@ -208,6 +208,8 @@
                 Bundle 'Valloric/YouCompleteMe'
                 Bundle 'SirVer/ultisnips'
                 Bundle 'honza/vim-snippets'
+                "List of JavaScript ES6 snippets and syntax highlighting
+                Plugin 'isruslan/vim-es6'
             elseif count(g:spf13_bundle_groups, 'neocomplcache')
                 Bundle 'Shougo/neocomplcache'
                 Bundle 'Shougo/neosnippet'
