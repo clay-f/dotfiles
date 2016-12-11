@@ -1,7 +1,4 @@
 #!/bin/bash
-#this file just for fast install rvm ruby rails.
-#create by F on 2016-11-08
-
 
 msg() {
     printf "%b%n" "$1" >&2
@@ -14,7 +11,8 @@ debug() {
 }
 
 ruby_rails_install() {
-    if [[ ! -d $HOME/.rvm ]]; then
+    rvm -v| grep -i 'rvm' > /dev/null 2>&1
+    if [[ ! $? == 0 ]]; then
         curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
         curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
     fi

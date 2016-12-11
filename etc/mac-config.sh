@@ -1,5 +1,4 @@
 #!/bin/bash
-#created by F on 2016-09-19
 
 position='${HOME}/dotfiles'
 
@@ -14,10 +13,13 @@ debug() {
 }
 
 brew() {
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    bash $position/etc/brew.sh
-    ret="$?"
-    debug
+    brew -v| grep -i 'homebrew' > /dev/null 2>&1
+    if [[ $? == 0 ]]; then
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        bash $position/etc/brew.sh
+        ret="$?"
+        debug
+    fi
 }
 
 zsh() {
