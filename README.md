@@ -14,6 +14,7 @@ via curl
 ` bash -c "$(curl -fsSL https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh)" `
 
 via wget
+
 `sh -c "$(wget https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh -O -)" `
 
 ***
