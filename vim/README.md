@@ -10,6 +10,5 @@ A quick vimrc for web programming
 ---- 
 #### Some screenshots
 Color when editing a ruby file:
-1. [rb][1]
+<img width="730" alt="rb-t1" src="https://cloud.githubusercontent.com/assets/16079417/21079739/22c96814-bfd6-11e6-9f58-d0bbe948b798.png">
 
-[1]:	https://github.com/clay-f/dotfiles/blob/master/vim/doc/rb-temp.png "hello"
