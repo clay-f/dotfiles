@@ -10,10 +10,10 @@ A quick vimrc for web programming
 ---- 
 #### Some screenshots
 Color when editing a ruby file:
-<img width="885" alt="rb-t1" src="https://cloud.githubusercontent.com/assets/16079417/21079739/22c96814-bfd6-11e6-9f58-d0bbe948b798.png">
+<img width="880" alt="rb-t1" src="https://cloud.githubusercontent.com/assets/16079417/21079739/22c96814-bfd6-11e6-9f58-d0bbe948b798.png">
 
-Opening recently opened files mru.vim:
-<img width="885" alt="mru-file-t1" src="https://cloud.githubusercontent.com/assets/16079417/21079759/a149abae-bfd6-11e6-839b-abe0bcf0c282.png">
+Opening recently opened files <a href="https://github.com/vim-scripts/mru.vim">mru.vim</a>:
+<img width="880" alt="mru-file-t1" src="https://cloud.githubusercontent.com/assets/16079417/21079759/a149abae-bfd6-11e6-839b-abe0bcf0c282.png">
 
 <a href="https://github.com/scrooloose/nerdtree">NERD Tree</a> plugin in a terminal window:
-<img width="885" alt="screen shot 2016-12-11 at 19 22 50" src="https://cloud.githubusercontent.com/assets/16079417/21079774/4b1fcc6c-bfd7-11e6-802b-dda4235bd053.png">
+<img width="880" alt="screen shot 2016-12-11 at 19 22 50" src="https://cloud.githubusercontent.com/assets/16079417/21079774/4b1fcc6c-bfd7-11e6-802b-dda4235bd053.png">
