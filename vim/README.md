@@ -12,6 +12,8 @@ A quick vimrc for web programming
 ### <a href="https://github.com/scrooloose/nerdtree">nerdtree</a>
 <hr>
 <img width="700" alt="screen shot 2016-12-13 at 19 27 30" src="https://cloud.githubusercontent.com/assets/16079417/21138810/c33acdf2-c16a-11e6-87dc-9f92268045e1.png">
+
+
 NERDTree is a file explorer plugin that provides "project drawer" functionality to your vim editing. You can learn more about it with `:help NERDTree`.
 <b>QuickStart</b> Launch using `<c-e>`
 
@@ -29,8 +31,9 @@ With bufexplorer, you can quickly and easily switch between buffers by using the
 <b>QuickStart</b> Launch using `<Leader>o`
 
 ### <a href="https://github.com/kien/ctrlp.vim">ctrlp</a>
-<img width="700" alt="screen shot 2016-12-13 at 19 28 28" src="https://cloud.githubusercontent.com/assets/16079417/21138914/5b25d2d8-c16b-11e6-9b6b-8ba93361b746.png">
 <hr>
+<img width="700" alt="screen shot 2016-12-13 at 19 28 28" src="https://cloud.githubusercontent.com/assets/16079417/21138914/5b25d2d8-c16b-11e6-9b6b-8ba93361b746.png">
+
 Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 <b>QuickStart</b> Launch using `<c-p>`
 
@@ -43,6 +46,7 @@ Comment functions so powerful—no comment necessary.
 ### <a href="https://github.com/valloric/youcompleteme">YouCompleteMe</a>
 <hr>
 <img width="700" alt="screen shot 2016-12-13 at 19 37 44" src="https://cloud.githubusercontent.com/assets/16079417/21138991/b1d0935c-c16b-11e6-8f71-d7edb45821c9.png">
+
 YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
 
 > \<c-p> or \<c-n> select optional item
@@ -71,6 +75,7 @@ ack.vim uses ack to search inside the current directory for a pattern.
 ### <a href="https://github.com/majutsushi/tagbar">tagbar</a>
 <hr>
 <img width="700" alt="screen shot 2016-12-11 at 20 16 08" src="https://cloud.githubusercontent.com/assets/16079417/21080054/fe1a3962-bfdf-11e6-88e4-05a590b74af8.png">
+
 Tagbar is a Vim plugin that provides an easy way to browse the tags of the current file and get an overview of its structure. It does this by creating a sidebar that displays the ctags-generated tags of the current file, ordered by their scope.
 
 <b>QuickStart</b>`<Leader>tt`
@@ -78,12 +83,14 @@ Tagbar is a Vim plugin that provides an easy way to browse the tags of the curre
 ### <a href="https://github.com/easymotion/vim-easymotion">easymotion</a>
 <hr>
 <img width="700" alt="screen shot 2016-12-11 at 20 27 08" src="https://cloud.githubusercontent.com/assets/16079417/21080068/5c618f2a-bfe0-11e6-9f61-43eaa7965681.png">
+
 EasyMotion provides a much simpler way to use some motions in vim.
 
 <b>QuickStart</b>`<Leader><Leander>f`
 
 ### <a href="https://github.com/haya14busa/incsearch.vim">incsearch</a>
 <hr>
+
 <img width="700" alt="screen shot 2016-12-11 at 20 38 07" src="https://cloud.githubusercontent.com/assets/16079417/21080120/f748aa22-bfe1-11e6-9dfa-6dc62a99a1b9.png">
 incsearch.vim incrementally highlights ALL pattern matches
 
