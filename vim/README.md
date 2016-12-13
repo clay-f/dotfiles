@@ -4,27 +4,15 @@ A quick vimrc for web programming
 ----
 #### what does the vim focus on ?
 * simple
-* focus on web
+* focus on ruby on rails
 * powerful
 
-----
-#### Some screenshots
-Color when editing a ruby file:
-<img width="700" alt="rb-t1" src="https://cloud.githubusercontent.com/assets/16079417/21079739/22c96814-bfd6-11e6-9f58-d0bbe948b798.png">
-
-Opening recently opened files <a href="https://github.com/vim-scripts/mru.vim">mru.vim</a>:
-<img width="700" alt="mru-file-t1" src="https://cloud.githubusercontent.com/assets/16079417/21079759/a149abae-bfd6-11e6-839b-abe0bcf0c282.png">
-
-<a href="https://github.com/scrooloose/nerdtree">NERD Tree</a> plugin in a terminal window:
-<img width="700" alt="screen shot 2016-12-11 at 19 22 50" src="https://cloud.githubusercontent.com/assets/16079417/21079774/4b1fcc6c-bfd7-11e6-802b-dda4235bd053.png">
-
-----
 ## include plugins
 
 ### <a href="https://github.com/scrooloose/nerdtree">nerdtree</a>
 <hr>
 NERDTree is a file explorer plugin that provides "project drawer" functionality to your vim editing. You can learn more about it with `:help NERDTree`.
-
+<img width="700" alt="screen shot 2016-12-13 at 19 27 30" src="https://cloud.githubusercontent.com/assets/16079417/21138810/c33acdf2-c16a-11e6-87dc-9f92268045e1.png">
 <b>QuickStart</b> Launch using `<c-e>`
 
 ### <a href="https://github.com/mbbill/undotree">undotree</a>
@@ -41,10 +29,9 @@ With bufexplorer, you can quickly and easily switch between buffers by using the
 <b>QuickStart</b> Launch using `<Leader>o`
 
 ### <a href="https://github.com/kien/ctrlp.vim">ctrlp</a>
-
+<img width="700" alt="screen shot 2016-12-13 at 19 28 28" src="https://cloud.githubusercontent.com/assets/16079417/21138914/5b25d2d8-c16b-11e6-9b6b-8ba93361b746.png">
 <hr>
 Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-
 <b>QuickStart</b> Launch using `<c-p>`
 
 ### <a href="https://github.com/scrooloose/nerdcommenter">nerdcommenter</a>
@@ -55,8 +42,10 @@ Comment functions so powerful—no comment necessary.
 
 ### <a href="https://github.com/valloric/youcompleteme">YouCompleteMe</a>
 <hr>
+<img width="700" alt="screen shot 2016-12-13 at 19 37 44" src="https://cloud.githubusercontent.com/assets/16079417/21138991/b1d0935c-c16b-11e6-8f71-d7edb45821c9.png">
 YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
 
+> \<c-p> or \<c-n> select optional item
 <b>QuickStart</b> Launch using `<c-j>`
 
 ### <a href="https://github.com/scrooloose/syntastic">syntastic</a>
