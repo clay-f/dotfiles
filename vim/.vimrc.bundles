@@ -110,6 +110,7 @@
                 Bundle 'vim-scripts/BufOnly.vim'
                 Plugin 'bufexplorer.zip'
                 Plugin 'mru.vim'
+                Bundle 't9md/vim-choosewin'
             endif
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
@@ -190,6 +191,7 @@
             Bundle 'gcmt/wildfire.vim'
             Plugin 'terryma/vim-multiple-cursors'
             Plugin 'ntpeters/vim-better-whitespace'
+            Bundle 'terryma/vim-expand-region'
 
             "auto-pair
             Plugin 'alvan/vim-closetag'

@@ -525,6 +525,15 @@
 
 " Plugins {
 
+        " vim-expand-region {
+            let g:expand_region_use_select_mode = 1
+        " }
+
+        "choosewin {
+            " invoke with '-'
+            nmap  -  <Plug>(choosewin)
+            let g:choosewin_overlay_enable = 1
+        "}
 
         " Integrations {
 
@@ -725,27 +734,27 @@
                 "   let g:airline_powerline_fonts=1
                 " If the previous symbols do not render for you then install a
                 " powerline enabled font.
-                if !exists('g:airline_symbols')
-                        let g:airline_symbols = {}
-                    endif
-                    let g:airline_left_sep = '»'
-                    let g:airline_left_sep = '▶'
-                    let g:airline_right_sep = '«'
-                    let g:airline_right_sep = '◀'
-                    let g:airline_symbols.linenr = '␊'
-                    let g:airline_symbols.linenr = '␤'
-                    let g:airline_symbols.linenr = '¶'
-                    let g:airline_symbols.branch = '⎇'
-                    let g:airline_symbols.paste = 'ρ'
-                    let g:airline_symbols.paste = 'Þ'
-                    let g:airline_symbols.paste = '∥'
-                    let g:airline_symbols.whitespace = 'Ξ'
 
                 " See `:echo g:airline_theme_map` for some more choices
                 " Default in terminal vim is 'dark'
                 if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
                     if !exists('g:airline_theme')
                         let g:airline_theme = 'solarized'
+                    endif
+                    if !exists('g:airline_powerline_fonts')
+                        " Use the default set of separators with a few customizations
+                        let g:airline_left_sep='›'  " Slightly fancier than '>'
+                        let g:airline_right_sep='‹' " Slightly fancier than '<'
+                        if !exists('g:airline_symbols')
+                            let g:airline_symbols = {}
+                        endif
+                        " unicode symbols
+                        let g:airline_symbols.linenr = '␤'
+                        let g:airline_symbols.branch = '⎇'
+                        let g:airline_symbols.paste = 'ρ'
+                        let g:airline_symbols.paste = 'Þ'
+                        let g:airline_symbols.paste = '∥'
+                        let g:airline_symbols.whitespace = 'Ξ'
                     endif
                 endif
             " }
