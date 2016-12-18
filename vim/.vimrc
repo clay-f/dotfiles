@@ -525,16 +525,6 @@
 
 " Plugins {
 
-        " vim-expand-region {
-            let g:expand_region_use_select_mode = 1
-        " }
-
-        "choosewin {
-            " invoke with '-'
-            nmap  -  <Plug>(choosewin)
-            let g:choosewin_overlay_enable = 1
-        "}
-
         " Integrations {
 
                 " MRU {
@@ -813,6 +803,10 @@
         " }
 
         " Completion {
+
+        " vim-expand-region {
+            let g:expand_region_use_select_mode = 1
+        " }
 
                 " insearch {
                     map /  <Plug>(incsearch-forward)
