@@ -19,7 +19,7 @@ oh_my_zsh() {
 
 config_link_files() {
     if [ -e ~/.zshrc ]; then
-        sed -i "s/plugins=(git.*)/plugins=(common-aliases git z ruby rails)/g" ~/.zshrc
+        sed -i "s/plugins=(git.*)/plugins=(common-aliases git autojump  rails)/g" ~/.zshrc
     fi
     add_plugins_config
     ln -s $HOME/dotfiles/ruby/.gemrc ~/
