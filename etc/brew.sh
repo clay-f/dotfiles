@@ -21,7 +21,7 @@ brew_install() {
     brew install nmap
     brew install pstree
     brew install tree
-    brew install z
+    brew install autojump
     brew install lua
     brew install ctags
     brew install zsh
