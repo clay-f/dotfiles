@@ -10,7 +10,6 @@ msg() {
 oh_my_zsh() {
     if [[ ! -e $oh_my_zsh ]]; then
         wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-        plugins_install
     else
         printf "have oh-my-zsh directory on you $HOME."
         printf "exit ..."
@@ -18,19 +17,9 @@ oh_my_zsh() {
     fi
 }
 
-plugins_install() {
-    if [ -d $oh_my_zsh/plugins ]; then
-
-        if [ ! -e $oh_my_zsh/custom/plugins/zsh-syntax-highlighting ]; then
-            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-        fi
-
-    fi
-}
-
 config_link_files() {
     if [ -e ~/.zshrc ]; then
-        sed -i "s/plugins=(git.*)/plugins=(zsh-autosuggestions zsh-syntax-highlighting git brew z nmap ruby rails)/g" ~/.zshrc
+        sed -i "s/plugins=(git.*)/plugins=(common-aliases git z ruby rails)/g" ~/.zshrc
     fi
     add_plugins_config
     ln -s $HOME/dotfiles/ruby/.gemrc ~/
