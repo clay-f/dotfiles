@@ -18,10 +18,18 @@ apt_install() {
     sudo apt-get autoremove
 }
 
+monaco_font_conf() {
+    git clone https://github.com/cstrap/monaco-font.git ~/dotfiles
+    cd ~/dotfiles/monaco-font/
+    ./install-font-ubuntu.sh  http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
+    rm -rf ~/dotfiles/monaco-font
+}
+
 nesessary() {
     bash $position/zsh/zsh-config.sh
     bash $position/vim/bootstrap.sh
     bash $position/ruby/ruby-rails-install.sh
+    monaco_font_conf
     return
 }
 
@@ -31,6 +39,7 @@ vim_require() {
     sudo apt-get -y install vim-gnome
     sudo apt-get -y install vim-athena
 }
+
 
 
 ################################################ Main
