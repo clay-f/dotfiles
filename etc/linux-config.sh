@@ -2,7 +2,7 @@
 
 position=${HOME}/dotfiles
 
-tools_config() {
+toolkits_config() {
     sudo apt-get -y install gcc
     sudo apt-get -y install make
     sudo apt-get -y install tmux
@@ -14,6 +14,7 @@ tools_config() {
     sudo apt-get -y install ack-grep
     sudo apt-get -y install autojump
     sudo apt-get -y install vim
+    sudo apt-get -y install vim-gtk
         vim_require
     sudo apt-get autoremove
 }
@@ -46,7 +47,7 @@ develop_config() {
 }
 
 nesessary() {
-    tools_config
+    toolkits_config
     vim_require
 }
 
