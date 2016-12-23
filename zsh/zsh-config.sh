@@ -27,7 +27,7 @@ config_link_files() {
     ln -s $HOME/dotfiles/tmux/.tmux.conf ~/
 }
 
-add_plugins_config() {
+add_custom_config() {
         if [ ! -e $HOME/dotfiles/custom/$name.zsh ]; then
             echo "alias vi=vim" >> $oh_my_zsh/custom/$name.zsh
             echo "#sources configuration{" >> $oh_my_zsh/custom/$name.zsh
@@ -37,10 +37,11 @@ add_plugins_config() {
         fi
 }
 
+install() {
+    oh_my_zsh
+    add_custom_config
+    config_link_files
+}
 
-############################################################################################################## Main
-oh_my_zsh
 
-add_plugins_config
-
-config_link_files
+install

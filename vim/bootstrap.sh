@@ -174,33 +174,38 @@ setup_vundle() {
     debug
 }
 
-############################ MAIN()
-variable_set "$HOME"
-program_must_exist "vim"
-program_must_exist "git"
+install() {
+    variable_set "$HOME"
+    program_must_exist "vim"
+    program_must_exist "git"
 
-do_backup       "$HOME/.vim" \
-                "$HOME/.vimrc" \
-                "$HOME/.gvimrc"
+    do_backup       "$HOME/.vim" \
+        "$HOME/.vimrc" \
+        "$HOME/.gvimrc"
 
-sync_repo       "$APP_PATH" \
-                "$REPO_URI" \
-                "$REPO_BRANCH" \
-                "$app_name"
+    sync_repo       "$APP_PATH" \
+        "$REPO_URI" \
+        "$REPO_BRANCH" \
+        "$app_name"
 
-create_symlinks "$APP_PATH" \
-                "$HOME"
+    create_symlinks "$APP_PATH" \
+        "$HOME"
 
-setup_fork_mode "$fork_maintainer" \
-                "$APP_PATH" \
-                "$HOME"
+    setup_fork_mode "$fork_maintainer" \
+        "$APP_PATH" \
+        "$HOME"
 
-sync_repo       "$HOME/.vim/bundle/vundle" \
-                "$VUNDLE_URI" \
-                "master" \
-                "vundle"
+    sync_repo       "$HOME/.vim/bundle/vundle" \
+        "$VUNDLE_URI" \
+        "master" \
+        "vundle"
 
-setup_vundle    "$APP_PATH/.vimrc.bundles.default"
+    setup_vundle    "$APP_PATH/.vimrc.bundles.default"
 
-msg             "\nThanks for installing $spf."
-msg             "© `date +%Y` http://vim.spf13.com/"
+    msg             "\nThanks for installing $spf."
+    msg             "© `date +%Y` http://vim.spf13.com/"
+
+}
+
+
+install

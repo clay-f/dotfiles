@@ -2,7 +2,7 @@
 
 position=${HOME}/dotfiles
 
-apt_install() {
+tools_config() {
     sudo apt-get -y install gcc
     sudo apt-get -y install make
     sudo apt-get -y install tmux
@@ -25,12 +25,11 @@ monaco_font_conf() {
     rm -rf ~/dotfiles/monaco-font
 }
 
-nesessary() {
-    bash $position/zsh/zsh-config.sh
-    bash $position/vim/bootstrap.sh
-    bash $position/ruby/ruby-rails-install.sh
-    monaco_font_conf
-    return
+terminal_theme_molokai() {
+    git clone  https://github.com/pricco/gnome-terminal-colors-monokai.git ~/dotfiles
+    cd ~/dotfiles/gnome-terminal-colors-monokai/
+    ./install.sh
+    rm -rf ~/dotfiles/gnome-terminal-colors-monokai
 }
 
 vim_require() {
@@ -40,12 +39,28 @@ vim_require() {
     sudo apt-get -y install vim-athena
 }
 
+develop_config() {
+    bash $position/zsh/zsh-config.sh
+    bash $position/vim/bootstrap.sh
+    bash $position/ruby/ruby-rails-install.sh
+}
+
+nesessary() {
+    tools_config
+    vim_require
+}
+
+install() {
+    nesessary
+    develop_config
+    monaco_font_conf
+    terminal_theme_molokai
+}
 
 
 ################################################ Main
 if [ -d $position ];then
-    apt_install
-    nesessary
+    install
 else
     echo "not found $position"
     exit

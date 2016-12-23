@@ -41,11 +41,15 @@ vim() {
     return
 }
 
-if [ -d $position ]; then
+install() {
     brew
     zsh
     ruby
     vim
+}
+
+if [ -d $position ]; then
+    install
 else
     echo "\tnot found $position"
     exit
