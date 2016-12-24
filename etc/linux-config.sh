@@ -26,13 +26,6 @@ monaco_font_conf() {
     rm -rf ~/dotfiles/monaco-font
 }
 
-terminal_theme_molokai() {
-    git clone  https://github.com/pricco/gnome-terminal-colors-monokai.git ~/dotfiles
-    cd ~/dotfiles/gnome-terminal-colors-monokai/
-    ./install.sh
-    rm -rf ~/dotfiles/gnome-terminal-colors-monokai
-}
-
 vim_require() {
     sudo apt-get -y install vim-nox
     sudo apt-get -y install vim-gtk
@@ -55,7 +48,6 @@ install() {
     nesessary
     develop_config
     monaco_font_conf
-    terminal_theme_molokai
 }
 
 
