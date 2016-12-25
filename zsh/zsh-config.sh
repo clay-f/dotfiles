@@ -24,7 +24,7 @@ config_link_files() {
     add_plugins_config
     ln -s $HOME/dotfiles/ruby/.gemrc ~/
     ln -s $HOME/dotfiles/.gitconfig ~/
-    ln -s $HOME/dotfiles/tmux/.tmux.conf ~/
+    ln -s $HOME/dotfiles/etc/tmux.conf ~/.tmux.conf
 }
 
 add_custom_config() {
