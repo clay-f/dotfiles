@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# basic configration : {{{
+# basic configration {{
 
     # use open command open file way{
         alias -s rb=vi
@@ -10,7 +10,6 @@
         alias -s java=vi
         alias -s txt=vi
     # }
-
 
     # cp,rm, tar etc {
         alias bz2='tar -jcpv -f'
@@ -22,7 +21,7 @@
         alias veb='vi ~/.vimrc.bundles'
     #}
 
-#}}}
+#}}
 
 #  look/check-out files informations {
 
