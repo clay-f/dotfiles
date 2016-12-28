@@ -18,28 +18,17 @@ oh_my_zsh() {
 }
 
 config_link_files() {
-    if [ -e ~/.zshrc ]; then
-        sed -i "s/plugins=(git.*)/plugins=(common-aliases git autojump  rails)/g" ~/.zshrc
-    fi
     add_plugins_config
+    ln -s $HOME/dotfiles/zsh/.zshrc ~/
     ln -s $HOME/dotfiles/ruby/.gemrc ~/
     ln -s $HOME/dotfiles/.gitconfig ~/
     ln -s $HOME/dotfiles/etc/tmux.conf ~/.tmux.conf
+    ls -s $HOME/dotfiles/zsh/.f.zsh ~/
 }
 
-add_custom_config() {
-        if [ ! -e $HOME/dotfiles/custom/$name.zsh ]; then
-            echo "alias vi=vim" >> $oh_my_zsh/custom/$name.zsh
-            echo "#sources configuration{" >> $oh_my_zsh/custom/$name.zsh
-            echo -e "\tsource ${HOME}/.rvm/scripts/rvm" >> $oh_my_zsh/custom/$name.zsh
-            echo -e "\tsource $HOME/dotfiles/zsh/.aliases" >> $oh_my_zsh/custom/$name.zsh
-            echo "#}" >> $oh_my_zsh/custom/$name.zsh
-        fi
-}
 
 install() {
     oh_my_zsh
-    add_custom_config
     config_link_files
 }
 
