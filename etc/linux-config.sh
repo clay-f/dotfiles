@@ -13,6 +13,7 @@ toolkits_config() {
     sudo apt-get -y install zsh
     sudo apt-get -y install ack-grep
     sudo apt-get -y install autojump
+    sudo apt-get -y install links
     sudo apt-get -y install vim
     sudo apt-get -y install vim-gtk
         vim_require
