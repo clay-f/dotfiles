@@ -10,7 +10,9 @@ msg() {
 oh_my_zsh() {
     if [[ ! -e $oh_my_zsh ]]; then
         wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-        config_zsh_plugins
+        if [[ -e $HOME/.zshrc ]]; then
+            sed -i 's/plugins=(git.*)/plugins=(common-aliases git autojump rails)/' ~/.zshrc  # add plugins
+        fi
     else
         printf "have oh-my-zsh directory on you $HOME."
         printf "exit ..."
@@ -18,14 +20,7 @@ oh_my_zsh() {
     fi
 }
 
-config_zsh_plugins() {
-    sed -i 's/plugins=(git.*)/plugins=(common-aliases git autojump rails)/' ~/.zshrc
-}
-
 config_link_files() {
-    if [[ ! -e $HOME/.zshrc ]]; then
-        ln -s $HOME/dotfiles/zsh/.zshrc ~/
-    fi
     if [[ ! -e $HOME/.gemrc ]]; then
         ln -s $HOME/dotfiles/ruby/.gemrc ~/
     fi
@@ -34,9 +29,6 @@ config_link_files() {
     fi
     if [[ ! -e $HOME/.tmux.conf ]]; then
         ln -s $HOME/dotfiles/etc/tmux.conf ~/.tmux.conf
-    fi
-    if [[ ! -e $HOME/.f.zsh ]]; then
-        ls -s $HOME/dotfiles/zsh/.f.zsh ~/
     fi
 }
 

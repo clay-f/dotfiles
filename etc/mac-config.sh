@@ -12,26 +12,25 @@ debug() {
     fi
 }
 
-brew() {
+brew_config_install() {
     if [[ ! -e /usr/local/bin/brew ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        bash $position/etc/brew.sh
     fi
 }
 
-zsh() {
-    bash $position/zsh/zsh-config.sh
+zsh_config_install() {
+    bash $position/shell/zsh-config.sh
     ret="$?"
     debug
 }
 
-ruby() {
+ruby_config_install() {
     bash $position/ruby/ruby-rails-install.sh
     ret="$?"
     debug
 }
 
-vim() {
+vim_config_install() {
     bash $position/vim/bootstrap.sh
     ret="$?"
     debug
@@ -39,10 +38,10 @@ vim() {
 }
 
 install() {
-    brew
-    zsh
-    ruby
-    vim
+    brew_config_install
+    zsh_config_install
+    ruby_config_install
+    vim_config_install
 }
 
 if [ -d $position ]; then
