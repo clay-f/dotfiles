@@ -1,9 +1,9 @@
 #!/bin/bash
 
-position='${HOME}/dotfiles'
+position="${HOME}/dotfiles"
 
 msg() {
-    print "%b\n" "$1" >&2
+    printf "%b\n" "$1" >&2
 }
 
 debug() {
@@ -13,12 +13,9 @@ debug() {
 }
 
 brew() {
-    brew -v| grep -i 'homebrew' > /dev/null 2>&1
-    if [[ $? == 0 ]]; then
+    if [[ ! -e /usr/local/bin/brew ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         bash $position/etc/brew.sh
-        ret="$?"
-        debug
     fi
 }
 

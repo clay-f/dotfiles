@@ -1,5 +1,5 @@
 #!/bin/bash
-APP_PATH=${HOME}/dotfiles
+APP_PATH="${HOME}/dotfiles"
 app_name='dotfiles'
 platform='unknown'
 unamestr=`uname`
