@@ -21,7 +21,7 @@ toolkits_config() {
 }
 
 monaco_font_conf() {
-    git clone https://github.com/cstrap/monaco-font.git ~/dotfiles
+    git clone https://github.com/cstrap/monaco-font.git ~/dotfiles/monaco-font
     cd ~/dotfiles/monaco-font/
     ./install-font-ubuntu.sh  http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
     rm -rf ~/dotfiles/monaco-font

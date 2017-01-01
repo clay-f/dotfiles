@@ -18,12 +18,21 @@ oh_my_zsh() {
 }
 
 config_link_files() {
-    add_plugins_config
-    ln -s $HOME/dotfiles/zsh/.zshrc ~/
-    ln -s $HOME/dotfiles/ruby/.gemrc ~/
-    ln -s $HOME/dotfiles/.gitconfig ~/
-    ln -s $HOME/dotfiles/etc/tmux.conf ~/.tmux.conf
-    ls -s $HOME/dotfiles/zsh/.f.zsh ~/
+    if [[ ! -e $HOME/.zshrc ]]; then
+        ln -s $HOME/dotfiles/zsh/.zshrc ~/
+    fi
+    if [[ ! -e $HOME/.gemrc ]]; then
+        ln -s $HOME/dotfiles/ruby/.gemrc ~/
+    fi
+    if [[ ! -e $HOME/.gitconfig ]]; then
+        ln -s $HOME/dotfiles/.gitconfig ~/
+    fi
+    if [[ ! -e $HOME/.tmux.conf ]]; then
+        ln -s $HOME/dotfiles/etc/tmux.conf ~/.tmux.conf
+    fi
+    if [[ ! -e $HOME/.f.zsh ]]; then
+        ls -s $HOME/dotfiles/zsh/.f.zsh ~/
+    fi
 }
 
 
