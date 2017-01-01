@@ -23,7 +23,7 @@ toolkits_config() {
 monaco_font_conf() {
     git clone https://github.com/cstrap/monaco-font.git ~/dotfiles/monaco-font
     cd ~/dotfiles/monaco-font/
-    ./install-font-ubuntu.sh  http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
+    sudo ./install-font-ubuntu.sh  https://github.com/todylu/monaco.ttf/blob/master/monaco.ttf\?raw\=true
     rm -rf ~/dotfiles/monaco-font
 }
 
