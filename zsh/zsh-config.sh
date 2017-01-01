@@ -10,11 +10,16 @@ msg() {
 oh_my_zsh() {
     if [[ ! -e $oh_my_zsh ]]; then
         wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+        config_zsh_plugins
     else
         printf "have oh-my-zsh directory on you $HOME."
         printf "exit ..."
         exit
     fi
+}
+
+config_zsh_plugins() {
+    sed -i 's/plugins=(git.*)/plugins=(common-aliases git autojump rails)/' ~/.zshrc
 }
 
 config_link_files() {
