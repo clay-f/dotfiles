@@ -39,5 +39,16 @@ brew_cask() {
     brew cleanup
 }
 
-brew_install
-brew_cask
+install() {
+    if [[ -e /usr/local/bin/brew ]]; then
+        brew_install
+        brew_cask
+    else
+        echo -e "\t homebrew not installed."
+        echo -e "now exit..."
+        exit
+    fi
+}
+
+
+install

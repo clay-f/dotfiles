@@ -15,6 +15,7 @@ debug() {
 brew_config_install() {
     if [[ ! -e /usr/local/bin/brew ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        bash $position/etc/brew.sh
     fi
 }
 

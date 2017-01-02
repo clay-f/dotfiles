@@ -34,8 +34,14 @@ config_link_files() {
 
 
 install() {
-    oh_my_zsh
-    config_link_files
+    if [[ -e /usr/local/bin/wget ]]; then
+        oh_my_zsh
+        config_link_files
+    else
+        msg "not found wget command."
+        msg "now exit..."
+        exit
+    fi
 }
 
 
