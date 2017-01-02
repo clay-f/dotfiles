@@ -33,6 +33,7 @@ brew_cask() {
     brew cask install google-chrome
     brew cask install iterm2
     brew cask install macvim
+    brew cask install go2shell
 
     brew cask cleanup
     brew cleanup
