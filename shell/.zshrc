@@ -13,7 +13,7 @@ plugins=(common-aliases git autojump  rails)
 source $ZSH/oh-my-zsh.sh
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-source $HOME/dotfiles/zsh/.aliases
+source $HOME/dotfiles/shell/.aliases
 
 PATH="/usr/local/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"

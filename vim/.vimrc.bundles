@@ -121,6 +121,7 @@
                 Bundle 'tpope/vim-fugitive'
                 Plugin 'sessionman.vim'
                 Plugin 'sjl/gundo.vim'
+                Plugin 'thinca/vim-quickrun'
                 if executable('ctags')
                     Bundle 'majutsushi/tagbar'
                 endif
@@ -172,7 +173,10 @@
             Plugin 'plasticboy/vim-markdown'
         " }
 
-        " edit, move, search ... {
+        " copy edit, move, search ... {
+
+            " copy
+            Plugin 'chrisbra/nrrwrgn'
 
             " move, search
             Plugin 'easymotion/vim-easymotion'
