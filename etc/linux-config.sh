@@ -37,7 +37,7 @@ vim_require() {
 develop_config() {
     bash $position/zsh/zsh-config.sh
     bash $position/vim/bootstrap.sh
-    bash $position/ruby/ruby-rails-install.sh
+    bash $position/ruby/ruby_config.sh
 }
 
 nesessary() {

@@ -62,7 +62,7 @@ zsh_config_install() {
 }
 
 ruby_config_install() {
-    bash $position/ruby/ruby-rails-install.sh
+    bash $position/ruby/ruby_config.sh
 
     ret="$?"
     debug
