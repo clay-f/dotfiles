@@ -8,8 +8,8 @@ msg() {
 }
 
 oh_my_zsh() {
-    if [[ ! -e $oh_my_zsh ]]; then
-        wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+    if [[ ! -d $oh_my_zsh ]]; then
+        bash -c  "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
         if [[ -e $HOME/.zshrc ]]; then
             sed -i 's/plugins=(git.*)/plugins=(common-aliases git autojump rails)/' ~/.zshrc  # add plugins
         fi

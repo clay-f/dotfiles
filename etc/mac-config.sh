@@ -15,7 +15,14 @@ debug() {
 brew_config_install() {
     if [[ ! -e /usr/local/bin/brew ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        bash $position/etc/brew.sh
+        brew -v | grep homebrew > /dev/null 2>&1
+        if [[ $? == 0 ]]; then
+            bash $position/etc/brew.sh
+        else
+            msg "brew command not found."
+            msg "now exit..."
+            exit
+        fi
 
         ret="$?"
         debug

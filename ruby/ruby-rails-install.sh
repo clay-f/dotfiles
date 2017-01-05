@@ -13,7 +13,10 @@ debug() {
 ruby_rails_install() {
     if [[ ! -d $HOME/.rvm ]]; then
         curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
-        curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+        rails -v | grep -i rails > /dev/null 2>&1
+        if [[ $? == 0 ]]; then
+            curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+        fi
     fi
 
     ret="$?"
