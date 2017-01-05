@@ -2,9 +2,15 @@
 
 oh_my_zsh=$HOME/.oh-my-zsh
 name=`whoami`
+[ -z "$APP_PATH" ] && APP_PATH="$HOME/dotfiles"
 
 msg() {
     printf "%b\n" "$1" >&2
+}
+
+error() {
+    msg "\33[31m[✘]\33[0m ${1}${2}"
+    exit 1
 }
 
 oh_my_zsh() {
@@ -20,23 +26,51 @@ oh_my_zsh() {
     fi
 }
 
-config_link_files() {
-    if [[ ! -e $HOME/.gemrc ]]; then
-        ln -s $HOME/dotfiles/ruby/.gemrc ~/
+lnif() {
+    if [[  -e "$1" ]]; then
+        ln -sf "$1" "$2"
     fi
-    if [[ ! -e $HOME/.gitconfig ]]; then
-        ln -s $HOME/dotfiles/.gitconfig ~/
+    ret="$?"
+    debug
+}
+
+create_symlinks() {
+    local source_path="$1"
+    local target_path="$1"
+
+    lnif "$source_path/ruby/.gemrc"      "$target_path/.gemrc"
+    lnif "$source_path/.gitconfig"       "$target_path/.gitconfig"
+    lnif "$source_path/etc/tmux.conf"    "$target_path/.tmux.conf"
+    lnif "$source_path/etc/.wgetrc"      "target_path/.wgetrc"
+}
+
+progrm_exists() {
+    local ret='0'
+    command -v $1 >/dev/null 2&>1 || { local ret='1'; }
+
+    if [[ "$ret" -ne 0 ]]; then
+        return 1
     fi
-    if [[ ! -e $HOME/.tmux.conf ]]; then
-        ln -s $HOME/dotfiles/etc/tmux.conf ~/.tmux.conf
+
+    return 0
+}
+
+program_must_exist() {
+    progrm_exists $1
+
+    if [[ "$?" -ne 0 ]]; then
+        error "You muse have you HOmE enviromental variable set to continue."
     fi
 }
 
-
 install() {
-    if [[ -e /usr/local/bin/wget ]]; then
+    program_must_exist "wget"
+
+    if [[ "$?" == 0 ]]; then
         oh_my_zsh
-        config_link_files
+
+        create_symlinks "$APP_PATH" \
+            "$HOME"
     else
         msg "not found wget command."
         msg "now exit..."

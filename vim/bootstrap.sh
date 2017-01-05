@@ -174,6 +174,7 @@ setup_vundle() {
     debug
 }
 
+
 install() {
     variable_set "$HOME"
     program_must_exist "vim"

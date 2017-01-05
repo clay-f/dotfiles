@@ -4,16 +4,42 @@ msg() {
     printf "%b%n" "$1" >&2
 }
 
+error() {
+    msg "\33[31m[✘]\33[0m ${1}${2}"
+    exit 1
+}
+
 debug() {
     if [[ "$ret" -eq 1 ]]; then
         msg "error found on function \"${FUNCNAME[$i+1]}\" in ${BASH_LINENO[$i+1]}, sorry for that."
     fi
 }
 
-ruby_rails_install() {
-    if [[ ! -d $HOME/.rvm ]]; then
+program_exists() {
+    local ret='0'
+    command -v $1 >/dev/null 2>&1 || { local ret='1'; }
+
+    if [[ "$ret" -ne 0 ]]; then
+        return 1
+    fi
+
+    return 0
+}
+
+program_must_exist() {
+    program_exist $1
+
+    if [[ "$1" -ne 0 ]]; then
+        error "You must have your Home environmental variable set to continue."
+    fi
+}
+
+install() {
+
+    program_must_exist "rvm"
+    if [[ "$?" -eq 0 ]]; then
         curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
-        rails -v | grep -i rails > /dev/null 2>&1
+        program_must_exist "ruby"
         if [[ $? == 0 ]]; then
             curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
         fi
@@ -31,4 +57,4 @@ elasticsearch_install() {
     /etc/init.d/elasticsearch start
 }
 
-ruby_rails_install
+install

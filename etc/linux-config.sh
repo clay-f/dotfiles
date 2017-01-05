@@ -46,16 +46,15 @@ nesessary() {
 }
 
 install() {
-    nesessary
-    develop_config
-    monaco_font_conf
+    if [ -d $position ];then
+        nesessary
+        develop_config
+        monaco_font_conf
+    else
+        echo "not found $position"
+        exit
+    fi
 }
 
 
-################################################ Main
-if [ -d $position ];then
-    install
-else
-    echo "not found $position"
-    exit
-fi
+install
