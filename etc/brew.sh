@@ -36,12 +36,12 @@ brew_cask() {
     brew cask install go2shell
     brew cask install dropbox
 
-    brew cask cleanup
     brew cleanup
 }
 
 install() {
-    if [[ -e /usr/local/bin/brew ]]; then
+    brew -v | grep -i homebrew > /dev/null 2>&1
+    if [[ $? == 0 ]]; then
         brew_install
         brew_cask
     else
