@@ -5,6 +5,7 @@ platform='unknown'
 unamestr=`uname`
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dotfiles.git'
 count=0
+debug_mode='0'
 
 
 msg() {
@@ -18,7 +19,7 @@ success() {
 }
 
 debug() {
-    if [ "$ret" -eq 1 ]; then
+    if [ $debug_mode -eq 0 && "$ret" -gt 1 ]; then
         msg "An error occurred in function ${FUNCNAME[1]}, ${BASH_LINENO[1]}, sorry for that. "
     fi
 }

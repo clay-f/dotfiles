@@ -1,13 +1,14 @@
 #!/bin/bash
 
 position="${HOME}/dotfiles"
+debug_mode='0'
 
 msg() {
     printf "%b\n" "$1" >&2
 }
 
 debug() {
-    if [[ "$ret" -ne 0 ]]; then
+    if [[ $debug_mode -eq 1 && "$ret" -gt 1 ]]; then
         msg "a error found on \"${FUNCNAME[$i+1]}\" in ${BASH_LINENO[$i+1]}, sorry for that."
     fi
 }
