@@ -32,7 +32,8 @@ program_must_exist() {
     program_exist $1
 
     if [[ "$?" -ne 0 ]]; then
-        error "You must have your HOME environmental variable set to continue."
+        error "You muse have '$1' installed  to continue."
+        exit
     fi
 }
 
@@ -40,18 +41,17 @@ brew_config_install() {
     progrm_exists "brew"
     if [[ "$?" -ne 0 ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        progrm_exists "brew"
-        if [[ "$?" -eq 0 ]]; then
-            bash $position/etc/brew.sh
-        else
-            msg "brew command not found."
-            msg "now exit..."
-            exit
-        fi
-
-        ret="$?"
-        debug
     fi
+    program_must_exist "brew"
+    if [[ "$?" -eq 0 ]]; then
+        bash $position/etc/brew.sh
+    else
+        error "brew command not found , now exit..."
+        exit
+    fi
+
+    ret="$?"
+    debug
 }
 
 zsh_config_install() {

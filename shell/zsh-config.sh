@@ -59,21 +59,21 @@ program_must_exist() {
     progrm_exists $1
 
     if [[ "$?" -ne 0 ]]; then
-        error "You muse have you HOmE enviromental variable set to continue."
+        error "You muse have '$1' installed  to continue."
+        exit
     fi
 }
 
 install() {
     program_must_exist "wget"
 
-    if [[ "$?" == 0 ]]; then
+    if [[ "$?" -eq 0 ]]; then
         oh_my_zsh
 
         create_symlinks "$APP_PATH" \
             "$HOME"
     else
-        msg "not found wget command."
-        msg "now exit..."
+        error "wget command not found."
         exit
     fi
 }

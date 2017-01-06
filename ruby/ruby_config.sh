@@ -30,23 +30,9 @@ program_must_exist() {
     program_exist $1
 
     if [[ "$1" -ne 0 ]]; then
-        error "You must have your Home environmental variable set to continue."
+        error "You muse have '$1' installed  to continue."
+        exit
     fi
-}
-
-install() {
-
-    program_must_exist "rvm"
-    if [[ "$?" -eq 0 ]]; then
-        curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
-        program_must_exist "ruby"
-        if [[ $? == 0 ]]; then
-            curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
-        fi
-    fi
-
-    ret="$?"
-    debug
 }
 
 elasticsearch_install() {
@@ -55,6 +41,17 @@ elasticsearch_install() {
     sudo apt-get update && sudo apt-get install elasticsearch
     update-rc.d elasticsearch defaults 95 10
     /etc/init.d/elasticsearch start
+}
+
+install() {
+    progrm_exists "rvm"
+    if [[ "$?" -ne 0 ]]; then
+        curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+        curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+    fi
+
+    ret="$?"
+    debug
 }
 
 install
