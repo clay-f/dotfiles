@@ -22,7 +22,7 @@ oh_my_zsh() {
     else
         printf "have oh-my-zsh directory on you $HOME."
         printf "exit ..."
-        exit
+        exit 1
     fi
 }
 
@@ -60,7 +60,7 @@ program_must_exist() {
 
     if [[ "$?" -ne 0 ]]; then
         error "You muse have '$1' installed  to continue."
-        exit
+        exit 1
     fi
 }
 
@@ -74,7 +74,7 @@ install() {
             "$HOME"
     else
         error "wget command not found."
-        exit
+        exit 1
     fi
 }
 
