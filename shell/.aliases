@@ -11,7 +11,7 @@
         alias -s txt=vi
     # }
 
-    # cp,rm, tar etc {
+    # cp, rm, tar etc {
 
         alias vi=vim
         alias bz2='tar -jcpv -f'
