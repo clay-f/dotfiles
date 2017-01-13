@@ -183,7 +183,7 @@
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
         color solarized             " Load a colorscheme
-        set background=light
+        set background=dark
     endif
 
     set tabpagemax=15               " Only show 15 tabs
@@ -705,8 +705,6 @@
                 let g:syntastic_auto_loc_list = 1
                 let g:syntastic_check_on_open = 1
                 let g:syntastic_check_on_wq = 0
-                let g:syntastic_error_symbol='>>'
-                let g:syntastic_warning_symbol='>'
                 let g:syntastic_enable_highlighting=1
                 let g:syntastic_enable_signs = 1
                 let g:syntastic_loc_list_height = 5
@@ -735,28 +733,28 @@
                         " Use the default set of separators with a few customizations
                         let g:airline_left_sep='›'  " Slightly fancier than '>'
                         let g:airline_right_sep='‹' " Slightly fancier than '<'
-                        if !exists('g:airline_symbols')
-                            let g:airline_symbols = {}
-                        endif
-                        " unicode symbols
-                        let g:airline_left_sep = '»'
-                        let g:airline_left_sep = '▶'
-                        let g:airline_right_sep = '«'
-                        let g:airline_right_sep = '◀'
-                        let g:airline_symbols.crypt = '🔒'
-                        let g:airline_symbols.linenr = '␊'
-                        let g:airline_symbols.linenr = '␤'
-                        let g:airline_symbols.linenr = '¶'
-                        let g:airline_symbols.maxlinenr = '☰'
-                        let g:airline_symbols.maxlinenr = ''
-                        let g:airline_symbols.branch = '⎇'
-                        let g:airline_symbols.paste = 'ρ'
-                        let g:airline_symbols.paste = 'Þ'
-                        let g:airline_symbols.paste = '∥'
-                        let g:airline_symbols.spell = 'Ꞩ'
-                        let g:airline_symbols.notexists = '∄'
-                        let g:airline_symbols.whitespace = 'Ξ'
                     endif
+                    if !exists('g:airline_symbols')
+                        let g:airline_symbols = {}
+                    endif
+
+                    " unicode symbols
+                    let g:airline_left_sep = '»'
+                    let g:airline_left_sep = '▶'
+                    let g:airline_right_sep = '«'
+                    let g:airline_right_sep = '◀'
+                    let g:airline_symbols.crypt = '🔒'
+                    let g:airline_symbols.linenr = '␊'
+                    let g:airline_symbols.linenr = '␤'
+                    let g:airline_symbols.maxlinenr = '☰'
+                    let g:airline_symbols.maxlinenr = ''
+                    let g:airline_symbols.branch = '⎇'
+                    let g:airline_symbols.paste = 'ρ'
+                    let g:airline_symbols.paste = 'Þ'
+                    let g:airline_symbols.paste = '∥'
+                    let g:airline_symbols.spell = 'Ꞩ'
+                    let g:airline_symbols.notexists = '∄'
+                    let g:airline_symbols.whitespace = 'Ξ'
                 endif
             " }
 
