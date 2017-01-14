@@ -8,25 +8,17 @@
 "        |___/ .__/|_| |_|____/        \_/  |_|_| |_| |_|
 "            |_|
 "
-"   This is the personal .vimrc file of Steve Francia.
+"   This is the personal .vimrc.bundles file of Steve Francia.
 "   While much of it is beneficial for general use, I would
 "   recommend picking out the parts you want and understand.
 "
+"   This file imports the various plugins of spf13. If you
+"   wish to alter which groups are imported, see vimrc.before.
+"   If you wish to add or remove individual bundles, create
+"   ~/.vimrc.bundles.local and `Bundle` or `UnBundle` as needed
+"   from there.
+"
 "   You can find me at http://spf13.com
-"
-"   Copyright 2014 Steve Francia
-"
-"   Licensed under the Apache License, Version 2.0 (the "License");
-"   you may not use this file except in compliance with the License.
-"   You may obtain a copy of the License at
-"
-"       http://www.apache.org/licenses/LICENSE-2.0
-"
-"   Unless required by applicable law or agreed to in writing, software
-"   distributed under the License is distributed on an "AS IS" BASIS,
-"   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-"   See the License for the specific language governing permissions and
-"   limitations under the License.
 " }
 
 " Environment {
@@ -527,16 +519,13 @@
 
         " Integrations {
 
-                " MRU {
-                    map <leader>fmu :MRU<CR>
-                " }
 
                 " BufExplorer {
                     map <leader>o :BufExplorer<cr>
                 " }
 
                 " NerdTree {
-                    if isdirectory(expand("~/.vim/bundle/nerdtree"))
+                    if isdirectory(expand("~/.vim/plugged/nerdtree"))
                         map <C-e> <plug>NERDTreeTabsToggle<CR>
                         map <leader>nb :NERDTreeFromBookmark
                         map <leader>nf :NERDTreeTabsFind<cr>
@@ -553,7 +542,7 @@
 
                 " Session List {
                     set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-                    if isdirectory(expand("~/.vim/bundle/sessionman.vim/"))
+                    if isdirectory(expand("~/.vim/plugged/sessionman.vim/"))
                         nmap <leader>sl :SessionList<CR>
                         nmap <leader>ss :SessionSave<CR>
                         nmap <leader>sc :SessionClose<CR>
@@ -561,7 +550,7 @@
                 " }
 
                 " ctrlp {
-                    if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
+                    if isdirectory(expand("~/.vim/plugged/ctrlp.vim/"))
                         let g:ctrlp_working_path_mode = 'ra'
                         nnoremap <silent> <D-t> :CtrlP<CR>
                         nnoremap <silent> <D-r> :CtrlPMRU<CR>
@@ -592,7 +581,7 @@
                             \ 'fallback': s:ctrlp_fallback
                         \ }
 
-                        if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+                        if isdirectory(expand("~/.vim/plugged/ctrlp-funky/"))
                             " CtrlP extensions
                             let g:ctrlp_extensions = ['funky']
 
@@ -603,13 +592,13 @@
                 "}
 
                 " TagBar {
-                    if isdirectory(expand("~/.vim/bundle/tagbar/"))
+                    if isdirectory(expand("~/.vim/plugged/tagbar/"))
                         nnoremap <silent> <leader>tt :TagbarToggle<CR>
                     endif
                 "}
 
                 " Fugitive {
-                    if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+                    if isdirectory(expand("~/.vim/plugged/vim-fugitive/"))
                         nnoremap <silent> <leader>gs :Gstatus<CR>
                         nnoremap <silent> <leader>gd :Gdiff<CR>
                         nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -682,10 +671,10 @@
                 " }
 
                 " Misc {
-                    if isdirectory(expand("~/.vim/bundle/nerdtree"))
+                    if isdirectory(expand("~/.vim/plugged/nerdtree"))
                         let g:NERDShutUp=1
                     endif
-                    if isdirectory(expand("~/.vim/bundle/matchit.zip"))
+                    if isdirectory(expand("~/.vim/plugged/matchit.zip"))
                         let b:match_ignorecase = 1
                     endif
                 " }
@@ -705,6 +694,8 @@
                 let g:syntastic_auto_loc_list = 1
                 let g:syntastic_check_on_open = 1
                 let g:syntastic_check_on_wq = 0
+                let g:syntastic_error_symbol='>>'
+                let g:syntastic_warning_symbol='>'
                 let g:syntastic_enable_highlighting=1
                 let g:syntastic_enable_signs = 1
                 let g:syntastic_loc_list_height = 5
@@ -725,41 +716,37 @@
 
                 " See `:echo g:airline_theme_map` for some more choices
                 " Default in terminal vim is 'dark'
-                if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
+                if isdirectory(expand("~/.vim/plugged/vim-airline-themes/"))
                     if !exists('g:airline_theme')
                         let g:airline_theme = 'solarized'
                     endif
                     if !exists('g:airline_powerline_fonts')
-                        " Use the default set of separators with a few customizations
-                        let g:airline_left_sep='›'  " Slightly fancier than '>'
-                        let g:airline_right_sep='‹' " Slightly fancier than '<'
+                        if !exists('g:airline_symbols')
+                            let g:airline_symbols = {}
+                        endif
+                        " unicode symbols
+                        let g:airline_left_sep = '»'
+                        let g:airline_left_sep = '▶'
+                        let g:airline_right_sep = '«'
+                        let g:airline_right_sep = '◀'
+                        let g:airline_symbols.crypt = '🔒'
+                        let g:airline_symbols.linenr = '␊'
+                        let g:airline_symbols.linenr = '␤'
+                        let g:airline_symbols.maxlinenr = '☰'
+                        let g:airline_symbols.maxlinenr = ''
+                        let g:airline_symbols.branch = '⎇'
+                        let g:airline_symbols.paste = 'ρ'
+                        let g:airline_symbols.paste = 'Þ'
+                        let g:airline_symbols.paste = '∥'
+                        let g:airline_symbols.spell = 'Ꞩ'
+                        let g:airline_symbols.notexists = '∄'
+                        let g:airline_symbols.whitespace = 'Ξ'
                     endif
-                    if !exists('g:airline_symbols')
-                        let g:airline_symbols = {}
-                    endif
-
-                    " unicode symbols
-                    let g:airline_left_sep = '»'
-                    let g:airline_left_sep = '▶'
-                    let g:airline_right_sep = '«'
-                    let g:airline_right_sep = '◀'
-                    let g:airline_symbols.crypt = '🔒'
-                    let g:airline_symbols.linenr = '␊'
-                    let g:airline_symbols.linenr = '␤'
-                    let g:airline_symbols.maxlinenr = '☰'
-                    let g:airline_symbols.maxlinenr = ''
-                    let g:airline_symbols.branch = '⎇'
-                    let g:airline_symbols.paste = 'ρ'
-                    let g:airline_symbols.paste = 'Þ'
-                    let g:airline_symbols.paste = '∥'
-                    let g:airline_symbols.spell = 'Ꞩ'
-                    let g:airline_symbols.notexists = '∄'
-                    let g:airline_symbols.whitespace = 'Ξ'
                 endif
             " }
 
             " indent_guides {
-                if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
+                if isdirectory(expand("~/.vim/plugged/vim-indent-guides/"))
                     let g:indent_guides_start_level = 2
                     let g:indent_guides_guide_size = 1
                     let g:indent_guides_enable_on_vim_startup = 1
@@ -767,7 +754,7 @@
             " }
 
             " Rainbow {
-                if isdirectory(expand("~/.vim/bundle/rainbow/"))
+                if isdirectory(expand("~/.vim/plugged/rainbow/"))
                     let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
                     let g:rainbow_conf = {
                         \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -868,12 +855,6 @@
                 let g:closetag_html_style=1
             " }
 
-            " Wildfire {
-                let g:wildfire_objects = {
-                            \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
-                            \ "html,xml" : ["at"],
-                            \ }
-
             " gundo {
                 noremap <leader>u :GundoToggle<CR>
             " }
@@ -931,7 +912,7 @@
                             \ count(g:spf13_bundle_groups, 'neocomplete')
 
                     " Use honza's snippets.
-                    let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+                    let g:neosnippet#snippets_directory='~/.vim/.plugged/vim-snippets/snippets'
 
                     " Enable neosnippet snipmate compatibility mode
                     let g:neosnippet#enable_snipmate_compatibility = 1
@@ -957,6 +938,12 @@
 
         " Other {
 
+            " widefire {
+                let g:wildfire_objects = {
+                            \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+                            \ "html,xml" : ["at"],
+                            \ }
+
             " TextObj Sentence {
                 if count(g:spf13_bundle_groups, 'writing')
                     augroup textobj_sentence
@@ -978,7 +965,10 @@
                     augroup END
                 endif
             " }
-                " }
+
+            "}
+
+        " }
 
     " }
 
