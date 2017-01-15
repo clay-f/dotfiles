@@ -52,7 +52,7 @@ toolkits_config() {
 
 
 develop_config() {
-    bash $position/zsh/zsh-config.sh
+    bash $position/shell/zsh-config.sh
     bash $position/vim/bootstrap.sh
 }
 

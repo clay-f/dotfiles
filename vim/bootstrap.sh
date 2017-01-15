@@ -161,6 +161,11 @@ setup_plugs() {
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
 
+    # install vim-plug support
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
     vim \
         -u "$1" \
         "+set nomore" \
