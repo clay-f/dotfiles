@@ -169,7 +169,7 @@
 
 " Vim UI {
 
-    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/plugged/vim-colors-solarized/colors/solarized.vim"))
         let g:solarized_termcolors=256
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
@@ -816,6 +816,18 @@
                     map #  <Plug>(incsearch-nohl-#)
                     map g* <Plug>(incsearch-nohl-g*)
                     map g# <Plug>(incsearch-nohl-g#)
+                    function! s:config_fuzzyall(...) abort
+                        return extend(copy({
+                                    \   'converters': [
+                                    \     incsearch#config#fuzzy#converter(),
+                                    \     incsearch#config#fuzzyspell#converter()
+                                    \   ],
+                                    \ }), get(a:, 1, {}))
+                    endfunction
+
+                    noremap <silent><expr> z/ incsearch#go(<SID>config_fuzzyall())
+                    noremap <silent><expr> z? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
+                    noremap <silent><expr> zg? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
                 " }
 
                 "EasyAlign{
@@ -833,9 +845,6 @@
                     map  <Leader><Leader>f <Plug>(easymotion-bd-f)
                     nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
 
-                    " s{char}{char} to move to {char}{char}
-                    nmap s <Plug>(easymotion-overwin-f2)
-
                     " Move to line
                     map <Leader>L <Plug>(easymotion-bd-jk)
                     nmap <Leader>L <Plug>(easymotion-overwin-line)
@@ -843,6 +852,12 @@
                     " Move to word
                     map  <Leader>w <Plug>(easymotion-bd-w)
                     nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+                    nmap s <Plug>(easymotion-s2)
+                    nmap t <Plug>(easymotion-t2)
+
+                    let g:EasyMotion_smartcase = 1
+                    let g:EasyMotion_use_smartsign_us = 1
 
                 "}
 
