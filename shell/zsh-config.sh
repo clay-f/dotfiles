@@ -37,7 +37,7 @@ lnif() {
 
 create_symlinks() {
     local source_path="$1"
-    local target_path="$1"
+    local target_path="$2"
 
     lnif "$source_path/ruby/.gemrc"      "$target_path/.gemrc"
     lnif "$source_path/.gitconfig"       "$target_path/.gitconfig"
