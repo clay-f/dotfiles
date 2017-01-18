@@ -27,25 +27,6 @@ oh_my_zsh() {
     fi
 }
 
-lnif() {
-    if [[  -e "$1" ]]; then
-        ln -sf "$1" "$2"
-    fi
-    ret="$?"
-    debug
-}
-
-create_symlinks() {
-    local source_path="$1"
-    local target_path="$2"
-
-    lnif "$source_path/ruby/.gemrc"      "$target_path/.gemrc"
-    lnif "$source_path/.gitconfig"       "$target_path/.gitconfig"
-    lnif "$source_path/etc/.tmux.conf"    "$target_path/.tmux.conf"
-    lnif "$source_path/etc/.wgetrc"      "$target_path/.wgetrc"
-    lnif "$source_path/shell/.aliases"   "$target_path/.aliases"
-}
-
 progrm_exists() {
     local ret='0'
     command -v $1 >/dev/null 2&>1 || { local ret='1'; }
@@ -71,9 +52,6 @@ install() {
 
     if [[ "$?" -eq 0 ]]; then
         oh_my_zsh
-
-        create_symlinks "$APP_PATH" \
-            "$HOME"
     else
         error "wget command not found."
         exit 1

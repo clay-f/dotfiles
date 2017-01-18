@@ -83,14 +83,33 @@ do_backup() {
     fi
 }
 
+
+lnif() {
+    if [[  -e "$1" ]]; then
+        ln -sf "$1" "$2"
+    fi
+}
+
+create_symlinks() {
+    local source_path="$1"
+    local target_path="$2"
+
+    lnif "$source_path/ruby/.gemrc"      "$target_path/.gemrc"
+    lnif "$source_path/.gitconfig"       "$target_path/.gitconfig"
+    lnif "$source_path/etc/.tmux.conf"    "$target_path/.tmux.conf"
+    lnif "$source_path/etc/.wgetrc"      "$target_path/.wgetrc"
+    lnif "$source_path/shell/.aliases"   "$target_path/.aliases"
+}
+
 main() {
     matchPlatform
     do_backup "$HOME/dotfiles"
-
     sync_repo "$HOME/dotfiles"  \
               "$REPO_URI"        \
               "master"
     start
+    create_symlinks "$APP_PATH" \
+        "$HOME"
     msg "\nThanks for installing $app_name"
     msg "`date + %Y%m%d_%s` success"
 }
