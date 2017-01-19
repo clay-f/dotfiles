@@ -103,15 +103,20 @@ create_symlinks() {
 
 main() {
     matchPlatform
+
     do_backup "$HOME/dotfiles"
+
     sync_repo "$HOME/dotfiles"  \
               "$REPO_URI"        \
               "master"
-    start
+
     create_symlinks "$APP_PATH" \
         "$HOME"
+
+    start
+
     msg "\nThanks for installing $app_name"
-    msg "`date + %Y%m%d_%s` success"
+    msg "`date + %Y%m%d_%s` successed"
 }
 
 

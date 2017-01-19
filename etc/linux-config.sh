@@ -45,19 +45,13 @@ toolkits_config() {
     sudo apt-get -y install autojump
     sudo apt-get -y install links
     sudo apt-get -y install vim
-    sudo apt-get -y install vim-gtk
+    # sudo apt-get -y install vim-gtk        ## gvim
     sudo apt-get autoremove
-}
-
-
-
-develop_config() {
-    bash $position/shell/zsh-config.sh
-    bash $position/vim/bootstrap.sh
 }
 
 nesessary() {
     toolkits_config
+    bash $position/shell/zsh-config.sh
 }
 
 install() {
