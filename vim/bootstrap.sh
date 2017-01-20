@@ -190,7 +190,8 @@ install() {
 
     setup_plugs    "$APP_PATH/.vimrc.bundles.default"
 
-    msg             "\ninstall successed."
+    msg             "\nThanks for installing $app_name."
+    msg             "© `date +%Y` http://vim.spf13.com/"
 
 }
 
