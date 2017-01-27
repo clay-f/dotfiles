@@ -1,9 +1,8 @@
 #### this is dotfiles fast config for ruby, zsh, vim, etc.
 > fast config for web development.
 ***
-#### what does include ?
+#### what does the main include ?
  * <a href="https://github.com/clay-f/dotfiles/tree/master/vim">vim</a>
- * tmux
  * zsh
  * ruby
 
@@ -17,6 +16,12 @@ via curl
 via wget
 
 > `bash -c "$(wget https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh -O -)" `
+
+#### install RoR
+> #this dotfiles do not auto-install RoR, it might take long time.
+
+> ./ruby_config.sh
+
 
 ***
 ## feedback
