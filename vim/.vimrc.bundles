@@ -81,7 +81,8 @@
                 Plug 'vim-scripts/BufOnly.vim'
                 Plug 'tpope/vim-fugitive'
                 Plug 'bufexplorer.zip'
-                Plug 'ctrlpvim/ctrlp.vim'
+                Plug 'tpope/vim-obsession'
+                Plug 'chrisbra/nrrwrgn'
         "
             endif
             if !exists('g:spf13_no_views')
@@ -91,9 +92,12 @@
 
         " General Programming {
             if count(g:spf13_bundle_groups, 'programming')
-                Plug 'tpope/vim-fugitive'
+                Plug 'ctrlpvim/ctrlp.vim'
+                Plug 'tacahiroy/ctrlp-funky'
                 Plug 'sessionman.vim'
                 Plug 'sjl/gundo.vim'
+                Plug 'thinca/vim-quickrun'
+
                 if executable('ctags')
                     Plug 'majutsushi/tagbar'
                 endif
@@ -120,7 +124,6 @@
         " Themes {
             Plug 'altercation/vim-colors-solarized'
             Plug 'flazz/vim-colorschemes'
-            Plug 'altercation/vim-colors-solarized'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Plug 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -147,8 +150,6 @@
         " }
 
         " copy edit, move, search ... {
-
-            Plug 'chrisbra/nrrwrgn'
 
             " move, search
             Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -232,10 +233,8 @@
 
         " Javascript {
             if count(g:spf13_bundle_groups, 'javascript')
-                Plug 'elzr/vim-json'
                 Plug 'pangloss/vim-javascript'
                 Plug 'kchmck/vim-coffee-script'
-                Plug 'tpope/vim-obsession'
             endif
         " }
 
