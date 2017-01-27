@@ -1,6 +1,6 @@
-#### this is dotfiles fast config for ruby, zsh, vim, etc.
+#### the dotfiles fast config for ruby, zsh, vim, etc.
 
-> fast config for web development.
+
 ----
 
 #### what does the main include ?
