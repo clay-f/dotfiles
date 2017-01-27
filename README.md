@@ -6,8 +6,8 @@
 #### what does the main include ?
 
  * <a href="https://github.com/clay-f/dotfiles/tree/master/vim">vim</a>
- * zsh
  * ruby
+ * zsh
 
 ----
 ### Installation
