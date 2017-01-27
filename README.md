@@ -1,13 +1,15 @@
 #### this is dotfiles fast config for ruby, zsh, vim, etc.
 
 > fast config for web development.
----- 
+----
 
 #### what does the main include ?
+
  * <a href="https://github.com/clay-f/dotfiles/tree/master/vim">vim</a>
  * zsh
  * ruby
----- 
+
+----
 ### Installation
 
 via curl
@@ -25,6 +27,6 @@ via wget
 > `./ruby\_config.sh`
 
 
----- 
+----
 ## feedback
 Suggestions/improvements <a href="https://github.com/clay-f/dotfiles/issues/new">welcome!</a>
