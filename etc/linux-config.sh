@@ -59,7 +59,6 @@ install() {
 
     if [ -d $position ];then
         nesessary
-        develop_config
     else
         echo "not found $position"
         exit
