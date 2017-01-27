@@ -60,6 +60,7 @@ brew_install() {
     brew install ctags
     brew install zsh
     brew install tmux
+    brew install fzf
 }
 
 brew_cask() {

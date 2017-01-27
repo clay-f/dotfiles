@@ -83,6 +83,7 @@
                 Plug 'bufexplorer.zip'
                 Plug 'tpope/vim-obsession'
                 Plug 'chrisbra/nrrwrgn'
+                Plug 'junegunn/goyo.vim'
         "
             endif
             if !exists('g:spf13_no_views')
@@ -97,7 +98,8 @@
                 Plug 'sessionman.vim'
                 Plug 'sjl/gundo.vim'
                 Plug 'thinca/vim-quickrun'
-
+                Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+                Plug 'junegunn/fzf.vim'
                 if executable('ctags')
                     Plug 'majutsushi/tagbar'
                 endif
