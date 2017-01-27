@@ -1,6 +1,5 @@
 #### the dotfiles fast config for ruby, zsh, vim, etc.
 
-
 ----
 
 #### what does the main include ?
