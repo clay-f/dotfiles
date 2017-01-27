@@ -15,7 +15,7 @@ A quick vimrc for web programming
 
 
 NERDTree is a file explorer plugin that provides "project drawer" functionality to your vim editing. You can learn more about it with `:help NERDTree`.
-
+<br>
 <b>QuickStart</b> Launch using `<c-e>`
 
 ### <a href="https://github.com/mbbill/undotree">undotree</a>
