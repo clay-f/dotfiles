@@ -80,10 +80,7 @@
                 Plug 'jistr/vim-nerdtree-tabs'
                 Plug 'vim-scripts/BufOnly.vim'
                 Plug 'tpope/vim-fugitive'
-                Plug 'bufexplorer.zip'
-                Plug 'tpope/vim-obsession'
                 Plug 'chrisbra/nrrwrgn'
-                Plug 'junegunn/goyo.vim'
         "
             endif
             if !exists('g:spf13_no_views')
