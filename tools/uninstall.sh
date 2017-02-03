@@ -1,11 +1,12 @@
-uninstall() {
-    dotfile_dir="$HOME/dotfiles"
-    rm -rf $HOME/dotfiles
-    rm -rf $HOME/.vim*
+read -r -p "Are you sure you want to remove dotfiles [y/N]" confirmation
+if [[ "$confirmation" != y ]] && [[ "$confirmation" != Y ]]; then
+    echo "Uninstall cancelled"
+    exit
+fi
 
-    if [ ! -d $HOME/dotfiles ]; then
-        echo -e "\t\tUninstall Successed"
-    fi
-}
+echo "Removing ~/dotfiles"
+if [[ -d ~/dotfiles ]]; then
+    rm -rf ~/dotfiles
+fi
 
-uninstall
+echo "Thanks for trying dotfiles. it's been uninstalled."
