@@ -535,10 +535,6 @@
                 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
             " }
 
-                " BufExplorer {
-                    map <leader>o :BufExplorer<cr>
-                " }
-
                 " NerdTree {
                     if isdirectory(expand("~/.vim/plugged/nerdtree"))
                         map <C-e> <plug>NERDTreeTabsToggle<CR>
