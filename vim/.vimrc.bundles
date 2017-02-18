@@ -80,8 +80,6 @@
                 Plug 'jistr/vim-nerdtree-tabs'
                 Plug 'vim-scripts/BufOnly.vim'
                 Plug 'tpope/vim-fugitive'
-                Plug 'chrisbra/nrrwrgn'
-        "
             endif
             if !exists('g:spf13_no_views')
                 Plug 'vim-scripts/restore_view.vim'
@@ -94,13 +92,12 @@
                 Plug 'tacahiroy/ctrlp-funky'
                 Plug 'sessionman.vim'
                 Plug 'sjl/gundo.vim'
-                Plug 'thinca/vim-quickrun'
                 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
                 Plug 'junegunn/fzf.vim'
                 if executable('ctags')
                     Plug 'majutsushi/tagbar'
                 endif
-
+                Plug 'tpope/vim-obsession'
             endif
         " }
 
@@ -178,7 +175,6 @@
             Plug 'terryma/vim-expand-region'
 
             "auto-pair
-            Plug 'alvan/vim-closetag'
             Plug 'jiangmiao/auto-pairs'
         "}
 
@@ -214,10 +210,11 @@
         " HTML/CSS {
             if count(g:spf13_bundle_groups, 'html')
                 Plug 'othree/html5.vim'
-                Plug 'tpope/vim-haml'
                 Plug 'mattn/emmet-vim'
                 Plug 'hail2u/vim-css3-syntax'
                 Plug 'ap/vim-css-color'
+
+                Plug 'alvan/vim-closetag'
             endif
         " }
 
