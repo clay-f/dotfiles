@@ -519,6 +519,7 @@
 
         " Integrations {
 
+Plug 'othree/xml.vim'
             " fzf {
                 " Mapping selecting mappings
                 nmap <leader><tab> <plug>(fzf-maps-n)
