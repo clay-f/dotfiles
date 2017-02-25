@@ -88,8 +88,6 @@
 
         " General Programming {
             if count(g:spf13_bundle_groups, 'programming')
-                Plug 'ctrlpvim/ctrlp.vim'
-                Plug 'tacahiroy/ctrlp-funky'
                 Plug 'sessionman.vim'
                 Plug 'sjl/gundo.vim'
                 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
