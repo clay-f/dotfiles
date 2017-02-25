@@ -1,6 +1,10 @@
-## The Ultimate vimrc
+## The powerful vim distribution
 ----
-A quick vimrc for web programming
+A quick vim config for web programming
+
+references part of
+<a href="https://github.com/spf13/spf13-vim">spf13</a>
+
 ----
 #### what does the vim focus on ?
 * simple
