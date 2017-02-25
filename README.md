@@ -19,11 +19,6 @@ via wget
 
 > `bash -c "$(wget https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh -O -)"`
 
-#### install RoR
-
-> this dotfiles do not auto-install RoR, it might take long time.
-
-> `./ruby\_config.sh`
 
 
 ----

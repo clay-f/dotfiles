@@ -18,26 +18,12 @@ NERDTree is a file explorer plugin that provides "project drawer" functionality 
 <br>
 <b>QuickStart</b> Launch using `<c-e>`
 
-### <a href="https://github.com/mbbill/undotree">undotree</a>
+### <a href="https://github.com/mbbill/undotree">Gundo</a>
 <hr>
 If you undo changes and then make a new change, in most editors the changes you undid are gone forever, as their undo-history is a simple list. Since version 7.0 vim uses an undo-tree instead. If you make a new change after undoing changes, a new branch is created in that tree. Combined with persistent undo, this is nearly as flexible and safe as git ;-)
 Undotree makes that feature more accessible by creating a visual representation of said undo-tree
 
 <b> QuickStart</b> Launch using `<Leader>u`.
-
-### <a href="https://github.com/jlanzarotta/bufexplorer">bufexplorer</a>
-<hr>
-With bufexplorer, you can quickly and easily switch between buffers by using the one of the default public interfaces.
-
-<b>QuickStart</b> Launch using `<Leader>o`
-
-### <a href="https://github.com/kien/ctrlp.vim">ctrlp</a>
-<hr>
-<img width="700" alt="screen shot 2016-12-13 at 19 28 28" src="https://cloud.githubusercontent.com/assets/16079417/21138914/5b25d2d8-c16b-11e6-9b6b-8ba93361b746.png">
-<br>
-Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-
-<b>QuickStart</b> Launch using `<c-p>`
 
 ### <a href="https://github.com/scrooloose/nerdcommenter">nerdcommenter</a>
 <hr>

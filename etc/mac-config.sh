@@ -82,6 +82,7 @@ install() {
         brew_config_install
         vim_config_install
         zsh_config_install
+        ruby_config_install
     else
         echo "\tnot found $position"
         exit
