@@ -69,20 +69,11 @@ ruby_config_install() {
     debug
 }
 
-vim_config_install() {
-    bash $position/vim/bootstrap.sh
-
-    ret="$?"
-    debug
-    return
-}
-
 install() {
     if [ -d $position ]; then
         brew_config_install
         vim_config_install
         zsh_config_install
-        ruby_config_install
     else
         echo "\tnot found $position"
         exit

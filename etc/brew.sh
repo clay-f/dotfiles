@@ -61,6 +61,7 @@ brew_install() {
     brew install zsh
     brew install tmux
     brew install fzf
+    brew install rbenv
 }
 
 brew_cask() {
