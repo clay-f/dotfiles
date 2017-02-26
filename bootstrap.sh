@@ -95,7 +95,6 @@ create_symlinks() {
     local target_path="$2"
 
     lnif "$source_path/ruby/.gemrc"      "$target_path/.gemrc"
-    lnif "$source_path/.gitconfig"       "$target_path/.gitconfig"
     lnif "$source_path/etc/.tmux.conf"    "$target_path/.tmux.conf"
     lnif "$source_path/etc/.wgetrc"      "$target_path/.wgetrc"
     lnif "$source_path/shell/.aliases"   "$target_path/.aliases"
