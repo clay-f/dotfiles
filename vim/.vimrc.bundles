@@ -80,8 +80,6 @@
                 Plug 'jistr/vim-nerdtree-tabs'
                 Plug 'vim-scripts/BufOnly.vim'
                 Plug 'tpope/vim-fugitive'
-                Plug 'ctrlpvim/ctrlp.vim'
-                Plug 'tacahiroy/ctrlp-funky'
             endif
             if !exists('g:spf13_no_views')
                 Plug 'vim-scripts/restore_view.vim'
