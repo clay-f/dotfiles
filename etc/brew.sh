@@ -39,7 +39,7 @@ brew_install() {
     brew update
     brew upgrade
 
-    tools=( "wget --with-iri" "automake" "openssl" "cmake" "vim --override-system-vi" "nmap" "pstree" "autojump" "lua" "ctags" "zsh" "tmux" "fzf" "rbenv" )
+    tools=( "wget --with-iri" "automake" "openssl" "cmake" "vim --override-system-vi" "nmap" "pstree" "z" "lua" "ctags" "zsh" "tmux" "fzf" "rbenv" )
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         brew install ${tools[i]}
     done
