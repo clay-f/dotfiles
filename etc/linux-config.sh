@@ -2,7 +2,6 @@
 
 position=${HOME}/dotfiles
 
-
 msg() {
     printf "%b\n" "$1" >&2
 }
@@ -47,6 +46,20 @@ toolkits_config() {
     sudo apt-get -y install vim
     # sudo apt-get -y install vim-gtk        ## gvim
     sudo apt-get autoremove
+
+    # fzf is a general-purpose command-line fuzzy finder.
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+
+
+    # Groom your app’s Ruby environment
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    if [[ ! -f ~/.zshrc ]]; then
+        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+    else
+        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+    fi
+    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 }
 
 nesessary() {
