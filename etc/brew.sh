@@ -36,42 +36,21 @@ program_must_exist() {
 }
 
 brew_install() {
-
     brew update
-    # Upgrade any already-installed formulae.
     brew upgrade
 
-    brew install git
-    # Install `wget` with IRI support.
-    brew install wget --with-iri
-    brew install automake
-    brew install openssl
-    brew install cmake
-
-    # utility tools
-    brew install vim --override-system-vi
-    brew install gnu-sed --with-default-names
-    brew install ack
-    brew install nmap
-    brew install pstree
-    brew install tree
-    brew install autojump
-    brew install lua
-    brew install ctags
-    brew install zsh
-    brew install tmux
-    brew install fzf
-    brew install rbenv
+    tools=( "wget --with-iri" "automake" "openssl" "cmake" "vim --override-system-vi" "nmap" "pstree" "autojump" "lua" "ctags" "zsh" "tmux" "fzf" "rbenv" )
+    for (( i = 0; i < ${#tools[*]}; i++ )); do
+        brew install ${tools[i]}
+    done
 }
 
 brew_cask() {
     brew tap phinze/homebrew-cask && brew install brew-cask
-    brew cask install google-chrome
-    brew cask install iterm2
-    brew cask install macvim
-    brew cask install go2shell
-    brew cask install dropbox
-
+    cask_tools=("google-chrome" "iterm2" "macvim" "go2shell" "dropbox" "qlcolorcode" "qlstephen" "qlmarkdown")
+    for (( i = 0; i < ${cask_tools[*]}; i++ )); do
+        brew cask install ${cask_tools[i]}
+    done
     brew cleanup
 }
 

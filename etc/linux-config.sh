@@ -32,25 +32,18 @@ program_must_exist() {
 }
 
 toolkits_config() {
-    sudo apt-get -y install gcc
-    sudo apt-get -y install make
-    sudo apt-get -y install tmux
-    sudo apt-get -y install nmap
-    sudo apt-get -y install tree
-    sudo apt-get -y install pstree
-    sudo apt-get -y install curl
-    sudo apt-get -y install zsh
-    sudo apt-get -y install ack-grep
-    sudo apt-get -y install autojump
-    sudo apt-get -y install links
-    sudo apt-get -y install vim
+
+    tools=("gcc" "make" "tmux" "nmap" "tree" "pstree" "curl" "zsh" "ack-grep" "autojump" "vim" "links" "nginx" )
+
+    for (( i = 0; i < ${#tools[*]}; i++ )); do
+        sudo apt-get -y install ${tools[i]}
+    done
     # sudo apt-get -y install vim-gtk        ## gvim
     sudo apt-get autoremove
 
     # fzf is a general-purpose command-line fuzzy finder.
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
-
 
     # Groom your app’s Ruby environment
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -77,6 +70,5 @@ install() {
         exit
     fi
 }
-
 
 install
