@@ -1,3 +1,4 @@
+#!/bin/bash
 app_name='vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/dotfiles/vim"
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='3.0'

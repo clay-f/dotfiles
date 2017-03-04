@@ -176,6 +176,7 @@
 
             "auto-pair
             Plug 'jiangmiao/auto-pairs'
+            let g:AutoPairsFlyMode = 1
             Plug 'alvan/vim-closetag'
         "}
 

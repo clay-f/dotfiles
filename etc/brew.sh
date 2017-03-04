@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 msg() {
     printf "%b\n" "$1" >&2
