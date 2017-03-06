@@ -64,7 +64,7 @@
 
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc','youcompleteme']
+        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc', 'youcompleteme']
     endif
 
     " To override all the included bundles, add the following to your
@@ -78,8 +78,8 @@
             if count(g:spf13_bundle_groups, 'general')
                 Plug 'scrooloose/nerdtree'
                 Plug 'jistr/vim-nerdtree-tabs'
-                Plug 'vim-scripts/BufOnly.vim'
                 Plug 'tpope/vim-fugitive'
+                Plug 'schickling/vim-bufonly'
             endif
             if !exists('g:spf13_no_views')
                 Plug 'vim-scripts/restore_view.vim'
@@ -95,7 +95,6 @@
                 if executable('ctags')
                     Plug 'majutsushi/tagbar'
                 endif
-                Plug 'tpope/vim-obsession'
             endif
         " }
 
@@ -176,7 +175,6 @@
 
             "auto-pair
             Plug 'jiangmiao/auto-pairs'
-            let g:AutoPairsFlyMode = 1
             Plug 'alvan/vim-closetag'
         "}
 
@@ -192,8 +190,6 @@
                 Plug 'Valloric/YouCompleteMe'
                 Plug 'SirVer/ultisnips'
                 Plug 'honza/vim-snippets'
-                "List of JavaScript ES6 snippets and syntax highlighting
-                Plug 'isruslan/vim-es6'
             elseif count(g:spf13_bundle_groups, 'neocomplcache')
                 Bundle 'Shougo/neocomplcache'
                 Bundle 'Shougo/neosnippet'
@@ -223,7 +219,6 @@
                 let g:rubycomplete_buffer_loading = 1
                 Plug 'vim-ruby/vim-ruby'
                 Plug 'tpope/vim-haml'
-                Plug 'slim-template/vim-slim'
                 Plug 'tpope/vim-endwise'
             endif
         " }

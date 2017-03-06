@@ -837,12 +837,6 @@
                 noremap <leader>u :GundoToggle<CR>
             " }
 
-            " SnipMate {
-                " Setting the author var
-                " If forking, please overwrite in your .vimrc.local file
-                let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
-            " }
-
             " YouCompleteMe {
                 if count(g:spf13_bundle_groups, 'youcompleteme')
                     let g:acp_enableAtStartup = 0
@@ -887,7 +881,7 @@
 
             " Snippets {
                 if count(g:spf13_bundle_groups, 'neocomplcache') ||
-                            \ count(g:spf13_bundle_groups, 'neocomplete')
+                    \ count(g:spf13_bundle_groups, 'neocomplete')
 
                     " Use honza's snippets.
                     let g:neosnippet#snippets_directory='~/.vim/.plugged/vim-snippets/snippets'
@@ -910,17 +904,11 @@
                     " especially when splits are used.
                     set completeopt-=preview
                 endif
-    " }
+            " }
 
         " }
 
         " Other {
-
-            " widefire {
-                let g:wildfire_objects = {
-                            \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
-                            \ "html,xml" : ["at"],
-                            \ }
 
             " TextObj Sentence {
                 if count(g:spf13_bundle_groups, 'writing')
