@@ -33,7 +33,11 @@ program_must_exist() {
 
 toolkits_config() {
 
-    tools=("gcc" "make" "tmux" "nmap" "tree" "pstree" "curl" "zsh" "ack-grep" "autojump" "vim" "links" "nginx" )
+    tools=(
+        "gcc" "make" "tmux" "nmap"  \
+        "tree" "pstree" "curl" "zsh" "ack-grep" "autojump"  \
+        "vim" "links" "nginx" "silversearcher-ag"
+    )
 
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         sudo apt-get -y install ${tools[i]}
