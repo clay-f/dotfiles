@@ -36,7 +36,7 @@ toolkits_config() {
     tools=(
         "gcc" "make" "tmux" "nmap"  \
         "tree" "pstree" "curl" "zsh" "ack-grep" "autojump"  \
-        "vim" "links" "nginx" "silversearcher-ag"
+        "vim" "links" "nginx" "silversearcher-ag" "ruby-dev"
     )
 
     for (( i = 0; i < ${#tools[*]}; i++ )); do

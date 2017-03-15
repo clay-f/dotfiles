@@ -151,16 +151,6 @@
             Plug 'easymotion/vim-easymotion'
             Plug 'haya14busa/incsearch.vim'
 
-            if executable('ag')
-                Plug 'mileszs/ack.vim'
-                let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-            elseif executable('ack-grep')
-                let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-                Plug 'mileszs/ack.vim'
-            elseif executable('ack')
-                Plug 'mileszs/ack.vim'
-            endif
-
             " format code
             Plug 'junegunn/vim-easy-align'
             Plug 'tpope/vim-surround'
