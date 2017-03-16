@@ -1,13 +1,23 @@
 #!/bin/bash
-read -r -p "Are you sure you want to remove dotfiles [y/N]" confirmation
-if [[ "$confirmation" != y ]] && [[ "$confirmation" != Y ]]; then
-    echo "Uninstall cancelled"
-    exit
-fi
+confirm() {
+    while [ 1 ]; do
+        read -p "$1" -n 1 -r
+        echo
+        if [[ "$REPLY" =~ ^[Yy] ]]; then
+                remove "$HOME/dotfiles"
+            return 0
+        elif [[ "$REPLY" =~ ^[Nn] ]]; then
+            return 1
+        fi
+    done
+}
 
-echo "Removing ~/dotfiles"
-if [[ -d ~/dotfiles ]]; then
-    rm -rf ~/dotfiles
-fi
+remove() {
+  echo "Remove $1"
+  rm -rf "$1"
+}
 
-echo "Thanks for trying dotfiles. it's been uninstalled."
+
+if [[ -d $HOME/dotfiles ]]; then
+    confirm "- Remove y/n ?  "
+fi

@@ -2,7 +2,7 @@
 APP_PATH="${HOME}/dotfiles"
 app_name='dotfiles'
 platform='unknown'
-unamestr=`uname`
+unamestr="$(uname -sm)"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dotfiles.git'
 count=0
 debug_mode='0'
@@ -25,9 +25,9 @@ debug() {
 }
 
 matchPlatform() {
-    if [[ $unamestr == 'Linux' ]]; then
+    if [[ $unamestr =~ [Linux] ]]; then
        platform='linux'
-    elif [[ $unamestr == 'Darwin' ]]; then
+    elif [[ $unamestr =~ [Darwin] ]]; then
         platform='Darwin'
         count=1
     fi
@@ -82,7 +82,6 @@ do_backup() {
 
     fi
 }
-
 
 lnif() {
     if [[  -e "$1" ]]; then
