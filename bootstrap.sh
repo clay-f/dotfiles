@@ -93,6 +93,7 @@ create_symlinks() {
     local source_path="$1"
     local target_path="$2"
 
+    lnif "$source_path/git/gitignore/global/macOS.gitignore" "$target_path/.gitignore_global"
     lnif "$source_path/ruby/.gemrc"      "$target_path/.gemrc"
     lnif "$source_path/etc/.tmux.conf"    "$target_path/.tmux.conf"
     lnif "$source_path/etc/.wgetrc"      "$target_path/.wgetrc"
