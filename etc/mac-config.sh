@@ -1,4 +1,4 @@
-#!/bin/bash
+#!//usr/bin/env bash
 
 position="${HOME}/dotfiles"
 debug_mode='0'
@@ -71,9 +71,9 @@ ruby_config_install() {
 
 install() {
     if [ -d $position ]; then
+        zsh_config_install
         brew_config_install
         vim_config_install
-        zsh_config_install
     else
         echo "\tnot found $position"
         exit

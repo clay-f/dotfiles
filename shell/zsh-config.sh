@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 oh_my_zsh=$HOME/.oh-my-zsh
 name=`whoami`
@@ -15,7 +15,7 @@ error() {
 
 oh_my_zsh() {
     if [[ ! -d $oh_my_zsh ]]; then
-        sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+        bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
         if [[ -e $HOME/.zshrc ]]; then
             sed -i 's/plugins=(git.*)/plugins=(common-aliases git autojump rails)/' ~/.zshrc  # add plugins
             [[ -e $HOME/.aliases ]] && echo "[[ -e "$HOME/.aliases" ]] && source $HOME/.aliases" >> $HOME/.zshrc
