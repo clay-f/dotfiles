@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 APP_PATH="${HOME}/dotfiles"
 app_name='dotfiles'
 platform='unknown'

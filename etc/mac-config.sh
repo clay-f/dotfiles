@@ -43,7 +43,8 @@ brew_config_install() {
     if [[ "$?" -ne 0 ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
-    program_must_exist "brew"
+    # reload for get brew env
+    source ~/.zshrc && program_must_exist "brew"
     if [[ "$?" -eq 0 ]]; then
         bash $position/etc/brew.sh
     else

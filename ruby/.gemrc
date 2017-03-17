@@ -6,3 +6,5 @@
 :backtrace: false
 :verbose: true
 gem: --no-document
+update: --no-rdoc --no-ri
+install: --no-rdoc --no-ri --env-shebang
