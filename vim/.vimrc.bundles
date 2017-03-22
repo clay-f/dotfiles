@@ -64,7 +64,7 @@
 
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc', 'youcompleteme']
+        let g:spf13_bundle_groups=['general', 'ruby', 'javascript', 'html', 'misc', 'youcompleteme']
     endif
 
     " To override all the included bundles, add the following to your
@@ -73,47 +73,26 @@
     if !exists("g:override_spf13_bundles")
 
     " Integrations {
-
         " General {
             if count(g:spf13_bundle_groups, 'general')
                 Plug 'scrooloose/nerdtree'
                 Plug 'jistr/vim-nerdtree-tabs'
                 Plug 'tpope/vim-fugitive'
-                Plug 'schickling/vim-bufonly'
+                Plug 'sjl/gundo.vim'
+                Plug 'sessionman.vim'
+                Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+                Plug 'junegunn/fzf.vim'
+            endif
+            if executable('ctags')
+                Plug 'majutsushi/tagbar'
             endif
             if !exists('g:spf13_no_views')
                 Plug 'vim-scripts/restore_view.vim'
             endif
         " }
-
-        " General Programming {
-            if count(g:spf13_bundle_groups, 'programming')
-                Plug 'sessionman.vim'
-                Plug 'sjl/gundo.vim'
-                Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-                Plug 'junegunn/fzf.vim'
-                if executable('ctags')
-                    Plug 'majutsushi/tagbar'
-                endif
-            endif
-        " }
-
-        "  Writing {
-        if count(g:spf13_bundle_groups, 'writing')
-            Plug 'powerline/fonts'
-            Plug 'kana/vim-textobj-user'
-            Plug 'kana/vim-textobj-indent'
-            Plug 'reedes/vim-textobj-sentence'
-            Plug 'reedes/vim-textobj-quote'
-            Plug 'reedes/vim-wordy'
-            Plug 'reedes/vim-litecorrect'
-        endif
-        " }
-
     " }
 
     " Interface {
-
         " Themes {
             Plug 'altercation/vim-colors-solarized'
             Plug 'flazz/vim-colorschemes'
@@ -133,14 +112,11 @@
             Plug 'gregsexton/matchtag'
             Plug 'ap/vim-css-color'
         " }
-
     " }
 
     " Completion {
-
         " Syntax {
             Plug 'scrooloose/syntastic'
-            Plug 'sheerun/vim-polyglot'
             Plug 'hail2u/vim-css3-syntax'
         " }
 
@@ -190,11 +166,9 @@
                 Plugin 'sirver/ultisnips'
             endif
         " }
-
     "}
 
     " Langeuage {
-
         " HTML/CSS {
             if count(g:spf13_bundle_groups, 'html')
                 Plug 'othree/html5.vim'
@@ -217,15 +191,19 @@
             if count(g:spf13_bundle_groups, 'javascript')
                 Plug 'pangloss/vim-javascript'
                 Plug 'kchmck/vim-coffee-script'
-                Plug 'elzr/vim-json'
+            endif
+        " }
+    "}
+
+        " Misc {
+            if count(g:spf13_bundle_groups, 'misc')
+                Plug 'schickling/vim-bufonly'
+                Plug 'powerline/fonts'
+                Plug 'editorconfig/editorconfig-vim'
             endif
         " }
 
-
         call plug#end()"
-
-    "}
-
 
     endif
 
