@@ -90,6 +90,14 @@
                 Plug 'vim-scripts/restore_view.vim'
             endif
         " }
+
+        " Misc {
+            if count(g:spf13_bundle_groups, 'misc')
+                Plug 'schickling/vim-bufonly'
+                Plug 'powerline/fonts'
+                Plug 'editorconfig/editorconfig-vim'
+            endif
+        " }
     " }
 
     " Interface {
@@ -110,14 +118,13 @@
             Plug 'nathanaelkane/vim-indent-guides'
             Plug 'luochen1990/rainbow'
             Plug 'gregsexton/matchtag'
-            Plug 'ap/vim-css-color'
         " }
     " }
 
     " Completion {
         " Syntax {
+            Plug 'sheerun/vim-polyglot'
             Plug 'scrooloose/syntastic'
-            Plug 'hail2u/vim-css3-syntax'
         " }
 
         " copy edit, move, search ... {
@@ -134,7 +141,6 @@
             " edit
             Plug 'scrooloose/nerdcommenter'
             Plug 'danro/rename.vim'
-            Plug 'tpope/vim-abolish'
             Plug 'terryma/vim-multiple-cursors'
             Plug 'ntpeters/vim-better-whitespace'
             Plug 'terryma/vim-expand-region'
@@ -194,14 +200,6 @@
             endif
         " }
     "}
-
-        " Misc {
-            if count(g:spf13_bundle_groups, 'misc')
-                Plug 'schickling/vim-bufonly'
-                Plug 'powerline/fonts'
-                Plug 'editorconfig/editorconfig-vim'
-            endif
-        " }
 
         call plug#end()"
 

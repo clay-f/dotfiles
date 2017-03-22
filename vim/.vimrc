@@ -516,7 +516,6 @@
 " }
 
 " Plugins {
-
         " Integrations {
 
             " fzf {
