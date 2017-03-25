@@ -38,11 +38,12 @@ program_must_exist() {
 brew_install() {
     brew update
     brew upgrade
+    brew tap neovim/neovim
 
     tools=(
         "wget --with-iri" "automake" "openssl" "cmake"  "the_silver_searcher" \
         "lua" "ctags" "zsh" "tmux" "fzf" "rbenv" \
-        "vim --override-system-vi" "nmap" "pstree" "z"
+        "vim --override-system-vi" "nmap" "pstree" "z" "neovim"
     )
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         brew install ${tools[i]}
