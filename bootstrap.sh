@@ -134,8 +134,7 @@ start() {
     if [ $count -gt 0 ]; then
         if [ -e $APP_PATH/etc/mac-config.sh ]; then
             brew_config_install
-            config_install "./$position/shell/zsh-config.sh" \
-                "./$position/vim/bootstrap.sh"
+            config_install "./$position/shell/zsh-config.sh"
         fi
     else
         if [ -e $APP_PATH/etc/linux-config.sh ]; then
