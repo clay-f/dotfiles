@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 position=${HOME}/dotfiles
 
 msg() {
@@ -61,7 +60,7 @@ toolkits_config() {
 
 nesessary() {
     toolkits_config
-    bash $position/shell/zsh-config.sh
+     ./$position/shell/zsh-config.sh
 }
 
 install() {

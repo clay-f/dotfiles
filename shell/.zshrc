@@ -18,3 +18,4 @@ export PATH="/usr/local/sbin:$PATH"
 eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+a=10

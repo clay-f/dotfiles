@@ -18,11 +18,37 @@ success() {
     fi
 }
 
+error() {
+    msg "\33[31m[✘]\33[0m ${1}${2}"
+    exit 1
+}
+
 debug() {
     if [ $debug_mode -eq 0 && "$ret" -gt 1 ]; then
         msg "An error occurred in function ${FUNCNAME[1]}, ${BASH_LINENO[1]}, sorry for that. "
     fi
 }
+
+program_exists() {
+    local ret='0'
+    command -v $1 >/dev/null 2>&1 || { local $ret='1'; }
+
+    if [[ "$ret" -ne 0 ]]; then
+        return 1
+    fi
+
+    return 0
+}
+
+program_must_exist() {
+    program_exist $1
+
+    if [[ "$?" -ne 0 ]]; then
+        error "You muse have '$1' installed  to continue."
+        exit
+    fi
+}
+
 
 matchPlatform() {
     if [[ $unamestr =~ [Linux] ]]; then
@@ -31,23 +57,6 @@ matchPlatform() {
         platform='Darwin'
         count=1
     fi
-}
-
-start() {
-    if [ $count -gt 0 ]; then
-        if [ -e $APP_PATH/etc/mac-config.sh ]; then
-            bash $APP_PATH/etc/mac-config.sh
-        fi
-    else
-        if [ -e $APP_PATH/etc/linux-config.sh ]; then
-            bash $APP_PATH/etc/linux-config.sh
-        fi
-    fi
-    ret="$?"
-    debug
-    msg "not found $app_name on $APP_PATH ..."
-    msg "now exit ..."
-    exit
 }
 
 sync_repo() {
@@ -98,6 +107,46 @@ create_symlinks() {
     lnif "$source_path/etc/.tmux.conf"    "$target_path/.tmux.conf"
     lnif "$source_path/etc/.wgetrc"      "$target_path/.wgetrc"
     lnif "$source_path/shell/.aliases"   "$target_path/.aliases"
+}
+
+
+config_install() {
+    "$1"
+}
+
+brew_config_install() {
+    progrm_exists "brew"
+    if [[ "$?" -ne 0 ]]; then
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    if [[ "$?" -eq 0 ]]; then
+        config_install "$position/etc/brew.sh"
+    else
+        error "brew command not found , now exit..."
+        exit 1
+    fi
+
+    ret="$?"
+    debug
+}
+
+start() {
+    if [ $count -gt 0 ]; then
+        if [ -e $APP_PATH/etc/mac-config.sh ]; then
+            brew_config_install
+            config_install "./$position/shell/zsh-config.sh" \
+                "./$position/vim/bootstrap.sh"
+        fi
+    else
+        if [ -e $APP_PATH/etc/linux-config.sh ]; then
+            config_install "./$APP_PATH/etc/linux-config.sh"
+        fi
+    fi
+    ret="$?"
+    debug
+    msg "not found $app_name on $APP_PATH ..."
+    msg "now exit ..."
+    exit 1
 }
 
 main() {
