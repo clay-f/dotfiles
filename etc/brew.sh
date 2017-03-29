@@ -42,8 +42,8 @@ brew_install() {
 
     tools=(
         "wget --with-iri" "automake" "openssl" "cmake"  "the_silver_searcher" \
-        "lua" "ctags" "zsh" "tmux" "fzf" "rbenv" \
-        "vim --override-system-vi" "nmap" "pstree" "z" "neovim"
+        "lua" "ctags" "zsh" "tmux" "fzf" "rbenv" "ruby-build"\
+        "vim --override-system-vi" "nmap" "pstree" "z"
     )
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         brew install ${tools[i]}
