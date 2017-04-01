@@ -109,7 +109,7 @@ create_symlinks() {
 
 
 config_install() {
-    "$1"
+    bash "$1"
 }
 
 brew_config_install() {
@@ -132,11 +132,11 @@ start() {
     if [ $count -gt 0 ]; then
         if [ -e $APP_PATH/etc/brew.sh ]; then
             brew_config_install
-            config_install "./$position/shell/zsh-config.sh"
+            "$position/shell/zsh-config.sh"
         fi
     else
         if [ -e $APP_PATH/etc/linux-config.sh ]; then
-            config_install "./$APP_PATH/etc/linux-config.sh"
+            "$APP_PATH/etc/linux-config.sh"
         fi
     fi
     ret="$?"

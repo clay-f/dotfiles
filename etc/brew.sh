@@ -37,8 +37,6 @@ program_must_exist() {
 
 brew_install() {
     brew update
-    brew upgrade
-    brew tap neovim/neovim
 
     tools=(
         "wget --with-iri" "automake" "openssl" "cmake"  "the_silver_searcher" \
@@ -52,7 +50,7 @@ brew_install() {
 
 brew_cask() {
     brew tap phinze/homebrew-cask && brew install brew-cask
-    cask_tools=("google-chrome" "iterm2" "macvim" "go2shell" "dropbox" "qlcolorcode" "qlstephen" "qlmarkdown")
+    cask_tools=( "google-chrome" "iterm2" "macvim" "go2shell" "dropbox" "qlcolorcode" "qlstephen" "qlmarkdown" )
     for (( i = 0; i < ${cask_tools[*]}; i++ )); do
         brew cask install ${cask_tools[i]}
     done
