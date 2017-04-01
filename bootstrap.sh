@@ -24,7 +24,7 @@ error() {
 }
 
 debug() {
-    if [ $debug_mode -eq 0 && "$ret" -gt 1 ]; then
+    if [[ $debug_mode -eq 0 && "$ret" -gt 1 ]]; then
         msg "An error occurred in function ${FUNCNAME[1]}, ${BASH_LINENO[1]}, sorry for that. "
     fi
 }
@@ -51,11 +51,9 @@ program_must_exist() {
 
 
 matchPlatform() {
-    if [[ $unamestr =~ [Linux] ]]; then
-       platform='linux'
-    elif [[ $unamestr =~ [Darwin] ]]; then
+    if [[ $unamestr =~ [Darwin] ]]; then
         platform='Darwin'
-        count=1
+        $count=1
     fi
 }
 
@@ -66,7 +64,7 @@ sync_repo() {
 
     msg "Trying to update $repo_name"
 
-    if [ ! -e "$repo_path" ]; then
+    if [[ ! -e "$repo_path" ]]; then
         mkdir -p "$repo_path"
         git clone "$repo_uri" "$repo_path"
         ret="$?"
@@ -132,7 +130,7 @@ brew_config_install() {
 
 start() {
     if [ $count -gt 0 ]; then
-        if [ -e $APP_PATH/etc/mac-config.sh ]; then
+        if [ -e $APP_PATH/etc/brew.sh ]; then
             brew_config_install
             config_install "./$position/shell/zsh-config.sh"
         fi
