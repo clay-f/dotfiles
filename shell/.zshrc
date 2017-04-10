@@ -9,7 +9,7 @@ else
     export EDITOR='mvim'
 fi
 
-plugins=(common-aliases git z rails)
+plugins=(common-aliases git autojump rails)
 source $ZSH/oh-my-zsh.sh
 
 PATH="/usr/local/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -17,5 +17,6 @@ export PATH="/usr/local/sbin:$PATH"
 [[ -e "$HOME/.aliases" ]] && source $HOME/.aliases
 eval "$(rbenv init -)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 a=10
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

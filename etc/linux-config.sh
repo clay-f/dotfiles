@@ -34,7 +34,7 @@ toolkits_config() {
 
     tools=(
         "gcc" "make" "tmux" "nmap"  \
-        "tree" "pstree" "curl" "zsh" "ack-grep" "autojump"  \
+        "tree" "pstree" "curl" "zsh" "autojump"  \
         "vim" "links" "nginx" "silversearcher-ag" "ruby-dev"
     )
 
@@ -60,7 +60,7 @@ toolkits_config() {
 
 nesessary() {
     toolkits_config
-     ./$position/shell/zsh-config.sh
+    bash $position/shell/zsh-config.sh
 }
 
 install() {
