@@ -1,2 +1,2 @@
 dotfiles.
-put some special stuff to zsh_config.
+put some special stuff to fun.
