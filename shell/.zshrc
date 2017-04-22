@@ -9,7 +9,7 @@ else
     export EDITOR='mvim'
 fi
 
-plugins=(common-aliases git autojump rails)
+plugins=(common-aliases git z rails)
 source $ZSH/oh-my-zsh.sh
 
 PATH="/usr/local/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"

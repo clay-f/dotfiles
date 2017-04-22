@@ -32,13 +32,16 @@
         # Show human friendly numbers and colors
         alias df='df -h'
         alias du='du -h -d 2'
+        alias diff='diff -qr'
 
         # PS
         alias psa="ps aux"
-        alias psg="ps aux | grep "
-        alias psa="ps aux| ack "
+        alias psg="ps aux | grep"
+        alias psa="ps aux| ack"
 
-        alias k9="kill -9 "
+        alias k9="kill -9"
+
+        alias lsof_show_listen_port="lsof -i TCP -s TCP:LISTEN -n -P"
 
     #}
 
@@ -46,7 +49,6 @@
         alias grep='grep --color=auto'
         alias fgrep='fgrep --color=auto'
         alias egrep='egrep --color=auto'
-        alias awk='gawk'
 
     #}
 
