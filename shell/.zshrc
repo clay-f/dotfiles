@@ -8,8 +8,8 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     export EDITOR='mvim'
 fi
-export PATH="$PATH:/usr/local/opt/gnu-sed/libexec/gnubin"
-plugins=(common-aliases git z rails)
+export PATH="$PATH:/usr/local/sbin:/usr/local/opt/gnu-sed/libexec/gnubin"
+plugins=(git rails z common-aliases)
 source $ZSH/oh-my-zsh.sh
 
 [[ -e "$HOME/.aliases" ]] && source $HOME/.aliases
