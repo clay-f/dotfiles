@@ -39,10 +39,9 @@ brew_install() {
     brew update
 
     tools=(
-        "wget --with-iri" "automake" "openssl" "cmake"  "the_silver_searcher" \
-        "lua" "ctags" "zsh" "tmux" "fzf" "rbenv" "ruby-build" \
-        "vim --override-system-vi" "nmap" "pstree" "autojump" \
-        "gawk" "brew install grep --with-default-names" "brew install gnu-sed --with-default-names"
+        "wget --with-iri" "the_silver_searcher" \
+        "ctags" "zsh" "fzf" "rbenv" "ruby-build" \
+        "vim --override-system-vi" "nmap" "autojump" \
     )
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         brew install ${tools[i]}
@@ -51,7 +50,7 @@ brew_install() {
 
 brew_cask() {
     brew tap phinze/homebrew-cask && brew install brew-cask
-    cask_tools=( "google-chrome" "iterm2" "macvim" "go2shell" "dropbox" "qlcolorcode" "qlstephen" "qlmarkdown" )
+    cask_tools=( "iterm2" "go2shell" "dropbox" "qlcolorcode" "qlstephen" "qlmarkdown" )
     for (( i = 0; i < ${cask_tools[*]}; i++ )); do
         brew cask install ${cask_tools[i]}
     done
@@ -69,6 +68,5 @@ install() {
         exit
     fi
 }
-
 
 install

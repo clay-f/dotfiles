@@ -33,9 +33,9 @@ program_must_exist() {
 toolkits_config() {
 
     tools=(
-        "gcc" "make" "tmux" "nmap"  \
-        "tree" "pstree" "curl" "zsh" "autojump"  \
-        "vim" "links" "nginx" "silversearcher-ag" "ruby-dev"
+        "gcc" "make" "tmux" \
+        "tree" "curl" \
+        "vim" "links" "nginx" "ruby-dev"
     )
 
     for (( i = 0; i < ${#tools[*]}; i++ )); do
@@ -58,16 +58,11 @@ toolkits_config() {
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 }
 
-nesessary() {
-    toolkits_config
-    bash $position/shell/zsh-config.sh
-}
-
 install() {
     progrm_exists "git"
 
     if [ -d $position ];then
-        nesessary
+        toolkits_config
     else
         echo "not found $position"
         exit
