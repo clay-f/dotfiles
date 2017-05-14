@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 msg() {
     printf "%b\n" "$1" >&2
@@ -36,12 +36,10 @@ program_must_exist() {
 }
 
 brew_install() {
-    brew update
-
     tools=(
         "wget --with-iri" "the_silver_searcher" \
-        "ctags" "zsh" "fzf" "rbenv" "ruby-build" \
-        "vim --override-system-vi" "nmap" "autojump" \
+        "ctags" "zsh" "rbenv" "ruby-build" \
+        "vim --override-system-vi" "nmap" "autojump"
     )
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         brew install ${tools[i]}
