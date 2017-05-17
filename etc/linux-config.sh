@@ -41,7 +41,6 @@ toolkits_config() {
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         sudo apt-get -y install ${tools[i]}
     done
-    # sudo apt-get -y install vim-gtk        ## gvim
     sudo apt-get autoremove
 
     # fzf is a general-purpose command-line fuzzy finder.
