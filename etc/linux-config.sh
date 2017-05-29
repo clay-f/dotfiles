@@ -43,10 +43,6 @@ toolkits_config() {
     done
     sudo apt-get autoremove
 
-    # fzf is a general-purpose command-line fuzzy finder.
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-
     # Groom your app’s Ruby environment
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
     if [[ ! -f ~/.zshrc ]]; then
