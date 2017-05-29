@@ -39,7 +39,7 @@ brew_install() {
     tools=(
         "wget --with-iri" "the_silver_searcher" \
         "ctags" "zsh" "rbenv" "ruby-build" \
-        "vim --override-system-vi" "nmap" "autojump"
+        "vim --override-system-vi" "nmap" "z"
     )
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         brew install ${tools[i]}
