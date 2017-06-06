@@ -1,55 +1,26 @@
-# basic configration {{
+# cp, rm, tar etc
+alias vi=vim
+alias bz2='tar -jcpv -f'
+alias unbz2='tar -jxt -f'
+alias viewbz2='tar -jtv -f'
 
-    # use open command open file way{
-        alias -s rb=vi
-        alias -s erb=vi
-        alias -s sh=vi
-        alias -s js=vi
-        alias -s java=vi
-        alias -s txt=vi
-    # }
+# Show human friendly numbers and colors
+alias df='df -h'
+alias du='du -h -d 2'
+alias diff='diff -qr'
 
-    # cp, rm, tar etc {
-        alias vi=vim
-        alias bz2='tar -jcpv -f'
-        alias unbz2='tar -jxt -f'
-        alias viewbz2='tar -jtv -f'
-    #}
+# PS
+alias psa="ps aux"
+alias psg="ps aux | grep"
+alias psa="ps aux| ack"
 
-#}}
+alias k9="kill -9"
 
-#  look/check-out files informations {
+alias lsof_show_listen_port="lsof -i TCP -s TCP:LISTEN -n -P"
 
-    # look {
-        # Show human friendly numbers and colors
-        alias df='df -h'
-        alias du='du -h -d 2'
-        alias diff='diff -qr'
+# find information in files
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
-        # PS
-        alias psa="ps aux"
-        alias psg="ps aux | grep"
-        alias psa="ps aux| ack"
-
-        alias k9="kill -9"
-
-        alias lsof_show_listen_port="lsof -i TCP -s TCP:LISTEN -n -P"
-
-    #}
-
-    #find information in files {
-        alias grep='grep --color=auto'
-        alias fgrep='fgrep --color=auto'
-        alias egrep='egrep --color=auto'
-
-    #}
-
-    # git {
-        alias gref="git reflog --pretty=format:\"%h : %an > %ar : %s\""
-    # }
-
-#}
-
-# interesting things {
-    alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-#}
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
