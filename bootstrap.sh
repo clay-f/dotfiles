@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-APP_PATH="${HOME}/dotfiles"
-app_name='dotfiles'
+APP_PATH="${HOME}/dot-f"
+app_name='dot-f'
 platform='unknown'
 unamestr="$(uname -sm)"
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dotfiles.git'
+[ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dot-f.git'
 count=0
 debug_mode='0'
 
