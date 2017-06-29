@@ -149,9 +149,9 @@ start() {
 main() {
     matchPlatform
 
-    do_backup "$HOME/dotfiles"
+    do_backup "$HOME/dot-f"
 
-    sync_repo "$HOME/dotfiles"  \
+    sync_repo "$HOME/dot-f"  \
               "$REPO_URI"        \
               "master"
 
