@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-position=${HOME}/dotfiles
+position=${HOME}/dot-f
 
 msg() {
     printf "%b\n" "$1" >&2
