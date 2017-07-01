@@ -54,9 +54,9 @@ toolkits_config() {
 }
 
 install() {
-    progrm_exists "git"
+    program_exists "git"
 
-    if [ ! -d $position ];then
+    if [ -d $position ];then
         mkdir -p $position
         toolkits_config
     fi
