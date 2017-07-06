@@ -33,7 +33,7 @@ program_must_exist() {
 toolkits_config() {
 
     tools=(
-        "gcc" "make" "tmux" \
+        "gcc" "make" "tmux" "ruby-build" \
         "tree" "curl" \
         "vim" "links" "nginx" "ruby-dev"
     )

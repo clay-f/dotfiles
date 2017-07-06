@@ -4,7 +4,7 @@ confirm() {
         read -p "$1" -n 1 -r
         echo
         if [[ "$REPLY" =~ ^[Yy] ]]; then
-                remove "$HOME/dotfiles"
+                remove "$HOME/dot-f"
             return 0
         elif [[ "$REPLY" =~ ^[Nn] ]]; then
             return 1
@@ -18,6 +18,6 @@ remove() {
 }
 
 
-if [[ -d $HOME/dotfiles ]]; then
+if [[ -d $HOME/dot-f ]]; then
     confirm "- Remove y/n ?  "
 fi

@@ -78,7 +78,7 @@ sync_repo() {
 
 do_backup() {
     if [  -e "$1" ] || [ -e "$2" ] || [ -e "$3" ] ; then
-        msg "Attempting to back up your original dotfiles configration."
+        msg "Attempting to back up your original dot-f configration."
         today=`date +%Y%m%d_%s`
         for i in "$1" "$2" "$3"; do
             [ -e "$i" ] && [ -L "$i" ] && mv -v "$i" "$i.$today"
