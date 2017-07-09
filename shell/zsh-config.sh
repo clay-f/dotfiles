@@ -2,7 +2,7 @@
 
 oh_my_zsh=$HOME/.oh-my-zsh
 name=`whoami`
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/dotfiles"
+[ -z "$APP_PATH" ] && APP_PATH="$HOME/dot-f"
 
 msg() {
     printf "%b\n" "$1" >&2
