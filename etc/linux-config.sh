@@ -35,7 +35,7 @@ toolkits_config() {
     tools=(
         "gcc" "make" "tmux" "ruby-build" \
         "tree" "curl" \
-        "vim" "links" "nginx" "ruby-dev"
+        "vim" "ruby-dev"
     )
 
     for (( i = 0; i < ${#tools[*]}; i++ )); do
