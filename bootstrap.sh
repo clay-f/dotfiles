@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-APP_PATH="${HOME}/dot-f"
-app_name='dot-f'
+APP_PATH="${HOME}/dotfiles"
+app_name='dotfiles'
 platform='unknown'
 unamestr="$(uname -sm)"
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dot-f.git'
+[ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dotfiles.git'
 count=0
 debug_mode='0'
 
@@ -132,11 +132,11 @@ start() {
     if [ $count -gt 0 ]; then
         if [ -e $APP_PATH/etc/brew.sh ]; then
             brew_config_install
-            "$position/shell/zsh-config.sh"
+            "$position/shell/zshconfig.sh"
         fi
     else
         if [ -e $APP_PATH/etc/linux-config.sh ]; then
-            "$APP_PATH/etc/linux-config.sh"
+            "$APP_PATH/etc/linuxconfig.sh"
         fi
     fi
     ret="$?"
@@ -149,9 +149,9 @@ start() {
 main() {
     matchPlatform
 
-    do_backup "$HOME/dot-f"
+    do_backup "$HOME/dotfiles"
 
-    sync_repo "$HOME/dot-f"  \
+    sync_repo "$HOME/dotfiles"  \
               "$REPO_URI"        \
               "master"
 
