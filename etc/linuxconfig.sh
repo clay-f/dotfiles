@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-position=${HOME}/dotfiles
 
 msg() {
     printf "%b\n" "$1" >&2
@@ -22,12 +21,5 @@ install_develop_tools() {
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 }
 
-install() {
-    if [ -d $position ];then
-        mkdir -p $position
-        install_develop_tools
-    fi
-}
 
-
-install
+install_develop_tools

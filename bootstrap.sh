@@ -66,18 +66,16 @@ sync_repo() {
     if [[ ! -e "$repo_path" ]]; then
         mkdir -p "$repo_path"
         git clone "$repo_url" "$repo_path"
-        ret="$?"
         success "Successfully updated $repo_name"
     else
         cd "$repo_path" && git pull origin "$repo_branch"
-        ret="$?"
         success "Successfully updated $repo_name"
     fi
 }
 
 do_backup() {
     if [  -e "$1" ] || [ -e "$2" ] || [ -e "$3" ] ; then
-        msg "Attempting to back up your original dot-f configration."
+        msg "Attempting to back up your original dotfiles configration."
         today=`date +%Y%m%d_%s`
         for i in "$1" "$2" "$3"; do
             [ -e "$i" ] && [ -L "$i" ] && mv -v "$i" "$i.$today"
@@ -123,16 +121,11 @@ brew_config_package() {
 
 select_install_by_sys_type() {
     if [ $count -gt 0 ]; then
-        if [ -e $APP_PATH/etc/brew.sh ]; then
-            brew_config_package
-            "$position/shell/zshconfig.sh"
-        fi
+        brew_config_package
+        config_install "$position/shell/zshconfig.sh"
     else
-        if [ -e $APP_PATH/etc/linuxconfig.sh ]; then
-            "$APP_PATH/etc/linuxconfig.sh"
-        fi
+        config_install "$APP_PATH/etc/linuxconfig.sh"
     fi
-    error "not found $app_name on $APP_PATH ..."
 }
 
 install() {
