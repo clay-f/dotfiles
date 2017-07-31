@@ -10,52 +10,20 @@ error() {
     exit 1
 }
 
-program_exists() {
-    local ret='0'
-    command -v $1 >/dev/null 2>&1 || { local $ret='1'; }
-
-    if [[ "$ret" -ne 0 ]]; then
-        return 1
-    fi
-
-    return 0
-}
-
-program_must_exist() {
-    program_exists $1
-
-    if [[ "$?" -ne 0 ]]; then
-        error "You muse have '$1' installed  to continue."
-        exit
-    fi
-}
-
 toolkits_config() {
 
-    tools=(
-        "gcc" "make" "tmux" "ruby-build" \
-        "tree" "curl" \
-        "vim" "ruby-dev"
-    )
+    sudo apt-get -y "gcc" "make" "tmux" "ruby-build" \
+                    "tree" "curl" \
+                    "vim" "ruby-dev"
 
-    for (( i = 0; i < ${#tools[*]}; i++ )); do
-        sudo apt-get -y install ${tools[i]}
-    done
     sudo apt-get autoremove
 
     # Groom your app’s Ruby environment
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-    if [[ ! -f ~/.zshrc ]]; then
-        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-    else
-        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-    fi
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 }
 
 install() {
-    program_exists "git"
-
     if [ -d $position ];then
         mkdir -p $position
         toolkits_config

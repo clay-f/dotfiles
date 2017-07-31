@@ -17,9 +17,7 @@ oh_my_zsh() {
     if [[ ! -d $oh_my_zsh ]]; then
         bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     else
-        printf "have oh-my-zsh directory on you $HOME."
-        printf "exit ..."
-        exit 1
+        error "have oh-my-zsh directory on you $HOME."
     fi
 }
 
@@ -50,7 +48,6 @@ install() {
         oh_my_zsh
     else
         error "wget command not found."
-        exit 1
     fi
 }
 

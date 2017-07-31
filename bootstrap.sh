@@ -3,7 +3,7 @@ APP_PATH="${HOME}/dotfiles"
 app_name='dotfiles'
 platform='unknown'
 unamestr="$(uname -sm)"
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/clay-f/dotfiles.git'
+[ -z "$REPO_URI" ] && REPO_URL='https://github.com/clay-f/dotfiles.git'
 count=0
 debug_mode='0'
 
@@ -45,7 +45,6 @@ program_must_exist() {
 
     if [[ "$?" -ne 0 ]]; then
         error "You muse have '$1' installed  to continue."
-        exit
     fi
 }
 
@@ -59,14 +58,14 @@ matchPlatform() {
 
 sync_repo() {
     local repo_path="$1"
-    local repo_uri="$2"
+    local repo_url="$2"
     local repo_branch="$3"
 
     msg "Trying to update $repo_name"
 
     if [[ ! -e "$repo_path" ]]; then
         mkdir -p "$repo_path"
-        git clone "$repo_uri" "$repo_path"
+        git clone "$repo_url" "$repo_path"
         ret="$?"
         success "Successfully updated $repo_name"
     else
@@ -83,8 +82,6 @@ do_backup() {
         for i in "$1" "$2" "$3"; do
             [ -e "$i" ] && [ -L "$i" ] && mv -v "$i" "$i.$today"
         done
-        ret="$?"
-        debug
         success "Your original vim configuration has been backed up."
 
     fi
@@ -121,11 +118,7 @@ brew_config_install() {
         config_install "$position/etc/brew.sh"
     else
         error "brew command not found , now exit..."
-        exit 1
     fi
-
-    ret="$?"
-    debug
 }
 
 start() {
@@ -139,11 +132,7 @@ start() {
             "$APP_PATH/etc/linuxconfig.sh"
         fi
     fi
-    ret="$?"
-    debug
-    msg "not found $app_name on $APP_PATH ..."
-    msg "now exit ..."
-    exit 1
+    error "not found $app_name on $APP_PATH ..."
 }
 
 main() {
@@ -152,7 +141,7 @@ main() {
     do_backup "$HOME/dotfiles"
 
     sync_repo "$HOME/dotfiles"  \
-              "$REPO_URI"        \
+              "$REPO_URL"        \
               "master"
 
     create_symlinks "$APP_PATH" \

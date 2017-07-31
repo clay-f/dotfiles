@@ -9,12 +9,6 @@ error() {
     exit 1
 }
 
-debug() {
-    if [[ "$ret" -ne 0 ]]; then
-        msg "a error found on \"${FUNCNAME[$i+1]}\" in ${BASH_LINENO[$i+1]}, sorry for that."
-    fi
-}
-
 program_exists() {
     local ret='0'
     command -v $1 >/dev/null 2>&1 || { local $ret='1'; }
@@ -44,6 +38,8 @@ brew_install() {
     for (( i = 0; i < ${#tools[*]}; i++ )); do
         brew install ${tools[i]}
     done
+
+    brew_cask
 }
 
 brew_cask() {
@@ -59,11 +55,8 @@ install() {
     program_must_exist "brew"
     if [[ $? -eq 0 ]]; then
         brew_install
-        brew_cask
     else
-        msg "brew command not found."
-        msg "now exit..."
-        exit
+        error "brew command not found."
     fi
 }
 
