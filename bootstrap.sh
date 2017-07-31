@@ -49,7 +49,7 @@ program_must_exist() {
 }
 
 
-matchPlatform() {
+match_sys_os() {
     if [[ $unamestr =~ [Darwin] ]]; then
         platform='Darwin'
         $count=1
@@ -109,7 +109,7 @@ config_install() {
     bash "$1"
 }
 
-brew_config_install() {
+brew_config_package() {
     progrm_exists "brew"
     if [[ "$?" -ne 0 ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -121,37 +121,36 @@ brew_config_install() {
     fi
 }
 
-start() {
+select_install_by_sys_type() {
     if [ $count -gt 0 ]; then
         if [ -e $APP_PATH/etc/brew.sh ]; then
-            brew_config_install
+            brew_config_package
             "$position/shell/zshconfig.sh"
         fi
     else
-        if [ -e $APP_PATH/etc/linux-config.sh ]; then
+        if [ -e $APP_PATH/etc/linuxconfig.sh ]; then
             "$APP_PATH/etc/linuxconfig.sh"
         fi
     fi
     error "not found $app_name on $APP_PATH ..."
 }
 
-main() {
-    matchPlatform
+install() {
+    match_system_os
 
     do_backup "$HOME/dotfiles"
 
     sync_repo "$HOME/dotfiles"  \
-              "$REPO_URL"        \
+              "$REPO_URL"       \
               "master"
 
     create_symlinks "$APP_PATH" \
-        "$HOME"
+                    "$HOME"
 
-    start
+    select_file_by_sys
 
     msg "\nThanks for installing $app_name"
     msg "`date + %Y%m%d_%s` successed"
 }
 
-
-main
+install

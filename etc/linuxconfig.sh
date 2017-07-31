@@ -10,8 +10,7 @@ error() {
     exit 1
 }
 
-toolkits_config() {
-
+install_develop_tools() {
     sudo apt-get -y "gcc" "make" "tmux" "ruby-build" \
                     "tree" "curl" \
                     "vim" "ruby-dev"
@@ -26,8 +25,9 @@ toolkits_config() {
 install() {
     if [ -d $position ];then
         mkdir -p $position
-        toolkits_config
+        install_develop_tools
     fi
 }
+
 
 install
