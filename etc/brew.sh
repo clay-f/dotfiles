@@ -29,7 +29,7 @@ program_must_exist() {
     fi
 }
 
-brew_install_tools_and_cask() {
+install_tools_and_cask() {
     tools=(
         "wget --with-iri" "the_silver_searcher" \
         "ctags" "zsh" "rbenv" "ruby-build" \
@@ -39,10 +39,10 @@ brew_install_tools_and_cask() {
         brew install ${tools[i]}
     done
 
-    brew_install_cask
+    config_cask_package
 }
 
-brew_install_cask() {
+config_cask_package() {
     brew tap phinze/homebrew-cask && brew install brew-cask
     cask_tools=( "iterm2" "go2shell" "dropbox" "qlcolorcode" "qlstephen" "qlmarkdown" )
     for (( i = 0; i < ${cask_tools[*]}; i++ )); do
@@ -51,13 +51,13 @@ brew_install_cask() {
     brew cleanup
 }
 
-install() {
+install_package() {
     program_must_exist "brew"
     if [[ $? -eq 0 ]]; then
-        brew_install_tools_and_cask
+        install_tools_and_cask
     else
         error "brew command not found."
     fi
 }
 
-install
+install_package

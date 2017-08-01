@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-oh_my_zsh=$HOME/.oh-my-zsh
-name=`whoami`
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/dotfiles"
-
 msg() {
     printf "%b\n" "$1" >&2
 }
@@ -11,14 +7,6 @@ msg() {
 error() {
     msg "\33[31m[✘]\33[0m ${1}${2}"
     exit 1
-}
-
-oh_my_zsh() {
-    if [[ ! -d $oh_my_zsh ]]; then
-        bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-    else
-        error "have oh-my-zsh directory on you $HOME."
-    fi
 }
 
 progrm_exists() {
@@ -37,19 +25,16 @@ program_must_exist() {
 
     if [[ "$?" -ne 0 ]]; then
         error "You muse have '$1' installed  to continue."
-        exit 1
     fi
 }
 
-install() {
+config_oh_my_zsh_framework() {
     program_must_exist "wget"
-
+    
     if [[ "$?" -eq 0 ]]; then
-        oh_my_zsh
+        bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     else
-        error "wget command not found."
+        error "wget coomand not found."
     fi
 }
 
-
-install

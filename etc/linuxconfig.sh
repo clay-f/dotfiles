@@ -10,7 +10,7 @@ error() {
 }
 
 install_develop_tools() {
-    sudo apt-get -y "gcc" "make" "tmux" "ruby-build" \
+    sudo apt-get -y "gcc" "make" "tmux" \
                     "tree" "curl" \
                     "vim" "ruby-dev"
 

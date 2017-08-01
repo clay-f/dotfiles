@@ -48,12 +48,8 @@ program_must_exist() {
     fi
 }
 
-
-match_sys_os() {
-    if [[ $unamestr =~ [Darwin] ]]; then
-        platform='Darwin'
-        $count=1
-    fi
+execute_command_by_file() {
+    bash "$1"
 }
 
 sync_repo() {
@@ -102,33 +98,35 @@ create_symlinks() {
     lnif "$source_path/shell/.aliases"   "$target_path/.aliases"
 }
 
-
-config_install() {
-    bash "$1"
+config_package_tools_and_shell_by_sys_type() {
+    if [ $count -gt 0 ]; then
+        config_brew_and_relate_tools
+        execute_command_by_file  "$position/shell/zshconfig.sh"
+    else
+        execute_command_by_file "$APP_PATH/etc/linuxconfig.sh"
+    fi
 }
 
-brew_config_package() {
+config_brew_and_relate_tools() {
     progrm_exists "brew"
     if [[ "$?" -ne 0 ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
     if [[ "$?" -eq 0 ]]; then
-        config_install "$position/etc/brew.sh"
+        execute_command_by_file "$position/etc/brew.sh"
     else
-        error "brew command not found , now exit..."
+        error "brew command not found ..."
     fi
 }
 
-select_install_by_sys_type() {
-    if [ $count -gt 0 ]; then
-        brew_config_package
-        config_install "$position/shell/zshconfig.sh"
-    else
-        config_install "$APP_PATH/etc/linuxconfig.sh"
+match_sys_os() {
+    if [[ $unamestr =~ [Darwin] ]]; then
+        platform='Darwin'
+        $count=1
     fi
 }
 
-install() {
+setup() {
     match_system_os
 
     do_backup "$HOME/dotfiles"
@@ -140,10 +138,11 @@ install() {
     create_symlinks "$APP_PATH" \
                     "$HOME"
 
-    select_file_by_sys
+    config_package_tools_and_shell_by_sys_type
 
     msg "\nThanks for installing $app_name"
     msg "`date + %Y%m%d_%s` successed"
 }
 
-install
+
+setup
