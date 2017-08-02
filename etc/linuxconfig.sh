@@ -10,9 +10,9 @@ error() {
 }
 
 install_develop_tools() {
-    sudo apt-get -y "gcc" "make" "tmux" \
-                    "tree" "curl" \
-                    "vim" "ruby-dev"
+    sudo apt-get -y install "gcc" "make" "tmux" \
+                            "tree" "curl" \
+                            "vim" "ruby-dev"
 
     sudo apt-get autoremove
 

@@ -109,9 +109,10 @@ config_package_tools_and_shell_by_sys_type() {
 
 config_brew_and_relate_tools() {
     progrm_exists "brew"
-    if [[ "$?" -ne 0 ]]; then
+    if  [[ "$?" -ne 0 ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
+
     if [[ "$?" -eq 0 ]]; then
         execute_command_by_file "$position/etc/brew.sh"
     else
