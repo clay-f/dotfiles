@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-msg() {
-    printf "%b\n" "$1" >&2
-}
-
-error() {
-    msg "\33[31m[✘]\33[0m ${1}${2}"
-    exit 1
-}
-
 install_develop_tools() {
     sudo apt-get -y install "gcc" "make" "tmux" \
                             "tree" "curl" \

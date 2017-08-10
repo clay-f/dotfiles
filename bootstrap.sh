@@ -101,9 +101,7 @@ create_symlinks() {
 config_package_tools_and_shell_by_sys_type() {
     if [ $count -gt 0 ]; then
         config_brew_and_relate_tools
-        execute_command_by_file  "$position/shell/zshconfig.sh"
-    else
-        execute_command_by_file "$APP_PATH/etc/linuxconfig.sh"
+        bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     fi
 }
 

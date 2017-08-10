@@ -30,26 +30,15 @@ program_must_exist() {
 }
 
 install_tools_and_cask() {
-    tools=(
-        "wget --with-iri" "the_silver_searcher" \
-        "ctags" "zsh" "rbenv" "ruby-build" \
-        "vim --override-system-vi" "nmap" "z"
-    )
-    for (( i = 0; i < ${#tools[*]}; i++ )); do
-        brew install ${tools[i]}
-    done
+    brew install "wget --with-iri" "the_silver_searcher" "aria2" \
+                 "ctags" "zsh" "rbenv" "ruby-build" \
+                 "vim --override-system-vi" "nmap" "autojump"
 
-    config_cask_package
-}
-
-config_cask_package() {
     brew tap phinze/homebrew-cask && brew install brew-cask
-    cask_tools=( "iterm2" "go2shell" "dropbox" "qlcolorcode" "qlstephen" "qlmarkdown" )
-    for (( i = 0; i < ${cask_tools[*]}; i++ )); do
-        brew cask install ${cask_tools[i]}
-    done
+    brew cask install iterm2 dropbox qlcolorcode qlstephen qlmarkdown
     brew cleanup
 }
+
 
 install_package() {
     program_must_exist "brew"
