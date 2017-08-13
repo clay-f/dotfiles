@@ -33,9 +33,6 @@ install_tools_and_cask() {
     brew install "wget --with-iri" "the_silver_searcher" "aria2" \
                  "ctags" "zsh" "rbenv" "ruby-build" \
                  "vim --override-system-vi" "nmap" "autojump"
-
-    brew tap phinze/homebrew-cask && brew install brew-cask
-    brew cask install iterm2 dropbox qlcolorcode qlstephen qlmarkdown
     brew cleanup
 }
 
