@@ -92,10 +92,10 @@ create_symlinks() {
     local target_path="$2"
 
     lnif "$source_path/git/gitignore/global/macOS.gitignore" "$target_path/.gitignore_global"
-    lnif "$source_path/ruby/.gemrc"      "$target_path/.gemrc"
-    lnif "$source_path/etc/.tmux.conf"    "$target_path/.tmux.conf"
-    lnif "$source_path/etc/.wgetrc"      "$target_path/.wgetrc"
-    lnif "$source_path/shell/.aliases"   "$target_path/.aliases"
+    lnif "$source_path/ruby/gemrc"      "$target_path/.gemrc"
+    lnif "$source_path/ruby/irbrc"      "$target_path/.irbrc"
+    lnif "$source_path/etc/wgetrc"      "$target_path/.wgetrc"
+    lnif "$source_path/shell/aliases"   "$target_path/.aliases"
 }
 
 config_package_tools_and_shell_by_sys_type() {

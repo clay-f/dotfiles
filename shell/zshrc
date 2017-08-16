@@ -36,11 +36,11 @@ ZSH_THEME="robbyrussell"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-export EDITOR='vim'
-
-export PATH="$PATH:/usr/local/sbin"
 plugins=(git rails autojump common-aliases)
+
+export EDITOR='vim'
 source $ZSH/oh-my-zsh.sh
 
+export PATH="$PATH:/usr/local/sbin"
 [[ -e "$HOME/.aliases" ]] && source $HOME/.aliases
 eval "$(rbenv init -)"
