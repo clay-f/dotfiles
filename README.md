@@ -1,2 +1,3 @@
-dotfiles.
-put some special stuff to fun.
+dotfiles. put stuff for fun
+###### setup
+bash -c "$(wget https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh -O -)"
