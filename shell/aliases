@@ -13,13 +13,13 @@ alias diff='diff -qr'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias clean_vim_backup_views_etc_files="find ~/.vimbackup ~/.vimswap ~/.vimundo ~/.vimviews -type f -delete"
 
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup_ds_store_files="find . -type f -name '*.DS_Store' -ls -delete"
 
 alias k9="kill -9"
 
 ### listen port, show prossess info
 alias top_load_mem="top -l 1 -s 0 | awk '/PhysMem/ || /Load Avg/ {print}'"
 alias top_order_cpu="top -o cpu -n 20"
-alias psg="ps aux"
 alias lsof_listen="lsof -i TCP -s TCP:LISTEN -n -P"

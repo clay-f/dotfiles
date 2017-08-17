@@ -41,6 +41,6 @@ plugins=(git rails autojump common-aliases)
 export EDITOR='vim'
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PATH:/usr/local/sbin"
+export PATH="/usr/local/sbin:$PATH"
 [[ -e "$HOME/.aliases" ]] && source $HOME/.aliases
 eval "$(rbenv init -)"
