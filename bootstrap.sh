@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+set -e
 APP_PATH="${HOME}/dotfiles"
 app_name='dotfiles'
 platform='unknown'
@@ -31,7 +33,7 @@ debug() {
 
 program_exists() {
     local ret='0'
-    command -v $1 >/dev/null 2>&1 || { local $ret='1'; }
+    command -v $1 >/dev/null 2>&1 || { local ret='1'; }
 
     if [[ "$ret" -ne 0 ]]; then
         return 1
@@ -101,20 +103,21 @@ create_symlinks() {
 }
 
 config_package_tools_and_shell_by_sys_type() {
+    count=1
     if [ $count -gt 0 ]; then
         config_brew_and_relate_tools
         bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     fi
 }
-
+set -e
 config_brew_and_relate_tools() {
-    progrm_exists "brew"
+    program_exists "brew"
     if  [[ "$?" -ne 0 ]]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
     if [[ "$?" -eq 0 ]]; then
-        execute_command_by_file "$position/etc/brew.sh"
+        execute_command_by_file "$APP_PATH/etc/brew.sh"
     else
         error "brew command not found ..."
     fi
@@ -123,7 +126,7 @@ config_brew_and_relate_tools() {
 match_sys_os() {
     if [[ $unamestr =~ [Darwin] ]]; then
         platform='Darwin'
-        $count=1
+        count=1
     fi
 }
 
