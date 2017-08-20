@@ -128,7 +128,7 @@ match_sys_os() {
 }
 
 setup() {
-    match_system_os
+    match_sys_os
 
     do_backup "$HOME/dotfiles"
 
