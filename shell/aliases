@@ -3,6 +3,7 @@ alias vi=vim
 alias bz2='tar -jcpv -f'
 alias unbz2='tar -jxt -f'
 alias viewbz2='tar -jtv -f'
+alias rm="rm -i"
 
 # Show human friendly numbers and colors
 alias df='df -h'

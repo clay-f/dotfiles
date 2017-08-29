@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-
 set -e
-APP_PATH="${HOME}/dotfiles"
-app_name='dotfiles'
-platform='unknown'
+
+declare - r APP_PATH="${HOME}/dotfiles"
+declare -r app_name="dotfiles"
+platform="unknown"
 unamestr="$(uname -sm)"
-[ -z "$REPO_URI" ] && REPO_URL='https://github.com/clay-f/dotfiles.git'
+declare -r [ -z "$REPO_URI" ] && REPO_URL='https://github.com/clay-f/dotfiles.git'
 count=0
 debug_mode='0'
 
@@ -106,20 +106,15 @@ config_package_tools_and_shell_by_sys_type() {
     count=1
     if [ $count -gt 0 ]; then
         config_brew_and_relate_tools
-        bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+        (bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)")
     fi
 }
-set -e
+
 config_brew_and_relate_tools() {
     program_exists "brew"
     if  [[ "$?" -ne 0 ]]; then
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-
-    if [[ "$?" -eq 0 ]]; then
-        execute_command_by_file "$APP_PATH/etc/brew.sh"
-    else
-        error "brew command not found ..."
+        (/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; 
+          (program_must_exist brew) && [[ "$?" == 0 ]]  && execute_command_by_file "$APP_PATH/etc/brew.sh")
     fi
 }
 
@@ -130,7 +125,7 @@ match_sys_os() {
     fi
 }
 
-setup() {
+main() {
     match_sys_os
 
     do_backup "$HOME/dotfiles"
@@ -149,4 +144,4 @@ setup() {
 }
 
 
-setup
+main
