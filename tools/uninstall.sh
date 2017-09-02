@@ -1,23 +1,22 @@
 #!/bin/bash
+
 confirm() {
-    while [ 1 ]; do
-        read -p "$1" -n 1 -r
-        echo
-        if [[ $REPLY =~ ^[Yy] ]]; then
-                remove "$HOME/dotfiles"
-            return 0
-        elif [[ $REPLY =~ ^[Nn] ]]; then
-            return 1
-        fi
-    done
+    printf "Type keyword [y/n]: "
+    sleep 1
 }
 
-remove() {
-  echo "Remove $1"
-  rm -rf "$1"
-}
+trap 'confirm' SIGINT
 
+input='$@'
 
-if [[ -d $HOME/dotfiles ]]; then
-    confirm "- Remove y/n ?  "
-fi
+while [[ 1 ]]; do
+    printf "Type keyword [y/n]: "
+    read -n 1 input
+    if [[ "$input" =~ [Yy] ]]; then
+        rm -rf ~/dotfiles && exit 0
+    elif [[ "$input" =~ [Nn] ]]; then
+            exit 0
+    fi
+    echo $REPLY
+    bash -c "$input"
+done
