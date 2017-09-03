@@ -6,8 +6,8 @@ declare -r app_name="dotfiles"
 platform="unknown"
 unamestr="$(uname -sm)"
 declare -r [ -z "$REPO_URI" ] && REPO_URL='https://github.com/clay-f/dotfiles.git'
-count=0
-debug_mode='0'
+count=${count=0}
+debug_mode=0
 
 
 msg() {
@@ -26,8 +26,8 @@ error() {
 }
 
 debug() {
-    if [[ $debug_mode -eq 0 && "$ret" -gt 1 ]]; then
-        msg "An error occurred in function ${FUNCNAME[1]}, ${BASH_LINENO[1]}, sorry for that. "
+    if [[ $debug_mode -eq 1 && $ret -gt 1 ]]; then
+        msg "An error occurred in function ${FUNCNAME[1]}, ${BASH_LINENO[1]}, sorry for that."
     fi
 }
 
@@ -87,6 +87,8 @@ lnif() {
     if [[  -e "$1" ]]; then
         ln -sf "$1" "$2"
     fi
+    ret="$?"
+    debug
 }
 
 create_symlinks() {
@@ -100,6 +102,10 @@ create_symlinks() {
     lnif "$source_path/ruby/irbrc"      "$target_path/.irbrc"
     lnif "$source_path/etc/wgetrc"      "$target_path/.wgetrc"
     lnif "$source_path/shell/aliases"   "$target_path/.aliases"
+
+    ret="$?"
+    success "Setting up link files"
+    debug
 }
 
 config_package_tools_and_shell_by_sys_type() {
@@ -108,6 +114,8 @@ config_package_tools_and_shell_by_sys_type() {
         config_brew_and_relate_tools
         (bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)")
     fi
+    ret="$?"
+    debug
 }
 
 config_brew_and_relate_tools() {
@@ -116,6 +124,8 @@ config_brew_and_relate_tools() {
         (/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; 
           (program_must_exist brew) && [[ "$?" == 0 ]]  && execute_command_by_file "$APP_PATH/etc/brew.sh")
     fi
+    ret="$?"
+    debug
 }
 
 match_sys_os() {
