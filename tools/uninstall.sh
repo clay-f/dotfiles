@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# remove dotfiles config
 
 confirm() {
     printf "\rType keyword [y/n]: "

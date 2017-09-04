@@ -1,18 +1,18 @@
 # help-do func
 #
-#  add helper tools
+#  add helper function/stuff
 
-extract () {
+extract_files() {
    if [ -f $1 ] ; then
        case $1 in
-           *.tar.bz2)   tar xvjf $1    ;;
-           *.tar.gz)    tar xvzf $1    ;;
+           *.tar.bz2)   tar -xvj -f $1    ;;
+           *.tar.gz)    tar -xvz -f $1    ;;
            *.bz2)       bunzip2 $1     ;;
-           *.rar)       unrar x $1       ;;
+           *.rar)       unrar -x $1       ;;
            *.gz)        gunzip $1      ;;
-           *.tar)       tar xvf $1     ;;
-           *.tbz2)      tar xvjf $1    ;;
-           *.tgz)       tar xvzf $1    ;;
+           *.tar)       tar -xv -f $1     ;;
+           *.tbz2)      tar -xvj -f $1    ;;
+           *.tgz)       tar -xvz -f $1    ;;
            *.zip)       unzip $1       ;;
            *.Z)         uncompress $1  ;;
            *.7z)        7z x $1        ;;
@@ -23,4 +23,4 @@ extract () {
    fi
  }
 
- vscode() { open -a Visual\ Studio\ Code "$1"; }
+vscode() { open -a Visual\ Studio\ Code "$1"; }
