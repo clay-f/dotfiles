@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# fast copy dotfiles config, includes ruby, shell, brew, tmux.
+
 set -e
 
 declare - r APP_PATH="${HOME}/dotfiles"
@@ -121,7 +124,7 @@ config_package_tools_and_shell_by_sys_type() {
 config_brew_and_relate_tools() {
     program_exists "brew"
     if  [[ "$?" -ne 0 ]]; then
-        (/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; 
+        (/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
           (program_must_exist brew) && [[ "$?" == 0 ]]  && execute_command_by_file "$APP_PATH/etc/brew.sh")
     fi
     ret="$?"

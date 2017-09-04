@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+#   simple config for linux
 
 install_develop_tools() {
     sudo apt-get -y install "gcc" "make" "tmux" \

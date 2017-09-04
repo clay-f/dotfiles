@@ -1,4 +1,6 @@
 # help-do func
+#
+#  add helper tools
 
 extract () {
    if [ -f $1 ] ; then
@@ -20,3 +22,5 @@ extract () {
        echo "'$1' is not a valid file!"
    fi
  }
+
+ vscode() { open -a Visual\ Studio\ Code "$1"; }
