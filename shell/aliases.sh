@@ -6,9 +6,6 @@ alias bz2='tar -jcpv -f'
 alias unbz2='tar -jxt -f'
 alias viewbz2='tar -jtv -f'
 alias rm="rm -i"
-
-alias l="ls -lGh --color=auto"
-alias la="ls -laGh --color=auto"
 alias h="history 50"
 
 # Show human friendly numbers and colors
