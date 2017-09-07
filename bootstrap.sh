@@ -107,7 +107,7 @@ create_symlinks() {
     lnif "$source_path/shell/aliases.sh"   "$target_path/.aliases.sh"
     lnif "$source_path/shell/help_do.sh" "$target_path/.help_do.sh"
     lnif "$source_path/shell/functions.sh" "$target_path/.functions.sh"
-    lnif "$source_path/shell/exports.sh" "$target_path/.exports.sh"
+    lnif "$source_path/shell/path_exports.sh" "$target_path/.path_exports.sh"
 
     ret="$?"
     success "Setting up link files"
