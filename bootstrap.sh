@@ -104,7 +104,10 @@ create_symlinks() {
     lnif "$source_path/git/gitconfig"      "$target_path/.gitconfig"
     lnif "$source_path/ruby/irbrc"      "$target_path/.irbrc"
     lnif "$source_path/etc/wgetrc"      "$target_path/.wgetrc"
-    lnif "$source_path/shell/aliases"   "$target_path/.aliases"
+    lnif "$source_path/shell/aliases.sh"   "$target_path/.aliases.sh"
+    lnif "$source_path/shell/help_do.sh" "$target_path/.help_do.sh"
+    lnif "$source_path/shell/functions.sh" "$target_path/.functions.sh"
+    lnif "$source_path/shell/exports.sh" "$target_path/.exports.sh"
 
     ret="$?"
     success "Setting up link files"
