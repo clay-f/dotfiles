@@ -149,10 +149,3 @@
 	default = matching
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
-
-
-[user]
-	name = F
-	email = 839322915@qq.com
-[commit]
-	template = /Users/F/.stCommitMsg
