@@ -1,11 +1,11 @@
-# require source files
-# add utility functions, tools
+# helper file used add help tools
 
-for file in ~/.{path_exports,aliases,functions}.sh; do
-    [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
-done
-unset file
+load_files() {
+	declare -a local arr=("$@")
+	for file in "${arr}"; do
+		[[ -f "${file}" ]] && source "${file}"
+	done
+	unset file
+}
 
-eval "$(rbenv init -)"
-
-vscode() { open -a Visual\ Studio\ Code "$1"}
+load_files "${HOME}/.aliases.sh"

@@ -98,7 +98,6 @@ create_symlinks() {
     local source_path="$1"
     local target_path="$2"
 
-
     lnif "$source_path/git/gitignore/macOS.gitignore" "$target_path/.gitignore_global"
     lnif "$source_path/ruby/gemrc"      "$target_path/.gemrc"
     lnif "$source_path/git/gitconfig"      "$target_path/.gitconfig"
