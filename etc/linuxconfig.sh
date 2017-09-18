@@ -3,8 +3,7 @@
 #   simple config for linux
 
 install_develop_tools() {
-    sudo apt-get -y install "gcc" "make" "tmux" \
-                            "tree" "curl" \
+    sudo apt-get -y install "tree" "curl" \
                             "vim" "ruby-dev"
 
     sudo apt-get autoremove

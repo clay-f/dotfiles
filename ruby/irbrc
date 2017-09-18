@@ -1,1 +1,7 @@
+require 'irb/completion'
+
 IRB.conf[:PROMPT_MODE] = :SIMPLE
+
+def what_methods(obj)
+  (obj.public_methods - (Object.public_methods + Object.instance_methods)).sort
+end
