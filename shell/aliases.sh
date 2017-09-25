@@ -6,11 +6,11 @@ alias bz2='tar -jcpv -f'
 alias unbz2='tar -jxt -f'
 alias viewbz2='tar -jtv -f'
 alias rm="rm -i"
-alias h="history 50"
+alias h="history | tail -n 50"
 
 # Show human friendly numbers and colors
 alias df='df -h'
-alias du='du -h'
+alias du_sum_directory='du -hs'
 alias diff='diff -qr'
 
 # find information in files
