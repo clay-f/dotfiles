@@ -4,14 +4,10 @@
 
 set -e
 
-declare - r APP_PATH="${HOME}/dotfiles"
+declare -r APP_PATH="${HOME}/dotfiles"
 declare -r app_name="dotfiles"
-platform="unknown"
-unamestr="$(uname -sm)"
 declare -r [ -z "$REPO_URI" ] && REPO_URL='https://github.com/clay-f/dotfiles.git'
-count=${count=0}
 debug_mode=0
-
 
 msg() {
     printf '%b\n' "$1" >&2
@@ -51,10 +47,6 @@ program_must_exist() {
     if [[ "$?" -ne 0 ]]; then
         error "You muse have '$1' installed  to continue."
     fi
-}
-
-execute_command_by_file() {
-    bash "$1"
 }
 
 sync_repo() {
@@ -102,11 +94,8 @@ create_symlinks() {
     lnif "$source_path/ruby/gemrc"      "$target_path/.gemrc"
     lnif "$source_path/git/gitconfig"      "$target_path/.gitconfig"
     lnif "$source_path/ruby/irbrc"      "$target_path/.irbrc"
-    lnif "$source_path/etc/wgetrc"      "$target_path/.wgetrc"
     lnif "$source_path/shell/aliases.sh"   "$target_path/.aliases.sh"
     lnif "$source_path/shell/help_do.sh" "$target_path/.help_do.sh"
-    lnif "$source_path/shell/functions.sh" "$target_path/.functions.sh"
-    lnif "$source_path/shell/path_exports.sh" "$target_path/.path_exports.sh"
 
     ret="$?"
     success "Setting up link files"
@@ -114,7 +103,6 @@ create_symlinks() {
 }
 
 config_package_tools_and_shell_by_sys_type() {
-    count=1
     if [ $count -gt 0 ]; then
         config_brew_and_relate_tools
         (bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)")
@@ -127,22 +115,14 @@ config_brew_and_relate_tools() {
     program_exists "brew"
     if  [[ "$?" -ne 0 ]]; then
         (/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
-          (program_must_exist brew) && [[ "$?" == 0 ]]  && execute_command_by_file "$APP_PATH/etc/brew.sh")
+          (program_must_exist brew) && [[ "$?" == 0 ]] && bash "$APP_PATH/etc/brew.sh")
     fi
     ret="$?"
     debug
 }
 
-match_sys_os() {
-    if [[ $unamestr =~ [Darwin] ]]; then
-        platform='Darwin'
-        count=1
-    fi
-}
 
 main() {
-    match_sys_os
-
     do_backup "$HOME/dotfiles"
 
     sync_repo "$HOME/dotfiles"  \
