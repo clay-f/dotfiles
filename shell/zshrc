@@ -81,6 +81,4 @@ export EDITOR="vim"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(rbenv init -)"
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 [[ -f "$HOME/.help_do.sh" ]] && source  ~/.help_do.sh
