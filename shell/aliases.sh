@@ -7,11 +7,11 @@ alias unbz2='tar -jxt -f'
 alias viewbz2='tar -jtv -f'
 alias rm="rm -i"
 alias h="history | tail -n 50"
+alias diff_file_with_color="diff -ur --color=auto"
 
 # Show human friendly numbers and colors
 alias df='df -h'
 alias du_sum_directory='du -hs'
-alias diff='diff -qr'
 
 # find information in files
 alias grep='grep --color=auto'

@@ -121,7 +121,6 @@ config_brew_and_relate_tools() {
     debug
 }
 
-
 main() {
     do_backup "$HOME/dotfiles"
 
