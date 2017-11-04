@@ -27,6 +27,7 @@ alias k9="kill -9"
 alias top_load_mem="top -l 1 -s 0 | awk '/PhysMem/ || /Load Avg/ {print}'"
 alias top_order_cpu="top -o cpu -n 20"
 alias lsof_listen="lsof -i TCP -s TCP:LISTEN -n -P"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
     colorflag="--color"
