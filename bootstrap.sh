@@ -102,7 +102,7 @@ create_symlinks() {
     debug
 }
 
-config_package_tools_and_shell_by_sys_type() {
+brew_config_tools() {
     if [ $count -gt 0 ]; then
         config_brew_and_relate_tools
         (bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)")
@@ -131,7 +131,7 @@ main() {
     create_symlinks "$APP_PATH" \
                     "$HOME"
 
-    config_package_tools_and_shell_by_sys_type
+    brew_config_tools
 
     msg "\nThanks for installing $app_name"
     msg "`date + %Y%m%d_%s` successed"
