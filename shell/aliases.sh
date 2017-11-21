@@ -1,15 +1,12 @@
-# aliases config
-
 # cp, rm, tar etc
 alias vi=vim
-alias bz2='tar -jcpv -f'
-alias unbz2='tar -jxt -f'
+alias tar_bz2='tar -jcpv -f'
+alias tar_unbz2='tar -jxt -f'
 alias viewbz2='tar -jtv -f'
 alias rm="rm -i"
 alias h="history | tail -n 50"
-alias diff_file_with_color="diff -ur --color=auto"
+alias diff_by_color="diff -ur --color=auto"
 
-# Show human friendly numbers and colors
 alias df='df -h'
 alias du_sum_directory='du -hs'
 
@@ -37,11 +34,8 @@ else # macOS `ls`
     export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
 
-# List all files colorized in long format
 alias l="ls -lF ${colorflag}"
-
-# List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
-
-# List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+alias date_formate="date +\"%Y_%m_%d_%H_%M\""
