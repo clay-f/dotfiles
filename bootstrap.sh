@@ -6,7 +6,7 @@ set -e
 
 declare -r APP_PATH="${HOME}/.dotfiles"
 declare -r app_name="dotfiles"
-declare -r [ -z "$REPO_URI" ] && REPO_URL="https://github.com/clay-f/dotfiles.git"
+declare -r [[ -z "$REPO_URI" ]] && REPO_URL="https://github.com/clay-f/dotfiles.git"
 debug_mode=0
 
 msg() {
@@ -14,7 +14,7 @@ msg() {
 }
 
 success() {
-    if [ "$ret" -eq 0 ]; then
+    if  [[ "$ret" -eq 0 ]]; then
         msg "\33[32m[✔]\33[0m ${1}${2}"
     fi
 }
