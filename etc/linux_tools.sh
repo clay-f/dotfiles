@@ -1,5 +1,9 @@
 # linux utility tools
 
+wget -P /tmp https://repo.mysql.com//mysql-apt-config_0.8.9-1_all.deb -D
+dpkg -i mysql-apt-config_0.8.9-1_all.deb
+sudo apt-get update
+
 tools=(git aria2 emacs mysql-server proxy links)
 
 for i in ${tools[@]}
