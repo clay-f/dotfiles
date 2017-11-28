@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-#
+#!/bin/bash
 # fast copy dotfiles config, includes ruby, shell, brew, tmux.
 
 set -e
@@ -73,7 +72,7 @@ do_backup() {
         for i in "$1" "$2" "$3"; do
             [ -e "$i" ] && [ -L "$i" ] && mv -v "$i" "$i.$today"
         done
-        success "Your original vim configuration has been backed up."
+        success "Your original dotfiles configuration has been backed up."
 
     fi
 }
