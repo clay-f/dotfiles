@@ -114,8 +114,8 @@ brew_config_tools() {
 config_brew_and_relate_tools() {
     program_exists "brew"
     if  [[ "$?" -ne 0 ]]; then
-        (/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
-          (program_must_exist brew) && [[ "$?" == 0 ]] && bash "$APP_PATH/etc/brew.sh")
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        (program_must_exist brew) &&  bash "$APP_PATH/etc/brew.sh"
     fi
     ret="$?"
     debug
@@ -128,14 +128,12 @@ main() {
               "$REPO_URL"       \
               "master"
 
-    create_symlinks "$APP_PATH" \
-                    "$HOME"
+    create_symlinks "${APP_PATH}" \
+                    "${HOME}"
 
-    brew_config_tools
+    uanme -s | grep -i 'darwin' > /dev/null && source brew_config_tools || bash "${HOME}/.dotfiles/etc/linux_tools.sh"
 
-    msg "\nThanks for installing $app_name"
-    msg "`date + %Y%m%d_%s` successed"
+    msg "config dotfiles succeed"
 }
-
 
 main
