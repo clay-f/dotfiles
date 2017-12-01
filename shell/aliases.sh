@@ -27,17 +27,4 @@ alias top_load_mem="top -l 1 -s 0 | awk '/PhysMem/ || /Load Avg/ {print}'"
 alias top_order_cpu="top -o cpu -n 20"
 alias lsof_listen="lsof -i TCP -s TCP:LISTEN -n -P"
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorflag="--color"
-    export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-else # macOS `ls`
-    colorflag="-G"
-    export LSCOLORS='exfxcxdxbxegedabagacad'
-fi
-
-alias l="ls -lF ${colorflag}"
-alias la="ls -laF ${colorflag}"
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
 alias date_formate="date +\"%Y_%m_%d_%H_%M\""
