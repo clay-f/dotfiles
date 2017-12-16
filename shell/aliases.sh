@@ -16,7 +16,6 @@ alias du_sum_directory='du -hs'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias cleanup_vim_backup_views_etc_files="find ~/.vimbackup ~/.vimswap ~/.vimundo ~/.vimviews -type f -delete"
 
 alias cleanup_ds_store_files="find . -type f -name '*.DS_Store' -ls -delete"
 
