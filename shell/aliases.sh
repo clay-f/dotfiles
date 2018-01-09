@@ -7,7 +7,6 @@ alias tar_unbz2='tar -jxt -f'
 alias viewbz2='tar -jtv -f'
 alias rm="rm -i"
 alias h="history | tail -n 50"
-alias diff_by_color="diff -ur --color=auto"
 
 alias df='df -h'
 alias du_sum_directory='du -hs'
