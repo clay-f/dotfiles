@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-#
-# install help terminal tools
+# help tools
 
-brew install git the_silver_searcher aria2 gawk emacs nmap less pandoc
+brew install git the_silver_searcher aria2 gawk emacs nmap pandoc
 brew install rbenv ruby-build zsh
 brew install gnu-sed --with-default-names
 
