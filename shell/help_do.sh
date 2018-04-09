@@ -8,7 +8,7 @@ load_files() {
 	unset file
 }
 
-load_files "${HOME}/.aliases.sh" "${HOME}/.develop_env.sh"
+load_files "${HOME}/.aliases.sh"
 
 kill_process_by_name() {
     declare locale process_name=$1
