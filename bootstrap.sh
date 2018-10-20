@@ -91,8 +91,8 @@ create_symlinks() {
 
     lnif "$source_path/git/gitignore/macOS.gitignore" "$target_path/.gitignore_global"
     cp "$source_path/git/gitconfig"      "$target_path/.gitconfig"
-    cp "$source_path/shell/aliases.sh"   "$target_path/.aliases.sh"
-    cp "$source_path/shell/help_do.sh" "$target_path/.help_do.sh"
+    cp "$source_path/tools/aliases.sh"   "$target_path/.aliases.sh"
+    cp "$source_path/tools/help_do.sh" "$target_path/.help_do.sh"
 
     ret="$?"
     success "Setting up link files"
