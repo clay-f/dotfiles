@@ -102,6 +102,9 @@ brew_config_tools() {
     config_brew_and_relate_tools
     (zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
   fi
+cat <<- EOF >> ~/.zshrc
+[[ -f "$HOME/.help_do.sh" ]] && source  ~/.help_do.sh
+EOF
   ret="$?"
   debug
 }
