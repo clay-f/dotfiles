@@ -4,14 +4,11 @@ dotfiles. put stuff for fun
 add common tools and config
 
 ### setup
-`bash -c "$(wget https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh -O -)"`
+`zsh -c "$(wget https://raw.githubusercontent.com/clay-f/dotfiles/master/bootstrap.sh -O -)"`
 
-##### comoons tools  list
-* zsh
+##### install list
 * emacs
 * nmap
-* pandoc
-* sed
-* awk
-* git
 * aria2
+* python3
+* gawk

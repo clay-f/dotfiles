@@ -109,12 +109,17 @@ EOF
   debug
 }
 
+# install brew stuff. config emacs
 config_brew_and_relate_tools() {
   program_exists "brew"
   if [[ "$?" -ne 0 ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     (program_must_exist brew) && zsh "$APP_PATH/etc/brew.sh"
   fi
+  if [[ ! -e ~/.emacs.d ]]; then
+    mkdir ~/.emacs.d
+  fi
+  cp -f ${APP_PATH}/etc/emacs_init_config.el ~/.emacs.d
   ret="$?"
   debug
 }
