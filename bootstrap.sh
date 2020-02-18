@@ -109,7 +109,7 @@ EOF
   debug
 }
 
-# install brew stuff. config emacs
+# install brew stuff, init emacs
 config_brew_and_relate_tools() {
   program_exists "brew"
   if [[ "$?" -ne 0 ]]; then
@@ -119,7 +119,7 @@ config_brew_and_relate_tools() {
   if [[ ! -e ~/.emacs.d ]]; then
     mkdir ~/.emacs.d
   fi
-  cp -f ${APP_PATH}/etc/emacs_init_config.el ~/.emacs.d
+  cp -f ${APP_PATH}/etc/emacs_init_config.el ~/.emacs.d/init.el
   ret="$?"
   debug
 }
