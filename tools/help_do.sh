@@ -2,9 +2,6 @@
 #
 # config common path, alias, helper function
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-PATH="/usr/local/opt/curl/bin:/usr/local/rabbitmq_server-3.7.12/sbin:/usr/local/mongodb/bin:/usr/local/mysql/bin:/usr/local/elasticsearch/bin:/usr/local/sbin:$PATH"
-
 load_files() {
     declare -a local arr=("$@")
     for file in "${arr[@]}"; do
@@ -13,13 +10,23 @@ load_files() {
     unset file
 }
 
-load_files "${HOME}/.develop_env.sh"
-
-
 kill_process_by_name() {
     kill -9 $(ps aux | grep -ie $1 | awk '!/grep/ {print $2}')
 }
 
+ffmppeg_download_m3u8() {
+    ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc $2
+}
+
+listening() {
+    if [[ $# -eq 0 ]]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [[ $# -eq 1 ]]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
 
 # cp, rm, tar etc
 alias vi=vim

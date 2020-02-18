@@ -1,7 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # help tools
 
-brew install git aria2 gawk emacs nmap zsh
-brew install gnu-sed --with-default-names
-
-brew cleanup
+brew install aria2 gawk emacs nmap python3
